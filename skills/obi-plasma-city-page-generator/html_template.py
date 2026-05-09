@@ -181,7 +181,7 @@ def build_page(city_name, city_slug, centers, content, schema_json, year="2026")
       <a href="/locations">Locations</a>
       <a href="/questions/">FAQs</a>
       <a href="/about">About</a>
-      <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" class="cta-primary">Schedule</a>
+      <a href="/schedule" class="cta-primary">Schedule</a>
     </nav>
   </header>
 
@@ -274,7 +274,7 @@ def build_page(city_name, city_slug, centers, content, schema_json, year="2026")
     <div class="cta-box">
       <p><strong>Ready to find your nearest plasma center?</strong></p>
       <a href="/locations" class="cta-primary">Browse all Oklahoma plasma locations</a>
-      <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" class="cta-primary">Schedule a nonprofit blood donation instead</a>
+      <a href="/schedule" class="cta-primary">Schedule a nonprofit blood donation instead</a>
     </div>
 
     <aside class="disclaimer">
