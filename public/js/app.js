@@ -1,9 +1,12 @@
 // Oklahoma Blood Donors - Client-side JavaScript
 
 // ============================================================
-// DONABLE REDIRECT — fixes all 38 broken signup CTAs
-// Added: 2026-05-09  |  Ticket: P0-05
+// OBI SCHEDULER REDIRECT — fixes all 38 broken signup CTAs
+// Added: 2026-05-09  |  Updated: 2026-05-09  |  Ticket: P0-05
+// Target: OBI Donor Portal ZIP scheduler (real appointment booking)
+// Fallback: Donable agent registration (kept as DONABLE_URL)
 // ============================================================
+var SCHEDULER_URL = 'https://www.yourbloodinstitute.org/donor/schedules/zip';
 var DONABLE_URL = 'https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912';
 
 // Safe GA4 event helper — no-ops gracefully if GA4 script isn't loaded
@@ -202,7 +205,7 @@ function clearFieldError(el) {
   }
 }
 
-// Donation schedule form — PATCHED: saves locally then redirects to Donable
+// Donation schedule form — PATCHED: saves locally then redirects to OBI scheduler
 async function submitScheduleForm(event) {
   event.preventDefault();
   var form = event.target;
@@ -239,12 +242,12 @@ async function submitScheduleForm(event) {
     trackEvent('donate_signup', { blood_type: data.blood_type, zip_code: data.zip_code });
     trackEvent('form_submit', { form_name: 'donor_signup', page_url: window.location.pathname });
 
-    // REDIRECT TO DONABLE — the actual scheduling system
-    window.location.href = DONABLE_URL;
+    // REDIRECT TO OBI SCHEDULER — the real appointment booking system
+    window.location.href = SCHEDULER_URL;
 
   } catch (err) {
-    // Even if tracking fails, send them to Donable
-    window.location.href = DONABLE_URL;
+    // Even if tracking fails, send them to the scheduler
+    window.location.href = SCHEDULER_URL;
   }
 }
 
@@ -270,16 +273,17 @@ function initHeroVideo() {
 }
 
 // ============================================================
-// DONABLE LINK REWRITER — rewrites all CTA links to Donable
+// OBI SCHEDULER LINK REWRITER — rewrites all CTA links to OBI scheduler
 // This runs on every page load and catches ALL href="#schedule-form",
 // href="/#schedule-form", and href="/donate" CTA links.
+// Target: https://www.yourbloodinstitute.org/donor/schedules/zip
 // ============================================================
 function rewriteCtaLinks() {
-  // Rewrite all schedule-form anchor links
+  // Rewrite all schedule-form anchor links to OBI scheduler
   document.querySelectorAll('a[href="#schedule-form"], a[href="/#schedule-form"]').forEach(function(link) {
-    link.href = DONABLE_URL;
+    link.href = SCHEDULER_URL;
     link.addEventListener('click', function() {
-      trackEvent('cta_click_donable', { original_href: 'schedule-form', button_text: link.textContent.trim() });
+      trackEvent('cta_click_scheduler', { original_href: 'schedule-form', button_text: link.textContent.trim(), destination: 'obi_zip_scheduler' });
     });
   });
 
@@ -287,9 +291,9 @@ function rewriteCtaLinks() {
   document.querySelectorAll('a[href="/donate"]').forEach(function(link) {
     var text = link.textContent.trim().toLowerCase();
     if (text.includes('schedule') || text.includes('sign up') || text.includes('donate') || text.includes('now')) {
-      link.href = DONABLE_URL;
+      link.href = SCHEDULER_URL;
       link.addEventListener('click', function() {
-        trackEvent('cta_click_donable', { original_href: '/donate', button_text: link.textContent.trim() });
+        trackEvent('cta_click_scheduler', { original_href: '/donate', button_text: link.textContent.trim(), destination: 'obi_zip_scheduler' });
       });
     }
   });
@@ -330,7 +334,7 @@ function hideDummyForm() {
     }
   });
 
-  // Add a prominent Donable CTA button below the QR code section
+  // Add a prominent OBI scheduler CTA button below the QR code section
   var qrContainer = document.querySelector('form.schedule-form');
   if (!qrContainer) {
     // Form is hidden, find the QR code's parent section and add a button
@@ -339,11 +343,11 @@ function hideDummyForm() {
       // Only add button in the bottom section (not the hero)
       var section = img.closest('section');
       if (section && !section.querySelector('.hero-video')) {
-        var existingBtn = section.querySelector('.donable-cta-added');
+        var existingBtn = section.querySelector('.scheduler-cta-added');
         if (!existingBtn) {
           var btnContainer = document.createElement('div');
-          btnContainer.className = 'donable-cta-added text-center mt-6';
-          btnContainer.innerHTML = '<a href="' + DONABLE_URL + '" class="inline-flex items-center justify-center rounded-md text-sm font-bold h-12 px-8 text-white shadow-lg" style="background-color: oklch(0.547 0.213 27.325)">Schedule My Donation</a>';
+          btnContainer.className = 'scheduler-cta-added text-center mt-6';
+          btnContainer.innerHTML = '<a href="' + SCHEDULER_URL + '" class="inline-flex items-center justify-center rounded-md text-sm font-bold h-12 px-8 text-white shadow-lg" style="background-color: oklch(0.547 0.213 27.325)">Schedule My Donation</a>';
           var qrParent = img.closest('.qr-container');
           if (qrParent && qrParent.parentElement) {
             qrParent.parentElement.appendChild(btnContainer);
@@ -364,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Defer hero video until after page is interactive
   initHeroVideo();
 
-  // *** DONABLE REDIRECT: Rewrite all CTA links to point to Donable ***
+  // *** OBI SCHEDULER REDIRECT: Rewrite all CTA links to OBI donor scheduler ***
   rewriteCtaLinks();
 
   // *** HIDE DUMMY FORM: Remove the local form, keep QR code ***
@@ -384,12 +388,12 @@ document.addEventListener('DOMContentLoaded', function() {
   restoreUrgencyBanner();
 
   // Smooth scroll for anchor links on the same page
-  // NOTE: Most #schedule-form links are now rewritten to Donable by rewriteCtaLinks().
+  // NOTE: Most #schedule-form links are now rewritten to OBI scheduler by rewriteCtaLinks().
   // This handler still catches any remaining same-page anchors.
   document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach(function(link) {
     link.addEventListener('click', function(e) {
       var href = this.getAttribute('href');
-      // Skip if already rewritten to Donable
+      // Skip if already rewritten to OBI scheduler
       if (href.startsWith('http')) return;
       // For "/#section" links, extract the hash part and only smooth-scroll if we're on the homepage
       var hash = href;
