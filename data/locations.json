@@ -1,0 +1,112 @@
+{
+  "oklahoma-city": {
+    "name": "Central OKC Donor Center",
+    "address": "901 N. Lincoln",
+    "city": "Oklahoma City",
+    "state": "OK",
+    "zip": "73104",
+    "phone": "(405) 278-3100",
+    "hours": "Mon-Fri 7:30am-6pm, Sat 7:30am-2pm, Sun by appt",
+    "openingHoursSpec": ["Mo-Fr 07:30-18:00", "Sa 07:30-14:00"],
+    "areaServed": ["Oklahoma City", "Moore", "Midwest City", "Mustang", "Bethany"]
+  },
+  "ada": {
+    "name": "Ada Donor Center",
+    "address": "1930 Stonecipher Blvd",
+    "city": "Ada",
+    "state": "OK",
+    "zip": "74820",
+    "phone": "(580) 436-0384",
+    "hours": "Mon-Thu 8am-5:30pm, Sat 8am-2pm, Sun 8am-12pm by appt",
+    "openingHoursSpec": ["Mo-Th 08:00-17:30", "Sa 08:00-14:00", "Su 08:00-12:00"],
+    "areaServed": ["Ada", "Seminole", "Holdenville"]
+  },
+  "ardmore": {
+    "name": "Ardmore Donor Center",
+    "address": "2235 Merrick Drive",
+    "city": "Ardmore",
+    "state": "OK",
+    "zip": "73401",
+    "phone": "(580) 226-2220",
+    "hours": "Mon-Fri 8am-5:30pm, Sat 8am-2pm, Sun 8am-12pm by appt",
+    "openingHoursSpec": ["Mo-Fr 08:00-17:30", "Sa 08:00-14:00", "Su 08:00-12:00"],
+    "areaServed": ["Ardmore", "Durant", "Tishomingo"]
+  },
+  "broken-arrow": {
+    "name": "Broken Arrow Donor Center",
+    "address": "850 W Mission Street",
+    "city": "Broken Arrow",
+    "state": "OK",
+    "zip": "74012",
+    "phone": "(918) 703-4900",
+    "hours": "Mon-Fri 8:30am-6pm, Sat 8am-3pm, Sun 8am-1:30pm by appt",
+    "openingHoursSpec": ["Mo-Fr 08:30-18:00", "Sa 08:00-15:00", "Su 08:00-13:30"],
+    "areaServed": ["Broken Arrow", "Bixby", "Coweta"]
+  },
+  "edmond": {
+    "name": "Edmond Donor Center",
+    "address": "3409 S. Broadway, Suite 300",
+    "city": "Edmond",
+    "state": "OK",
+    "zip": "73013",
+    "phone": "(405) 252-5200",
+    "hours": "Mon-Fri 7:30am-6pm, Sat 7:30am-2pm, Sun 7:30am-12pm by appt",
+    "openingHoursSpec": ["Mo-Fr 07:30-18:00", "Sa 07:30-14:00", "Su 07:30-12:00"],
+    "areaServed": ["Edmond", "Arcadia", "Deer Creek", "Piedmont", "Guthrie"]
+  },
+  "enid": {
+    "name": "Enid Donor Center",
+    "address": "301 E. Cherokee",
+    "city": "Enid",
+    "state": "OK",
+    "zip": "73701",
+    "phone": "(580) 233-9323",
+    "hours": "Mon-Fri 8am-6pm, Sat 8am-2pm, Sun 9:30am-1:30pm by appt",
+    "openingHoursSpec": ["Mo-Fr 08:00-18:00", "Sa 08:00-14:00", "Su 09:30-13:30"],
+    "areaServed": ["Enid", "Garber", "Covington"]
+  },
+  "lawton": {
+    "name": "Lawton Donor Center",
+    "address": "211 SW A Avenue",
+    "city": "Lawton",
+    "state": "OK",
+    "zip": "73501",
+    "phone": "(580) 350-6100",
+    "hours": "Mon-Thu 8:30am-6pm, Fri 7:30am-5pm, Sat 8am-2pm, Sun 8am-12pm",
+    "openingHoursSpec": ["Mo-Th 08:30-18:00", "Fr 07:30-17:00", "Sa 08:00-14:00", "Su 08:00-12:00"],
+    "areaServed": ["Lawton", "Fort Sill", "Duncan", "Elgin"]
+  },
+  "norman": {
+    "name": "Norman Donor Center",
+    "address": "1004 24th Avenue NW",
+    "city": "Norman",
+    "state": "OK",
+    "zip": "73069",
+    "phone": "(405) 928-6500",
+    "hours": "Mon 7:30am-6pm, Tue 10am-6pm, Wed 7:30am-4:30pm, Thu 10am-6pm, Fri 7:30am-4:30pm, Sat 7:30am-2pm",
+    "openingHoursSpec": ["Mo 07:30-18:00", "Tu 10:00-18:00", "We 07:30-16:30", "Th 10:00-18:00", "Fr 07:30-16:30", "Sa 07:30-14:00"],
+    "areaServed": ["Norman", "Moore", "Noble", "Lexington", "Purcell"]
+  },
+  "tulsa": {
+    "name": "Tulsa Donor Center",
+    "address": "4601 E 81st Street",
+    "city": "Tulsa",
+    "state": "OK",
+    "zip": "74137",
+    "phone": "(918) 703-4800",
+    "hours": "Mon-Fri 8:30am-6pm, Sat 8am-3pm, Sun 8am-1:30pm by appt",
+    "openingHoursSpec": ["Mo-Fr 08:30-18:00", "Sa 08:00-15:00", "Su 08:00-13:30"],
+    "areaServed": ["Tulsa", "Jenks", "Bixby", "Owasso", "Sand Springs"]
+  },
+  "yukon": {
+    "name": "Yukon Donor Center",
+    "address": "4312 Grant Boulevard",
+    "city": "Yukon",
+    "state": "OK",
+    "zip": "73099",
+    "phone": "(405) 947-6621",
+    "hours": "Mon-Fri 7:30am-6pm, Sat 7:30am-2pm, Sun 7:30am-11:30am by appt",
+    "openingHoursSpec": ["Mo-Fr 07:30-18:00", "Sa 07:30-14:00", "Su 07:30-11:30"],
+    "areaServed": ["Yukon", "Mustang", "Tuttle", "El Reno"]
+  }
+}
