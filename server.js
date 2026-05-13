@@ -164,7 +164,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/schedule', (req, res) => {
-  serveHtml(path.join(VIEWS, 'schedule.html'), res);
+  res.redirect(302, 'https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912');
 });
 
 app.get('/locations', (req, res) => {
