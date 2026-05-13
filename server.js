@@ -341,6 +341,15 @@ app.get('/robots.txt', (req, res) => {
   );
 });
 
+// ─── OSU Campaign Pages ────────────────────────────────────────────
+app.get('/osu', (req, res) => {
+  serveHtml(path.join(VIEWS, 'osu.html'), res);
+});
+
+app.get('/osu/flyer', (req, res) => {
+  serveHtml(path.join(VIEWS, 'osu-flyer.html'), res);
+});
+
 // ─── 404 Handler ────────────────────────────────────────────────────
 app.use((req, res) => {
   const notFound = path.join(VIEWS, '404.html');
