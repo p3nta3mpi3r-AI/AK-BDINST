@@ -196,7 +196,20 @@ app.get('/privacy', (req, res) => {
 });
 
 app.get('/privacy-policy', (req, res) => {
-  serveHtml(path.join(VIEWS, 'privacy.html'), res);
+  serveHtml(path.join(VIEWS, 'privacy-policy.html'), res);
+});
+
+app.get('/faq', (req, res) => {
+  serveHtml(path.join(VIEWS, 'faq.html'), res);
+});
+
+app.get('/guides', (req, res) => {
+  serveHtml(path.join(VIEWS, 'guides.html'), res);
+});
+
+// Guides detail pages
+app.get('/guides/:slug', (req, res) => {
+  serveHtml(path.join(VIEWS, 'guides', `${req.params.slug}.html`), res);
 });
 
 // Location detail pages
@@ -222,6 +235,11 @@ app.get('/questions/:slug', (req, res) => {
   serveHtml(path.join(VIEWS, 'questions', `${req.params.slug}.html`), res);
 });
 
+// Blood type detail pages
+app.get('/blood-types/:slug', (req, res) => {
+  serveHtml(path.join(VIEWS, 'blood-types', `${req.params.slug}.html`), res);
+});
+
 // Plasma city pages
 app.get('/plasma/:slug', (req, res) => {
   serveHtml(path.join(VIEWS, 'plasma', `${req.params.slug}.html`), res);
@@ -245,12 +263,17 @@ app.get('/news/:slug', (req, res) => {
   );
 });
 
-// ─── Donate-near-me ZIP pages ───────────────────────────────────────
-app.get('/donate-near-me/:zip', (req, res) => {
+// ─── Donate ZIP pages ───────────────────────────────────────────────
+app.get('/donate/:zip', (req, res) => {
   serveHtml(
-    path.join(VIEWS, 'donate-near-me', `${req.params.zip}.html`),
+    path.join(VIEWS, 'donate', `${req.params.zip}.html`),
     res
   );
+});
+
+// Legacy donate-near-me redirect
+app.get('/donate-near-me/:zip', (req, res) => {
+  res.redirect(301, `/donate/${req.params.zip}`);
 });
 
 // ─── API: Donor Signup ──────────────────────────────────────────────
