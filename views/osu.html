@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cowboys Save Lives — OSU Blood Donation Signup</title>
+  <meta name="description" content="Sign up for the next OSU blood drive in Stillwater. Donate blood, save up to 3 lives, and get a $10 Chick-fil-A gift card.">
+  <link rel="canonical" href="https://oklahomabloodinstitute.com/osu">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cowboys Save Lives — OSU Blood Donation Signup">
+  <meta property="og:description" content="Donate blood at OSU. Save up to 3 lives and get a $10 Chick-fil-A gift card. Sign up for the next campus drive.">
+  <meta property="og:url" content="https://oklahomabloodinstitute.com/osu">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Oklahoma Blood Institute">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #1A1A1A;
+      background: #F5F0EB;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Oswald', 'Arial Narrow', sans-serif;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: linear-gradient(165deg, #FF6600 0%, #FF6600 35%, #1a1a1a 100%);
+      padding: 32px 20px 0;
+      text-align: center;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      right: -30%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -20%;
+      width: 250px;
+      height: 250px;
+      background: rgba(255, 102, 0, 0.15);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hero-icon {
+      margin: 0 auto 16px;
+      width: 72px;
+      height: 90px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 8vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
+      font-weight: 500;
+      opacity: 0.95;
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* ===== FORM SECTION ===== */
+    .form-section {
+      position: relative;
+      z-index: 2;
+      margin-top: -8px;
+      padding: 0 16px 40px;
+    }
+
+    .form-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 28px 24px 24px;
+      max-width: 480px;
+      margin: 0 auto;
+      box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .form-card h2 {
+      font-size: 1.3rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1A1A1A;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 5px;
+    }
+
+    .form-group label .optional {
+      font-weight: 400;
+      color: #999;
+      font-size: 0.8rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 2px solid #E0DCD7;
+      border-radius: 10px;
+      font-size: 16px; /* prevents iOS zoom */
+      font-family: 'Inter', sans-serif;
+      color: #1A1A1A;
+      background: #FAFAFA;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #FF6600;
+      box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.15);
+      background: #FFF;
+    }
+
+    .form-group input::placeholder {
+      color: #B0AAA2;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: #FF6600;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(255, 102, 0, 0.35);
+    }
+
+    .btn-submit:hover {
+      background: #E55B00;
+      box-shadow: 0 6px 20px rgba(255, 102, 0, 0.45);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98);
+    }
+
+    .btn-submit:focus-visible {
+      outline: 3px solid #FF6600;
+      outline-offset: 3px;
+    }
+
+    .btn-submit:disabled {
+      background: #CCC;
+      box-shadow: none;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-fine-print {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    /* ===== SOCIAL PROOF ===== */
+    .social-proof {
+      padding: 48px 20px;
+      text-align: center;
+    }
+
+    .social-proof .section-intro {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #1A1A1A;
+      max-width: 500px;
+      margin: 0 auto 32px;
+      line-height: 1.35;
+    }
+
+    .stat-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+
+    .stat-card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      padding: 22px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .stat-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #FF6600;
+      line-height: 1;
+      min-width: 72px;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #555;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    .testimonial {
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 24px;
+      background: #FFF;
+      border-radius: 14px;
+      border-left: 4px solid #FF6600;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .testimonial p {
+      font-size: 1rem;
+      font-style: italic;
+      color: #333;
+      margin-bottom: 8px;
+      line-height: 1.55;
+    }
+
+    .testimonial cite {
+      font-style: normal;
+      font-size: 0.85rem;
+      color: #888;
+      font-weight: 600;
+    }
+
+    /* ===== NEXT DRIVES ===== */
+    .next-drives {
+      padding: 48px 20px;
+      background: #000;
+      color: #FFF;
+      text-align: center;
+    }
+
+    .next-drives h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin-bottom: 24px;
+      color: #FF6600;
+    }
+
+    .drive-cards {
+      display: grid;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto 28px;
+    }
+
+    .drive-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .drive-card-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 102, 0, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .drive-card-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .drive-card-text span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .btn-schedule {
+      display: inline-block;
+      padding: 14px 36px;
+      background: #FF6600;
+      color: #FFF;
+      border-radius: 10px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(255, 102, 0, 0.3);
+    }
+
+    .btn-schedule:hover {
+      background: #E55B00;
+      box-shadow: 0 6px 20px rgba(255, 102, 0, 0.45);
+    }
+
+    .btn-schedule:focus-visible {
+      outline: 3px solid #FF6600;
+      outline-offset: 3px;
+    }
+
+    /* ===== ELIGIBILITY ===== */
+    .eligibility {
+      padding: 48px 20px;
+      text-align: center;
+    }
+
+    .eligibility h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin-bottom: 24px;
+      color: #1A1A1A;
+    }
+
+    .faq-list {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .faq-item {
+      background: #FFF;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 16px 20px;
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1A1A1A;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+
+    .faq-question:hover {
+      background: rgba(255, 102, 0, 0.04);
+    }
+
+    .faq-question:focus-visible {
+      outline: 2px solid #FF6600;
+      outline-offset: -2px;
+      border-radius: 12px;
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      transition: transform 0.25s ease;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 20px 16px;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* ===== COMMUNITY NOTE ===== */
+    .community-note {
+      padding: 0 20px 48px;
+    }
+
+    .community-card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #FF6600, #E55500);
+      border-radius: 16px;
+      padding: 28px 24px;
+      color: #FFF;
+    }
+
+    .community-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .community-card p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    .community-card p + p {
+      margin-top: 10px;
+    }
+
+    .community-icon {
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #1A1A1A;
+      color: rgba(255, 255, 255, 0.5);
+      padding: 36px 20px;
+      text-align: center;
+      font-size: 0.8rem;
+      line-height: 1.8;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .footer a:hover {
+      color: #FF6600;
+    }
+
+    .footer a:focus-visible {
+      outline: 2px solid #FF6600;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .footer-brand {
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    .footer-disclaimer {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ===== DESKTOP BREAKPOINTS ===== */
+    @media (min-width: 520px) {
+      .stat-cards {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 600px;
+      }
+
+      .stat-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 16px;
+      }
+
+      .stat-label {
+        text-align: center;
+      }
+
+      .hero {
+        padding: 48px 20px 0;
+      }
+
+      .form-card {
+        padding: 36px 32px 28px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 60px 24px 0;
+      }
+
+      .hero-icon {
+        width: 88px;
+        height: 110px;
+      }
+
+      .form-section {
+        padding: 0 24px 56px;
+      }
+
+      .social-proof,
+      .eligibility,
+      .community-note {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .next-drives {
+        padding: 60px 24px;
+      }
+
+      .drive-cards {
+        max-width: 560px;
+      }
+    }
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .faq-answer {
+        transition: none;
+      }
+      .faq-chevron {
+        transition: none;
+      }
+      .btn-submit {
+        transition: none;
+      }
+    }
+
+    /* ===== LOADING SPINNER ===== */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .btn-loading::after {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.3);
+      border-top-color: #FFF;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" role="banner">
+    <div class="hero-content">
+      <!-- Blood drop with cowboy hat SVG -->
+      <svg class="hero-icon" viewBox="0 0 72 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Cowboy hat -->
+        <ellipse cx="36" cy="24" rx="34" ry="6" fill="#1A1A1A" opacity="0.85"/>
+        <path d="M8 24 C10 10, 22 4, 36 2 C50 4, 62 10, 64 24" fill="#1A1A1A" opacity="0.85"/>
+        <path d="M18 18 C20 8, 28 4, 36 3 C44 4, 52 8, 54 18" fill="#FF6600"/>
+        <rect x="26" y="14" width="20" height="4" rx="2" fill="#FFF" opacity="0.25"/>
+        <!-- Blood drop body -->
+        <path d="M36 30 C36 30, 14 56, 14 66 C14 78.15, 23.85 88, 36 88 C48.15 88, 58 78.15, 58 66 C58 56, 36 30, 36 30Z" fill="#DC2626"/>
+        <path d="M36 34 C36 34, 18 56, 18 66 C18 75.94, 26.06 84, 36 84 C45.94 84, 54 75.94, 54 66 C54 56, 36 34, 36 34Z" fill="#EF4444"/>
+        <!-- Shine -->
+        <ellipse cx="28" cy="60" rx="5" ry="8" fill="#FFF" opacity="0.3" transform="rotate(-15 28 60)"/>
+      </svg>
+
+      <h1>Cowboys Save Lives</h1>
+      <p class="hero-sub">Donate blood. Get a $10 Chick-fil-A gift card. Save up to 3 lives.</p>
+    </div>
+
+    <!-- Form card bridges into the hero gradient -->
+    <section class="form-section" aria-labelledby="form-heading">
+      <div class="form-card" id="form-container">
+        <h2 id="form-heading">Sign Up for the Next Drive</h2>
+        <form id="signup-form" novalidate>
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required autocomplete="given-name" placeholder="Your first name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="cowboy@okstate.edu">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gradYear">Grad Year</label>
+              <select id="gradYear" name="gradYear" required>
+                <option value="" disabled selected>Select</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="organization">Org <span class="optional">(optional)</span></label>
+              <input type="text" id="organization" name="organization" autocomplete="organization" placeholder="Greek org, club, ROTC">
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">Sign Me Up &#x1F920;</button>
+        </form>
+        <p class="form-fine-print">We'll email you when the next campus blood drive is scheduled. That's it. Unsubscribe anytime.</p>
+      </div>
+    </section>
+  </header>
+
+  <!-- ===== SOCIAL PROOF ===== -->
+  <section class="social-proof" aria-labelledby="proof-heading">
+    <p class="section-intro" id="proof-heading">Last semester, OSU donors saved 800+ lives through OBI blood drives.</p>
+
+    <div class="stat-cards" role="list">
+      <div class="stat-card" role="listitem">
+        <div class="stat-number">45 min</div>
+        <div class="stat-label">Average donation time</div>
+      </div>
+      <div class="stat-card" role="listitem">
+        <div class="stat-number">3 lives</div>
+        <div class="stat-label">Saved per donation</div>
+      </div>
+      <div class="stat-card" role="listitem">
+        <div class="stat-number">$10</div>
+        <div class="stat-label">Chick-fil-A gift card</div>
+      </div>
+    </div>
+
+    <blockquote class="testimonial">
+      <p>"It was way easier than I expected. And free Chick-fil-A."</p>
+      <cite>— Pre-Med Sophomore</cite>
+    </blockquote>
+  </section>
+
+  <!-- ===== NEXT DRIVES ===== -->
+  <section class="next-drives" aria-labelledby="drives-heading">
+    <h2 id="drives-heading">Upcoming OSU Blood Drives</h2>
+
+    <div class="drive-cards">
+      <div class="drive-card">
+        <div class="drive-card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 10 6.5a2.5 2.5 0 0 1 0 5z" fill="#FF6600"/>
+          </svg>
+        </div>
+        <div class="drive-card-text">
+          <strong>Student Union Upper Plaza</strong>
+          <span>Check OBI for dates</span>
+        </div>
+      </div>
+
+      <div class="drive-card">
+        <div class="drive-card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 10 6.5a2.5 2.5 0 0 1 0 5z" fill="#FF6600"/>
+          </svg>
+        </div>
+        <div class="drive-card-text">
+          <strong>Colvin Recreation Center</strong>
+          <span>Check OBI for dates</span>
+        </div>
+      </div>
+
+      <div class="drive-card">
+        <div class="drive-card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 10 6.5a2.5 2.5 0 0 1 0 5z" fill="#FF6600"/>
+          </svg>
+        </div>
+        <div class="drive-card-text">
+          <strong>ROTC Building (Willard Hall)</strong>
+          <span>Check OBI for dates</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://www.yourbloodinstitute.org/donor/schedules/zip" class="btn-schedule" target="_blank" rel="noopener noreferrer">
+      See Full Schedule
+    </a>
+  </section>
+
+  <!-- ===== ELIGIBILITY ===== -->
+  <section class="eligibility" aria-labelledby="eligibility-heading">
+    <h2 id="eligibility-heading">Can I Donate?</h2>
+
+    <div class="faq-list" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+          <span>I have diabetes</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-1" role="region">
+          <div class="faq-answer-inner">If your diabetes is well controlled, you can donate. Both Type 1 and Type 2 donors are welcome as long as you're feeling healthy.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+          <span>I got a tattoo recently</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-2" role="region">
+          <div class="faq-answer-inner">If it was done at a state-regulated shop with sterile needles, yes, you can donate. No waiting period required in Oklahoma.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+          <span>I'm on antibiotics</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-3" role="region">
+          <div class="faq-answer-inner">Wait until you're symptom-free and finished your course of antibiotics. Once you feel better, you're good to go.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+          <span>I'm under 18</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-4" role="region">
+          <div class="faq-answer-inner">You need to be at least 16 with parental consent. If you're 17 or older, you can donate on your own. Bring a valid photo ID.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+          <span>How often can I donate?</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-5" role="region">
+          <div class="faq-answer-inner">Every 56 days for whole blood donations. That's about 6 times per year — plenty of chances to earn those gift cards.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMMUNITY NOTE ===== -->
+  <section class="community-note" aria-labelledby="community-heading">
+    <div class="community-card">
+      <div class="community-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 2l2.39 4.84L17.82 7.7l-3.91 3.81.92 5.39L10 14.27 5.17 16.9l.92-5.39L2.18 7.7l5.43-.86L10 2z" fill="#FFF"/>
+        </svg>
+      </div>
+      <h3 id="community-heading">Counts Toward Service Hours</h3>
+      <p><strong>Pre-health students:</strong> Blood donation counts toward C.O.R.D. community service hours.</p>
+      <p><strong>Greek life:</strong> Challenge your chapter to the most donors this semester. Bragging rights included.</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-brand">oklahomabloodinstitute.com</div>
+    <div>Oklahoma Blood Institute &middot; <a href="tel:+18773408777">877-340-8777</a></div>
+    <div style="margin-top:8px">
+      <a href="https://www.yourbloodinstitute.org/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:info@obi.org?subject=Unsubscribe%20OSU%20List">Unsubscribe</a>
+    </div>
+    <div class="footer-disclaimer">
+      This page is not officially affiliated with Oklahoma State University.<br>
+      Oklahoma Blood Institute is a 501(c)(3) nonprofit serving Oklahoma communities since 1977.
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // === FORM SUBMISSION ===
+    document.getElementById('signup-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var form = e.target;
+
+      // Basic client-side validation
+      var firstName = form.firstName.value.trim();
+      var email = form.email.value.trim();
+      var gradYear = form.gradYear.value;
+
+      if (!firstName) {
+        form.firstName.focus();
+        return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        form.email.focus();
+        return;
+      }
+      if (!gradYear) {
+        form.gradYear.focus();
+        return;
+      }
+
+      var data = {
+        name: firstName,
+        email: email,
+        zip_code: '74078',
+        blood_type: 'unknown',
+        source: 'osu_landing_page',
+        grad_year: gradYear,
+        organization: form.organization.value.trim() || null
+      };
+
+      // Show loading state
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Signing up...';
+      btn.classList.add('btn-loading');
+
+      try {
+        var res = await fetch('/api/signups', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (res.ok) {
+          document.getElementById('form-container').innerHTML =
+            '<div style="text-align:center;padding:40px 20px;">' +
+              '<div style="font-size:48px;margin-bottom:16px" aria-hidden="true">&#x1F389;</div>' +
+              '<h2 style="font-family:Oswald,sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:8px;color:#1A1A1A;text-transform:uppercase">You\'re signed up!</h2>' +
+              '<p style="color:#666;margin-bottom:24px;font-size:0.95rem;line-height:1.5">We\'ll email you before the next OSU blood drive.</p>' +
+              '<a href="https://www.yourbloodinstitute.org/donor/schedules/zip" ' +
+                'style="display:inline-block;background:#FF6600;color:#FFF;padding:14px 32px;border-radius:10px;font-family:Oswald,sans-serif;font-weight:600;text-decoration:none;font-size:1rem;text-transform:uppercase;letter-spacing:0.03em;box-shadow:0 4px 14px rgba(255,102,0,0.35)">' +
+                'Schedule My Donation Now &rarr;' +
+              '</a>' +
+            '</div>';
+        } else {
+          throw new Error('Signup failed');
+        }
+      } catch(err) {
+        btn.disabled = false;
+        btn.textContent = 'Sign Me Up 🤠';
+        btn.classList.remove('btn-loading');
+        alert('Something went wrong. Please try again.');
+      }
+    });
+
+    // === FAQ ACCORDION ===
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+
+        // Close all others
+        document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle current
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

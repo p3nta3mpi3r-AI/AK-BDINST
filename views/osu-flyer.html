@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSU Blood Donation Campus Flyer — Print Ready</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+@page { size: letter; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #F5F0EB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 40px;
+}
+
+.flyer {
+  width: 8.5in;
+  height: 11in;
+  background: #FFFFFF;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Orange header band */
+.header-band {
+  background: linear-gradient(135deg, #FF6600 0%, #E85D00 70%, #CC5200 100%);
+  padding: 48px 56px 40px;
+  position: relative;
+}
+.header-band::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(135deg, #FF6600 0%, #E85D00 70%, #CC5200 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+}
+.header-band h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.header-band .subtitle {
+  font-size: 22px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  padding: 60px 56px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Three stat pills */
+.stats-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.stat-pill {
+  flex: 1;
+  text-align: center;
+  background: #FFF7F0;
+  border: 2px solid #FFD4B3;
+  border-radius: 12px;
+  padding: 20px 12px;
+}
+.stat-pill .big {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #FF6600;
+  line-height: 1;
+}
+.stat-pill .label {
+  font-size: 13px;
+  color: #666;
+  font-weight: 600;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* CTA area */
+.cta-area {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+.qr-box {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  border: 4px solid #FF6600;
+  border-radius: 16px;
+  padding: 12px;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qr-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cta-text h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #1A1A1A;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.cta-text p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.5;
+}
+.cta-text .url {
+  font-size: 15px;
+  font-weight: 700;
+  color: #FF6600;
+  margin-top: 12px;
+  letter-spacing: 0.3px;
+}
+
+/* Locations */
+.locations {
+  border-top: 2px solid #EEE;
+  padding-top: 24px;
+  margin-bottom: 24px;
+}
+.locations h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A1A;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.loc-grid {
+  display: flex;
+  gap: 16px;
+}
+.loc-card {
+  flex: 1;
+  background: #F9F6F3;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.loc-card .name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #1A1A1A;
+  margin-bottom: 2px;
+}
+.loc-card .detail {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Incentive bar */
+.incentive-bar {
+  background: #1A1A1A;
+  border-radius: 12px;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.incentive-bar .icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+.incentive-bar .text {
+  color: #FFF;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.incentive-bar .highlight {
+  color: #FF6600;
+  font-weight: 800;
+}
+
+/* Footer */
+.flyer-footer {
+  background: #1A1A1A;
+  padding: 20px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+.flyer-footer .left {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+}
+.flyer-footer .left strong {
+  color: #FFF;
+  font-weight: 700;
+}
+.flyer-footer .right {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  text-align: right;
+  max-width: 200px;
+  line-height: 1.4;
+}
+
+/* Tear-off tabs at bottom (optional) */
+.tear-off {
+  width: 8.5in;
+  display: flex;
+  border-top: 2px dashed #CCC;
+  background: #FFF;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.tab {
+  flex: 1;
+  border-right: 1px dashed #CCC;
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 10px;
+  color: #666;
+  line-height: 1.3;
+}
+.tab:last-child { border-right: none; }
+.tab .tab-url {
+  font-weight: 700;
+  color: #FF6600;
+  font-size: 9px;
+  display: block;
+  margin-top: 2px;
+}
+.tab .tab-title {
+  font-weight: 800;
+  color: #1A1A1A;
+  font-size: 11px;
+}
+
+/* Print instructions */
+.print-banner {
+  width: 8.5in;
+  background: #065F46;
+  color: #6EE7B7;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.print-banner button {
+  background: #FFF;
+  color: #065F46;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 16px;
+}
+.print-banner button:hover { background: #D1FAE5; }
+
+@media print {
+  body { padding: 0; gap: 0; background: #FFF; }
+  .print-banner { display: none; }
+  .flyer { box-shadow: none; page-break-after: always; }
+  .tear-off { page-break-before: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="print-banner">
+  🖨️ Print this flyer at 100% scale on letter-size paper. Color recommended.
+  <button onclick="window.print()">Print Flyer</button>
+</div>
+
+<div class="flyer">
+  <!-- HEADER -->
+  <div class="header-band">
+    <h1>Cowboys<br>Save Lives</h1>
+    <div class="subtitle">Donate blood at OSU. Save up to 3 lives.</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-pill">
+        <div class="big">45</div>
+        <div class="label">Minutes</div>
+      </div>
+      <div class="stat-pill">
+        <div class="big">3</div>
+        <div class="label">Lives Saved</div>
+      </div>
+      <div class="stat-pill">
+        <div class="big">$10</div>
+        <div class="label">Gift Card</div>
+      </div>
+    </div>
+
+    <!-- QR + CTA -->
+    <div class="cta-area">
+      <div class="qr-box">
+        <img src="data:image/png;base64,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" alt="Scan to sign up — oklahomabloodinstitute.com/osu">
+      </div>
+      <div class="cta-text">
+        <h2>Scan to<br>Sign Up</h2>
+        <p>Sign up in 30 seconds. We'll email you before the next OSU blood drive — that's it.</p>
+        <div class="url">oklahomabloodinstitute.com/osu</div>
+      </div>
+    </div>
+
+    <!-- Incentive -->
+    <div class="incentive-bar">
+      <div class="icon">🍗</div>
+      <div class="text">Every donor receives a <span class="highlight">$10 Chick-fil-A gift card</span> + donor T-shirt (while supplies last)</div>
+    </div>
+
+    <!-- Locations -->
+    <div class="locations">
+      <h3>Upcoming OSU Blood Drives</h3>
+      <div class="loc-grid">
+        <div class="loc-card">
+          <div class="name">📍 Student Union</div>
+          <div class="detail">Upper Plaza · 10am–3pm</div>
+        </div>
+        <div class="loc-card">
+          <div class="name">📍 Colvin Rec Center</div>
+          <div class="detail">Main Lobby · 10am–3pm</div>
+        </div>
+        <div class="loc-card">
+          <div class="name">📍 Willard Hall (ROTC)</div>
+          <div class="detail">Room 120 · 10am–3pm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="flyer-footer">
+    <div class="left">
+      <strong>Oklahoma Blood Institute</strong><br>
+      877-340-8777 · oklahomabloodinstitute.com
+    </div>
+    <div class="right">
+      Pre-health students: donation counts toward C.O.R.D. community service hours.
+    </div>
+  </div>
+</div>
+
+<!-- TEAR-OFF TABS -->
+<div class="tear-off">
+  <div class="tab"><span class="tab-title">🩸 Donate Blood</span><span class="tab-url">oklahomabloodinstitute.com/osu</span></div>
+  <div class="tab"><span class="tab-title">🩸 Donate Blood</span><span class="tab-url">oklahomabloodinstitute.com/osu</span></div>
+  <div class="tab"><span class="tab-title">🩸 Donate Blood</span><span class="tab-url">oklahomabloodinstitute.com/osu</span></div>
+  <div class="tab"><span class="tab-title">🩸 Donate Blood</span><span class="tab-url">oklahomabloodinstitute.com/osu</span></div>
+  <div class="tab"><span class="tab-title">🩸 Donate Blood</span><span class="tab-url">oklahomabloodinstitute.com/osu</span></div>
+  <div class="tab"><span class="tab-title">🩸 Donate Blood</span><span class="tab-url">oklahomabloodinstitute.com/osu</span></div>
+  <div class="tab"><span class="tab-title">🩸 Donate Blood</span><span class="tab-url">oklahomabloodinstitute.com/osu</span></div>
+  <div class="tab"><span class="tab-title">🩸 Donate Blood</span><span class="tab-url">oklahomabloodinstitute.com/osu</span></div>
+</div>
+
+</body>
+</html>
