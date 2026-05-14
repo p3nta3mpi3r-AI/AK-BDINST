@@ -260,7 +260,46 @@ function transformHtml(html, options = {}) {
     );
   }
 
-  // 6) Global AEO: Upgrade Organization → MedicalOrganization on ALL pages
+  // 6) Internal link injection (F-10) — add related page links before </main>
+  const relatedLinks = [];
+  if (options.blogSlug) {
+    const city = (options.blogSlug || '').replace(/-guide|-compensation|-tips/g, '');
+    relatedLinks.push(
+      { href: `/donate-blood/${city}`, text: `Donate Blood in ${city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}` },
+      { href: `/locations`, text: 'Find All Donor Centers' },
+      { href: `/how-it-works`, text: 'How Blood Donation Works' },
+      { href: `/questions`, text: 'Common Donation Questions' },
+      { href: `/blood-types`, text: 'Blood Type Guide' },
+      { href: `/faq`, text: 'Frequently Asked Questions' }
+    );
+  } else if (options.locationSlug) {
+    const city = options.locationSlug;
+    relatedLinks.push(
+      { href: `/blog/${city}-guide`, text: `${city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())} Donation Guide` },
+      { href: `/how-it-works`, text: 'How Blood Donation Works' },
+      { href: `/blood-types`, text: 'Blood Types & Compatibility' },
+      { href: `/questions`, text: 'Common Questions' },
+      { href: `/faq`, text: 'FAQ' },
+      { href: `/blog`, text: 'All Blog Posts' }
+    );
+  }
+  if (relatedLinks.length > 0) {
+    const linksHtml = relatedLinks.map(l =>
+      `<a href="${l.href}" class="block px-4 py-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">${l.text} &rarr;</a>`
+    ).join('\n          ');
+    const sectionHtml = `
+    <section class="py-12 bg-white dark:bg-gray-950">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">Related Resources</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          ${linksHtml}
+        </div>
+      </div>
+    </section>`;
+    h = h.replace('</main>', sectionHtml + '\n  </main>');
+  }
+
+  // 7) Global AEO: Upgrade Organization → MedicalOrganization on ALL pages
   // This catches pages not handled by section 4 (blog, faq, questions, guides, etc.)
   h = h.replace(
     /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/g,
