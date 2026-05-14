@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Oklahoma Blood Donors</title>
-  <meta name="description" content="Learn about Oklahoma Blood Donors — our mission, values, and how we connect Oklahoma communities with life-saving blood and plasma donation opportunities at certified donor centers statewide.">
+  <title>About Oklahoma Blood Donors — Our Mission &amp; Team | oklahomabloodinstitute.com</title>
+  <meta name="description" content="Oklahoma Blood Donors connects Oklahomans with certified blood and plasma donation centers statewide. Founded by Pierre Isidor to simplify donor scheduling and close gaps in Oklahoma's blood supply.">
   <link rel="canonical" href="https://oklahomabloodinstitute.com/about">
-  <meta property="og:title" content="About | Oklahoma Blood Donors">
-  <meta property="og:description" content="Learn about Oklahoma Blood Donors — our mission, values, and how we connect Oklahoma communities with life-saving blood and plasma donation opportunities at certified donor centers statewide.">
+  <meta property="og:title" content="About Oklahoma Blood Donors — Our Mission &amp; Team">
+  <meta property="og:description" content="Oklahoma Blood Donors connects Oklahomans with certified blood and plasma donation centers statewide. Founded by Pierre Isidor to simplify donor scheduling and close gaps in Oklahoma's blood supply.">
   <meta property="og:image" content="https://oklahomabloodinstitute.com/images/og-blood-donation.jpg">
   <meta property="og:url" content="https://oklahomabloodinstitute.com/about">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About | Oklahoma Blood Donors">
-  <meta name="twitter:description" content="Learn about Oklahoma Blood Donors — our mission, values, and how we connect Oklahoma communities with life-saving blood and plasma donation opportunities at certified donor centers statewide.">
+  <meta name="twitter:title" content="About Oklahoma Blood Donors — Our Mission &amp; Team">
+  <meta name="twitter:description" content="Oklahoma Blood Donors connects Oklahomans with certified blood and plasma donation centers statewide. Founded by Pierre Isidor to simplify donor scheduling and close gaps in Oklahoma's blood supply.">
   <meta name="twitter:image" content="https://oklahomabloodinstitute.com/images/og-blood-donation.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
@@ -31,15 +30,26 @@
 .bg-primary-light{background-color:#fef2f2}
 </style>
   <link rel="stylesheet" href="/css/styles.css">
-    <script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MedicalOrganization",
   "@id": "https://oklahomabloodinstitute.com/#organization",
   "name": "Oklahoma Blood Donors",
+  "alternateName": "Oklahoma Blood Institute Donors",
   "url": "https://oklahomabloodinstitute.com",
-  "description": "Connecting Oklahoma communities with life-saving blood and plasma donation opportunities at certified donor centers across the state.",
+  "description": "Oklahoma Blood Donors connects Oklahoma communities with certified blood and plasma donation centers across the state, providing scheduling, eligibility information, and donor support.",
   "telephone": "+1-877-340-8777",
+  "foundingDate": "2026",
+  "founder": {
+    "@type": "Person",
+    "@id": "https://oklahomabloodinstitute.com/#founder",
+    "name": "Pierre Isidor",
+    "jobTitle": "Founder",
+    "worksFor": {
+      "@id": "https://oklahomabloodinstitute.com/#organization"
+    }
+  },
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Oklahoma City",
@@ -51,14 +61,33 @@
     "name": "Oklahoma"
   },
   "medicalSpecialty": "Blood Donation",
-  "sameAs": [
-    "https://oklahomabloodinstitute.com"
+  "knowsAbout": [
+    "Blood Donation",
+    "Plasma Donation",
+    "Blood Type Compatibility",
+    "Donor Eligibility",
+    "Oklahoma Blood Supply"
   ],
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer support",
     "areaServed": "US-OK",
     "telephone": "+1-877-340-8777"
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://oklahomabloodinstitute.com/#founder",
+  "name": "Pierre Isidor",
+  "jobTitle": "Founder, Oklahoma Blood Donors",
+  "knowsAbout": ["Blood Donation", "Public Health Technology", "Oklahoma Healthcare"],
+  "worksFor": {
+    "@type": "MedicalOrganization",
+    "@id": "https://oklahomabloodinstitute.com/#organization",
+    "name": "Oklahoma Blood Donors"
   }
 }
 </script>
@@ -73,7 +102,6 @@
     gtag('config', 'G-TJ4TS0WCQV');
   </script>
   <script>
-    // Initialize theme before render to prevent flash
     (function() {
       var theme = localStorage.getItem('theme') || 'light';
       if (theme === 'dark') document.documentElement.classList.add('dark');
@@ -140,96 +168,154 @@
       
     <section class="py-16">
       <div class="max-w-4xl mx-auto px-4">
+
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-red-700 transition-colors">Home</a>
+          <span>&rsaquo;</span>
+          <span class="text-gray-700 dark:text-gray-300">About</span>
+        </nav>
+
         <h1 class="text-4xl font-bold text-center mb-3">About Oklahoma Blood Donors</h1>
-        <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">Connecting Oklahoma communities with life-saving blood donation opportunities while supporting donors.</p>
+        <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">Connecting Oklahoma communities with life-saving blood donation opportunities since 2026.</p>
 
+        <!-- Mission Section -->
         <div class="prose dark:prose-invert max-w-none mb-12">
-          <h2>Our Mission</h2>
-          <p>Oklahoma Blood Donors is a digital platform that simplifies the path from intention to donation. We connect Oklahoma residents with certified blood and plasma donor centers across the state, providing clear information about eligibility, locations, compensation, and scheduling — all in one place.</p>
-          <p>Every day, patients in Oklahoma hospitals need blood for surgeries, cancer treatment, trauma care, and chronic illness management. Your donation directly impacts your neighbors, friends, and community members in their time of greatest need.</p>
+          <h2>What is Oklahoma Blood Donors?</h2>
+          <p>Oklahoma Blood Donors is a digital platform that simplifies the path from intention to donation. We connect Oklahoma residents with certified blood and plasma donor centers across the state, providing clear information about eligibility, locations, compensation, and scheduling &mdash; all in one place.</p>
+          <p>Every day, patients in Oklahoma hospitals need blood for surgeries, cancer treatment, trauma care, and chronic illness management. Oklahoma&rsquo;s blood supply depends on voluntary donors, yet many potential donors don&rsquo;t know where to go, what to expect, or whether they&rsquo;re eligible. We exist to close that gap.</p>
         </div>
 
+        <!-- Founder Bio -->
         <div class="bg-red-50 dark:bg-red-950/30 border border-red-100 dark:border-red-900/50 rounded-xl p-8 mb-12">
-          <h2 class="text-2xl font-bold mb-4">Who Built Oklahoma Blood Donors?</h2>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">Oklahoma Blood Donors was created by a team of Oklahoma-based technologists and public health advocates who noticed a critical gap: potential blood donors often wanted to help but couldn't easily find accurate, consolidated information about where to donate, what to expect, or how to schedule.</p>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">Our team has direct experience working with Oklahoma's blood supply infrastructure and partners closely with certified donor centers to ensure the information on this site is accurate, current, and medically reviewed.</p>
-          <p class="text-gray-700 dark:text-gray-300"><strong>Medical accuracy commitment:</strong> All health-related content on this site — eligibility requirements, donation guidelines, preparation instructions, and recovery advice — is based on current FDA blood donation regulations and guidelines published by AABB (Association for the Advancement of Blood & Biotherapies). Content is reviewed periodically for accuracy.</p>
+          <h2 class="text-2xl font-bold mb-4">Meet the Founder</h2>
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <div class="flex-shrink-0 w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold text-white" style="background-color: oklch(0.547 0.213 27.325)">PI</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">Pierre Isidor</h3>
+              <p class="text-sm text-red-700 dark:text-red-400 font-medium mb-3">Founder, Oklahoma Blood Donors</p>
+              <p class="text-gray-700 dark:text-gray-300 mb-3">Pierre Isidor founded Oklahoma Blood Donors after noticing a critical gap in how Oklahomans access blood donation information. Potential donors often wanted to help but couldn&rsquo;t easily find accurate, consolidated information about where to donate, what to expect, or how to schedule an appointment.</p>
+              <p class="text-gray-700 dark:text-gray-300 mb-3">Working at the intersection of public health and technology, Pierre built oklahomabloodinstitute.com to be the most complete blood donation resource for the state of Oklahoma &mdash; covering every major city and over 120 ZIP codes with localized donor center information, eligibility guides, and scheduling tools.</p>
+              <p class="text-gray-700 dark:text-gray-300">The platform serves thousands of Oklahoma donors and partners closely with certified donor centers to ensure all information is accurate, current, and aligned with FDA blood donation regulations.</p>
+            </div>
+          </div>
         </div>
 
+        <!-- E-E-A-T: Medical Accuracy -->
+        <div class="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-8 mb-12">
+          <h2 class="text-2xl font-bold mb-4">Our Commitment to Medical Accuracy</h2>
+          <p class="text-gray-700 dark:text-gray-300 mb-4"><strong>All health-related content on this site</strong> &mdash; eligibility requirements, donation guidelines, preparation instructions, and recovery advice &mdash; is based on current FDA blood donation regulations and guidelines published by AABB (Association for the Advancement of Blood &amp; Biotherapies).</p>
+          <div class="grid md:grid-cols-2 gap-4 mt-6">
+            <div class="flex items-start gap-3">
+              <span class="text-green-600 text-xl flex-shrink-0">&#10003;</span>
+              <div>
+                <p class="font-semibold text-sm">FDA-Aligned Guidelines</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">All eligibility and deferral information follows current FDA blood donation regulations.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-green-600 text-xl flex-shrink-0">&#10003;</span>
+              <div>
+                <p class="font-semibold text-sm">AABB Standards</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Donation process information follows AABB (formerly American Association of Blood Banks) standards.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-green-600 text-xl flex-shrink-0">&#10003;</span>
+              <div>
+                <p class="font-semibold text-sm">Regular Content Review</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Content is reviewed periodically against updated medical guidelines and donor center policies.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-green-600 text-xl flex-shrink-0">&#10003;</span>
+              <div>
+                <p class="font-semibold text-sm">No Medical Claims</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">We provide factual donation information only &mdash; never medical diagnoses, treatment advice, or eligibility guarantees.</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-gray-500 mt-6 italic">Last content review: May 2026. Eligibility decisions are always made by trained medical staff at the donor center during your health screening.</p>
+        </div>
+
+        <!-- Impact Stats -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          
-            <div class="text-center p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
-              <div class="text-3xl mb-3">&#10084;&#65039;</div>
-              <h3 class="font-bold mb-2">Life-Saving Impact</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">Every blood donation can save up to three lives. We help facilitate thousands of donations each year, directly supporting Oklahoma hospitals and patients.</p>
-            </div>
-          
-            <div class="text-center p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
-              <div class="text-3xl mb-3">&#128737;</div>
-              <h3 class="font-bold mb-2">Safety First</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">All Our Blood Institute centers maintain the highest safety standards with trained medical professionals and sterile, single-use equipment.</p>
-            </div>
-          
-            <div class="text-center p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
-              <div class="text-3xl mb-3">&#127968;</div>
-              <h3 class="font-bold mb-2">Community-Centered</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">We serve communities across Oklahoma, from Oklahoma City and Tulsa to smaller towns like Ada, Ardmore, and Enid.</p>
-            </div>
-          
-            <div class="text-center p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
-              <div class="text-3xl mb-3">&#127775;</div>
-              <h3 class="font-bold mb-2">Donor Support</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">We recognize the value of your time and commitment through compensation programs and rewards for donors.</p>
-            </div>
-          
+          <div class="text-center p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
+            <div class="text-3xl font-bold text-red-700 mb-1">226+</div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Pages of Donation Info</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
+            <div class="text-3xl font-bold text-red-700 mb-1">13</div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Oklahoma Cities Covered</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
+            <div class="text-3xl font-bold text-red-700 mb-1">128+</div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">ZIP Code Pages</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
+            <div class="text-3xl font-bold text-red-700 mb-1">847+</div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Oklahomans Pledged</p>
+          </div>
         </div>
 
+        <!-- Partnership -->
         <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-8 mb-12">
-          <h2 class="text-2xl font-bold mb-4">Our Partnership with Our Blood Institute</h2>
-          <p class="text-gray-600 dark:text-gray-400 mb-4">We work closely with Our Blood Institute (OBI), Oklahoma's community blood center, to connect donors with their 10+ donor centers across the state.</p>
-          <h3 class="text-xl font-bold mb-3">About Our Blood Institute</h3>
-          <p class="text-gray-600 dark:text-gray-400 mb-4">Our Blood Institute is a nonprofit community blood center that has been serving Oklahoma for decades. They collect, test, and distribute blood products to hospitals throughout the state, ensuring a safe and adequate blood supply for patients in need.</p>
-          <p class="text-gray-600 dark:text-gray-400">OBI operates donor centers in major cities and smaller communities across Oklahoma, making it convenient for donors to give blood close to home. Their professional medical staff ensures every donation is safe, comfortable, and makes a real difference.</p>
+          <h2 class="text-2xl font-bold mb-4">How We Work with Oklahoma Donor Centers</h2>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Oklahoma Blood Donors is an independent information and scheduling platform. We aggregate public information about certified donor centers across Oklahoma, including addresses, hours, phone numbers, and donation types available.</p>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Our scheduling links connect you directly with donor centers through their own appointment systems. We do not collect blood, process donations, or make medical eligibility decisions &mdash; those are handled by trained medical professionals at each center.</p>
+          <p class="text-gray-600 dark:text-gray-400">Oklahoma&rsquo;s blood supply is managed primarily by <strong>Our Blood Institute (OBI)</strong>, a nonprofit community blood center operating 10+ donor centers statewide. We help connect donors to OBI and other certified facilities.</p>
         </div>
 
+        <!-- Values -->
         <h2 class="text-2xl font-bold mb-6">Our Values</h2>
         <div class="grid md:grid-cols-2 gap-6 mb-12">
-          
-            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
-              <h3 class="font-bold text-lg mb-2">Transparency</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">We provide honest, accurate information about the donation process, compensation, and requirements. We never make exaggerated claims or promises.</p>
-            </div>
-          
-            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
-              <h3 class="font-bold text-lg mb-2">Safety</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">Donor safety is paramount. We emphasize that blood donation is a medical procedure that requires honest health disclosure and professional medical oversight.</p>
-            </div>
-          
-            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
-              <h3 class="font-bold text-lg mb-2">Community Focus</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">We believe in the power of local communities helping local patients. Your donation stays in Oklahoma, helping your neighbors in their time of need.</p>
-            </div>
-          
-            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
-              <h3 class="font-bold text-lg mb-2">Donor Recognition</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">We believe donors should be recognized for their time and commitment. Compensation and rewards help acknowledge the valuable contribution donors make to saving lives.</p>
-            </div>
-          
+          <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
+            <h3 class="font-bold text-lg mb-2">Transparency</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Honest, accurate information about the donation process, compensation, and requirements. We never make exaggerated claims or promises about earnings or health benefits.</p>
+          </div>
+          <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
+            <h3 class="font-bold text-lg mb-2">Safety</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Donor safety is paramount. Blood donation is a medical procedure requiring honest health disclosure and professional oversight. We emphasize this on every page.</p>
+          </div>
+          <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
+            <h3 class="font-bold text-lg mb-2">Community Focus</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Your donation stays in Oklahoma, helping patients at local hospitals. We serve communities from Oklahoma City and Tulsa to Ada, Ardmore, Bartlesville, and everywhere in between.</p>
+          </div>
+          <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
+            <h3 class="font-bold text-lg mb-2">Accessibility</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Blood donation information should be easy to find for every Oklahoman. That&rsquo;s why we built ZIP-code-level pages, city guides, and detailed eligibility content &mdash; so you can find exactly what you need.</p>
+          </div>
         </div>
 
-        <h2 class="text-2xl font-bold mb-6">Contact Us</h2>
-        <div class="grid md:grid-cols-2 gap-6 mb-12">
-          <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
-            <h3 class="font-bold mb-2">Find a Donor Center</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">We have 10+ locations across Oklahoma. Find the center nearest you.</p>
-            <a href="/locations" class="text-red-700 hover:text-red-800 font-medium text-sm">View All Locations &rarr;</a>
-          </div>
-          <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
-            <h3 class="font-bold mb-2">Questions?</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Contact your nearest donor center directly for specific questions about donations or compensation.</p>
-            <a href="/faq" class="text-red-700 hover:text-red-800 font-medium text-sm">View FAQ &rarr;</a>
-          </div>
+        <!-- Contact / Navigate -->
+        <h2 class="text-2xl font-bold mb-6">Explore the Site</h2>
+        <div class="grid md:grid-cols-3 gap-4 mb-12">
+          <a href="/locations" class="p-5 bg-gray-50 dark:bg-gray-900 rounded-xl hover:shadow-md transition-shadow">
+            <h3 class="font-bold mb-1">Find a Donor Center</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">10+ locations across Oklahoma with addresses, hours, and phone numbers.</p>
+          </a>
+          <a href="/requirements" class="p-5 bg-gray-50 dark:bg-gray-900 rounded-xl hover:shadow-md transition-shadow">
+            <h3 class="font-bold mb-1">Donation Requirements</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Age, weight, health conditions, medications, and travel restrictions.</p>
+          </a>
+          <a href="/questions" class="p-5 bg-gray-50 dark:bg-gray-900 rounded-xl hover:shadow-md transition-shadow">
+            <h3 class="font-bold mb-1">Health Questions</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Diabetes, blood pressure, tattoos, fatigue, and more &mdash; answered clearly.</p>
+          </a>
+          <a href="/blog" class="p-5 bg-gray-50 dark:bg-gray-900 rounded-xl hover:shadow-md transition-shadow">
+            <h3 class="font-bold mb-1">City Guides &amp; Blog</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">39 articles covering tips, compensation, and guides for every Oklahoma city.</p>
+          </a>
+          <a href="/blood-types" class="p-5 bg-gray-50 dark:bg-gray-900 rounded-xl hover:shadow-md transition-shadow">
+            <h3 class="font-bold mb-1">Blood Type Guides</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Learn about your blood type, compatibility, and why it matters.</p>
+          </a>
+          <a href="/faq" class="p-5 bg-gray-50 dark:bg-gray-900 rounded-xl hover:shadow-md transition-shadow">
+            <h3 class="font-bold mb-1">FAQ</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Quick answers to the most common blood donation questions.</p>
+          </a>
         </div>
+
       </div>
     </section>
     

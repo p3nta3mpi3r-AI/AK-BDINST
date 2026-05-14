@@ -359,6 +359,10 @@ app.get('/about', (req, res) => {
   serveHtml(path.join(VIEWS, 'about.html'), res);
 });
 
+app.get('/requirements', (req, res) => {
+  serveHtml(path.join(VIEWS, 'requirements.html'), res);
+});
+
 app.get('/blog', (req, res) => {
   serveHtml(path.join(VIEWS, 'blog.html'), res, { fixYear: true });
 });
