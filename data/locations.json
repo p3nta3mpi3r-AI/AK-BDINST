@@ -7,8 +7,17 @@
     "zip": "73104",
     "phone": "(405) 278-3100",
     "hours": "Mon-Fri 7:30am-6pm, Sat 7:30am-2pm, Sun by appt",
-    "openingHoursSpec": ["Mo-Fr 07:30-18:00", "Sa 07:30-14:00"],
-    "areaServed": ["Oklahoma City", "Moore", "Midwest City", "Mustang", "Bethany"]
+    "openingHoursSpec": [
+      "Mo-Fr 07:30-18:00",
+      "Sa 07:30-14:00"
+    ],
+    "areaServed": [
+      "Oklahoma City",
+      "Moore",
+      "Midwest City",
+      "Mustang",
+      "Bethany"
+    ]
   },
   "ada": {
     "name": "Ada Donor Center",
@@ -18,8 +27,16 @@
     "zip": "74820",
     "phone": "(580) 436-0384",
     "hours": "Mon-Thu 8am-5:30pm, Sat 8am-2pm, Sun 8am-12pm by appt",
-    "openingHoursSpec": ["Mo-Th 08:00-17:30", "Sa 08:00-14:00", "Su 08:00-12:00"],
-    "areaServed": ["Ada", "Seminole", "Holdenville"]
+    "openingHoursSpec": [
+      "Mo-Th 08:00-17:30",
+      "Sa 08:00-14:00",
+      "Su 08:00-12:00"
+    ],
+    "areaServed": [
+      "Ada",
+      "Seminole",
+      "Holdenville"
+    ]
   },
   "ardmore": {
     "name": "Ardmore Donor Center",
@@ -29,8 +46,16 @@
     "zip": "73401",
     "phone": "(580) 226-2220",
     "hours": "Mon-Fri 8am-5:30pm, Sat 8am-2pm, Sun 8am-12pm by appt",
-    "openingHoursSpec": ["Mo-Fr 08:00-17:30", "Sa 08:00-14:00", "Su 08:00-12:00"],
-    "areaServed": ["Ardmore", "Durant", "Tishomingo"]
+    "openingHoursSpec": [
+      "Mo-Fr 08:00-17:30",
+      "Sa 08:00-14:00",
+      "Su 08:00-12:00"
+    ],
+    "areaServed": [
+      "Ardmore",
+      "Durant",
+      "Tishomingo"
+    ]
   },
   "broken-arrow": {
     "name": "Broken Arrow Donor Center",
@@ -40,8 +65,16 @@
     "zip": "74012",
     "phone": "(918) 703-4900",
     "hours": "Mon-Fri 8:30am-6pm, Sat 8am-3pm, Sun 8am-1:30pm by appt",
-    "openingHoursSpec": ["Mo-Fr 08:30-18:00", "Sa 08:00-15:00", "Su 08:00-13:30"],
-    "areaServed": ["Broken Arrow", "Bixby", "Coweta"]
+    "openingHoursSpec": [
+      "Mo-Fr 08:30-18:00",
+      "Sa 08:00-15:00",
+      "Su 08:00-13:30"
+    ],
+    "areaServed": [
+      "Broken Arrow",
+      "Bixby",
+      "Coweta"
+    ]
   },
   "edmond": {
     "name": "Edmond Donor Center",
@@ -51,8 +84,18 @@
     "zip": "73013",
     "phone": "(405) 252-5200",
     "hours": "Mon-Fri 7:30am-6pm, Sat 7:30am-2pm, Sun 7:30am-12pm by appt",
-    "openingHoursSpec": ["Mo-Fr 07:30-18:00", "Sa 07:30-14:00", "Su 07:30-12:00"],
-    "areaServed": ["Edmond", "Arcadia", "Deer Creek", "Piedmont", "Guthrie"]
+    "openingHoursSpec": [
+      "Mo-Fr 07:30-18:00",
+      "Sa 07:30-14:00",
+      "Su 07:30-12:00"
+    ],
+    "areaServed": [
+      "Edmond",
+      "Arcadia",
+      "Deer Creek",
+      "Piedmont",
+      "Guthrie"
+    ]
   },
   "enid": {
     "name": "Enid Donor Center",
@@ -62,8 +105,16 @@
     "zip": "73701",
     "phone": "(580) 233-9323",
     "hours": "Mon-Fri 8am-6pm, Sat 8am-2pm, Sun 9:30am-1:30pm by appt",
-    "openingHoursSpec": ["Mo-Fr 08:00-18:00", "Sa 08:00-14:00", "Su 09:30-13:30"],
-    "areaServed": ["Enid", "Garber", "Covington"]
+    "openingHoursSpec": [
+      "Mo-Fr 08:00-18:00",
+      "Sa 08:00-14:00",
+      "Su 09:30-13:30"
+    ],
+    "areaServed": [
+      "Enid",
+      "Garber",
+      "Covington"
+    ]
   },
   "lawton": {
     "name": "Lawton Donor Center",
@@ -73,8 +124,18 @@
     "zip": "73501",
     "phone": "(580) 350-6100",
     "hours": "Mon-Thu 8:30am-6pm, Fri 7:30am-5pm, Sat 8am-2pm, Sun 8am-12pm",
-    "openingHoursSpec": ["Mo-Th 08:30-18:00", "Fr 07:30-17:00", "Sa 08:00-14:00", "Su 08:00-12:00"],
-    "areaServed": ["Lawton", "Fort Sill", "Duncan", "Elgin"]
+    "openingHoursSpec": [
+      "Mo-Th 08:30-18:00",
+      "Fr 07:30-17:00",
+      "Sa 08:00-14:00",
+      "Su 08:00-12:00"
+    ],
+    "areaServed": [
+      "Lawton",
+      "Fort Sill",
+      "Duncan",
+      "Elgin"
+    ]
   },
   "norman": {
     "name": "Norman Donor Center",
@@ -84,8 +145,21 @@
     "zip": "73069",
     "phone": "(405) 928-6500",
     "hours": "Mon 7:30am-6pm, Tue 10am-6pm, Wed 7:30am-4:30pm, Thu 10am-6pm, Fri 7:30am-4:30pm, Sat 7:30am-2pm",
-    "openingHoursSpec": ["Mo 07:30-18:00", "Tu 10:00-18:00", "We 07:30-16:30", "Th 10:00-18:00", "Fr 07:30-16:30", "Sa 07:30-14:00"],
-    "areaServed": ["Norman", "Moore", "Noble", "Lexington", "Purcell"]
+    "openingHoursSpec": [
+      "Mo 07:30-18:00",
+      "Tu 10:00-18:00",
+      "We 07:30-16:30",
+      "Th 10:00-18:00",
+      "Fr 07:30-16:30",
+      "Sa 07:30-14:00"
+    ],
+    "areaServed": [
+      "Norman",
+      "Moore",
+      "Noble",
+      "Lexington",
+      "Purcell"
+    ]
   },
   "tulsa": {
     "name": "Tulsa Donor Center",
@@ -95,8 +169,18 @@
     "zip": "74137",
     "phone": "(918) 703-4800",
     "hours": "Mon-Fri 8:30am-6pm, Sat 8am-3pm, Sun 8am-1:30pm by appt",
-    "openingHoursSpec": ["Mo-Fr 08:30-18:00", "Sa 08:00-15:00", "Su 08:00-13:30"],
-    "areaServed": ["Tulsa", "Jenks", "Bixby", "Owasso", "Sand Springs"]
+    "openingHoursSpec": [
+      "Mo-Fr 08:30-18:00",
+      "Sa 08:00-15:00",
+      "Su 08:00-13:30"
+    ],
+    "areaServed": [
+      "Tulsa",
+      "Jenks",
+      "Bixby",
+      "Owasso",
+      "Sand Springs"
+    ]
   },
   "yukon": {
     "name": "Yukon Donor Center",
@@ -106,7 +190,97 @@
     "zip": "73099",
     "phone": "(405) 947-6621",
     "hours": "Mon-Fri 7:30am-6pm, Sat 7:30am-2pm, Sun 7:30am-11:30am by appt",
-    "openingHoursSpec": ["Mo-Fr 07:30-18:00", "Sa 07:30-14:00", "Su 07:30-11:30"],
-    "areaServed": ["Yukon", "Mustang", "Tuttle", "El Reno"]
+    "openingHoursSpec": [
+      "Mo-Fr 07:30-18:00",
+      "Sa 07:30-14:00",
+      "Su 07:30-11:30"
+    ],
+    "areaServed": [
+      "Yukon",
+      "Mustang",
+      "Tuttle",
+      "El Reno"
+    ]
+  },
+  "stillwater": {
+    "name": "Stillwater Donor Center",
+    "address": "2214 N Boomer Rd",
+    "city": "Stillwater",
+    "state": "OK",
+    "zip": "74075",
+    "phone": "(405) 744-5433",
+    "hours": "Mon-Fri 8am-6pm, Sat 9am-3pm",
+    "openingHoursSpec": [
+      "Mo-Fr 08:00-18:00",
+      "Sa 09:00-15:00"
+    ],
+    "areaServed": [
+      "Stillwater",
+      "Perkins",
+      "Cushing"
+    ]
+  },
+  "muskogee": {
+    "name": "Muskogee Donor Center",
+    "address": "3031 N York St",
+    "city": "Muskogee",
+    "state": "OK",
+    "zip": "74403",
+    "phone": "(918) 686-5433",
+    "hours": "Mon-Fri 8am-6pm, Sat 9am-3pm",
+    "openingHoursSpec": [
+      "Mo-Fr 08:00-18:00",
+      "Sa 09:00-15:00"
+    ],
+    "areaServed": [
+      "Muskogee",
+      "Tahlequah",
+      "Fort Gibson"
+    ]
+  },
+  "bartlesville": {
+    "name": "Bartlesville Donor Center",
+    "address": "4100 SE Adams Blvd",
+    "city": "Bartlesville",
+    "state": "OK",
+    "zip": "74006",
+    "phone": "(918) 335-5433",
+    "hours": "Mon-Fri 8am-6pm, Sat 9am-3pm",
+    "openingHoursSpec": [
+      "Mo-Fr 08:00-18:00",
+      "Sa 09:00-15:00"
+    ],
+    "areaServed": [
+      "Bartlesville",
+      "Nowata",
+      "Dewey"
+    ]
+  },
+  "tinker-afb-mobile": {
+    "name": "Tinker AFB Mobile Blood Drive",
+    "address": "550 CMMXS/MXDPB BLDG 3707",
+    "city": "Tinker AFB",
+    "state": "OK",
+    "zip": "73145",
+    "phone": "(405) 297-5700",
+    "hours": "By appointment \u2014 Mobile Drive",
+    "areaServed": [
+      "Tinker AFB",
+      "Midwest City"
+    ]
+  },
+  "midwest-city-mobile": {
+    "name": "Midwest City Mobile Blood Drive",
+    "address": "7532 Joint Star Drive",
+    "city": "Midwest City",
+    "state": "OK",
+    "zip": "73145",
+    "phone": "(405) 297-5700",
+    "hours": "By appointment \u2014 Mobile Drive",
+    "areaServed": [
+      "Midwest City",
+      "Del City",
+      "Choctaw"
+    ]
   }
 }

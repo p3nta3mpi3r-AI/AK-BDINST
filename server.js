@@ -6,19 +6,6 @@ const app  = express();
 const PORT = process.env.PORT || 3000;
 const VIEWS = path.join(__dirname, 'views');
 
-// ─── Security Headers ──────────────────────────────────────────────
-app.disable('x-powered-by');
-app.use((req, res, next) => {
-  res.set('X-Frame-Options', 'SAMEORIGIN');
-  res.set('X-Content-Type-Options', 'nosniff');
-  res.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  res.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
-  if (req.secure || req.headers['x-forwarded-proto'] === 'https') {
-    res.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-  }
-  next();
-});
-
 // ─── Correct OBI location data ──────────────────────────────────────
 let locationData = {};
 try {
@@ -78,13 +65,13 @@ function transformHtml(html, options = {}) {
     h = h.replace(/"dateModified"\s*:\s*"2025/g, '"dateModified":"2026');
   }
 
-  // 3) Fix location addresses
+  // 3) Fix location data (addresses, phones, hours)
   if (options.locationSlug) {
     const loc = locationData[options.locationSlug];
     if (loc) {
       const fullAddr = `${loc.address}, ${loc.city}, ${loc.state} ${loc.zip}`;
 
-      // Replace ALL "streetAddress" values in JSON-LD
+      // ── JSON-LD Schema Fixes ──────────────────────────────────
       h = h.replace(
         /"streetAddress"\s*:\s*"[^"]*"/g,
         `"streetAddress":"${loc.address}"`
@@ -97,18 +84,10 @@ function transformHtml(html, options = {}) {
         /"addressLocality"\s*:\s*"[^"]*"/g,
         `"addressLocality":"${loc.city}"`
       );
-
-      // Replace ALL phone numbers in JSON-LD and visible text
       h = h.replace(
-        /"telephone"\s*:\s*"\([^"]*"/g,
-        `"telephone":"${loc.phone}"`
+        /"name"\s*:\s*"[^"]*Blood Donor Center"/g,
+        `"name":"${loc.name}"`
       );
-      h = h.replace(
-        /"servicePhone"\s*:\s*"\([^"]*"/g,
-        `"servicePhone":"${loc.phone}"`
-      );
-
-      // Replace opening hours in schema
       if (loc.openingHoursSpec) {
         h = h.replace(
           /"openingHours"\s*:\s*\[[^\]]*\]/g,
@@ -116,34 +95,46 @@ function transformHtml(html, options = {}) {
         );
       }
 
-      // Replace the visible address line (after map-pin SVG, before next tag)
-      // Pattern: map pin SVG closing tags then address text
+      // ── ALL Phone Numbers (blanket replace every (xxx) xxx-xxxx) ──
+      // Catches: JSON-LD telephone, visible hero, FAQ answers,
+      //          compensation info — one pattern handles all
+      h = h.replace(
+        /\(\d{3}\)\s*\d{3}[\s-]\d{4}/g,
+        loc.phone
+      );
+
+      // ── Visible Address Fixes ─────────────────────────────────
+      // After map-pin SVG icon
       h = h.replace(
         /(<\/circle>\s*<\/svg>\s*)[^<]+,\s*[A-Z][a-z]+[^<]*,\s*OK\s+\d{5}/,
         `$1${fullAddr}`
       );
-
-      // Replace the visible phone line (after phone SVG)
-      h = h.replace(
-        /(stroke-linejoin="round"><path d="M22 16\.92[\s\S]*?<\/svg>\s*)\([^)]+\)\s*[\d-]+/,
-        `$1${loc.phone}`
-      );
-
-      // Fix the center name in schema
-      h = h.replace(
-        /"name"\s*:\s*"[^"]*Blood Donor Center"/g,
-        `"name":"${loc.name}"`
-      );
-
-      // Fix FAQ answers that reference the address
+      // FAQ answers referencing address
       h = h.replace(
         /located at [^.]+\./g,
         `located at ${fullAddr}. This center accepts whole blood, plasma, and platelet donations.`
       );
-      h = h.replace(
-        /Call \([^)]+\) [\d-]+ to confirm/g,
-        `Call ${loc.phone} to confirm`
+      // Any remaining "Street, City, OK ZIP" visible text patterns
+      const addrRegex = new RegExp(
+        '\\d+\\s+[NSEW]?\\.?\\s*\\w[\\w\\s]*(?:St(?:reet)?|Ave(?:nue)?|Blvd|Dr(?:ive)?|Rd|Ln|Way|Pkwy|Ct|Cir)[^,<]*,\\s*' +
+        loc.city + '[^,<]*,\\s*OK\\s+\\d{5}',
+        'g'
       );
+      h = h.replace(addrRegex, fullAddr);
+
+      // ── Visible Hours Fixes ───────────────────────────────────
+      if (loc.hours) {
+        // "Monday-Friday: 7:00 AM - 7:00 PM, Saturday-Sunday: 8:00 AM - 5:00 PM"
+        h = h.replace(
+          /Monday[\s\u2013\u2014-]+Friday:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM)(?:,?\s*(?:Saturday[\s\u2013\u2014-]+Sunday:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM))?)?/gi,
+          loc.hours
+        );
+        // "Mon-Fri 8:00 AM - 6:00 PM, Sat 9:00 AM - 3:00 PM"
+        h = h.replace(
+          /Mon(?:day)?[\s-]+Fri(?:day)?:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM)(?:,?\s*Sat(?:urday)?(?:[\s-]+Sun(?:day)?)?:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM))?/gi,
+          loc.hours
+        );
+      }
     }
   }
 
