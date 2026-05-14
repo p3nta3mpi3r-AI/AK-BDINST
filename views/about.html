@@ -21,33 +21,47 @@
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: {
-            primary: { DEFAULT: '#b91c1c', hover: '#991b1b', light: '#fef2f2' }
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="/css/tailwind-purged.css">
+  <style>
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.animate-marquee{animation:marquee 60s linear infinite}
+.text-primary{color:#b91c1c}
+.bg-primary{background-color:#b91c1c}
+.hover\:bg-primary-hover:hover{background-color:#991b1b}
+.bg-primary-light{background-color:#fef2f2}
+</style>
   <link rel="stylesheet" href="/css/styles.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Oklahoma Blood Donors",
-    "description": "Connecting Oklahoma communities with life-saving blood donation opportunities at Our Blood Institute donor centers across the state.",
-    "url": "https://oklahomabloodinstitute.com",
-    "areaServed": { "@type": "State", "name": "Oklahoma" },
-    "serviceType": "Blood Donation"
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "@id": "https://oklahomabloodinstitute.com/#organization",
+  "name": "Oklahoma Blood Donors",
+  "url": "https://oklahomabloodinstitute.com",
+  "description": "Connecting Oklahoma communities with life-saving blood and plasma donation opportunities at certified donor centers across the state.",
+  "telephone": "+1-877-340-8777",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Oklahoma City",
+    "addressRegion": "OK",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Oklahoma"
+  },
+  "medicalSpecialty": "Blood Donation",
+  "sameAs": [
+    "https://oklahomabloodinstitute.com"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "areaServed": "US-OK",
+    "telephone": "+1-877-340-8777"
   }
-  </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalOrganization","name":"Oklahoma Blood Donors","url":"https://oklahomabloodinstitute.com","description":"Connecting Oklahoma communities with life-saving blood donation opportunities at Our Blood Institute donor centers across the state.","areaServed":{"@type":"State","name":"Oklahoma"},"medicalSpecialty":"Blood Donation","sameAs":["https://www.obi.org","https://en.wikipedia.org/wiki/Blood_donation"],"contactPoint":{"@type":"ContactPoint","contactType":"customer support","areaServed":"US-OK"}}</script>
+}
+</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://oklahomabloodinstitute.com"},{"@type":"ListItem","position":2,"name":"About","item":"https://oklahomabloodinstitute.com/about"}]}</script>
   
   <!-- Google Analytics 4 -->

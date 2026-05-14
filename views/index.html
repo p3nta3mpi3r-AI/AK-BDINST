@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oklahoma Blood Donors — Donate Blood, Save Lives</title>
-  <meta name="description" content="Donate blood and plasma for money at Our Blood Institute donor centers across Oklahoma. Find locations, eligibility info, compensation details, and schedule your donation today.">
+  <meta name="description" content="Donate blood or plasma at certified Oklahoma donor centers. Find locations, eligibility requirements, and compensation details — schedule in minutes.">
   <link rel="canonical" href="https://oklahomabloodinstitute.com">
   <meta property="og:title" content="Oklahoma Blood Donors — Donate Blood, Save Lives">
   <meta property="og:description" content="Find blood donation centers across Oklahoma. Schedule your donation in minutes.">
@@ -21,33 +21,72 @@
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: {
-            primary: { DEFAULT: '#b91c1c', hover: '#991b1b', light: '#fef2f2' }
-          }
+  <link rel="stylesheet" href="/css/tailwind-purged.css">
+  <style>
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.animate-marquee{animation:marquee 60s linear infinite}
+.text-primary{color:#b91c1c}
+.bg-primary{background-color:#b91c1c}
+.hover\:bg-primary-hover:hover{background-color:#991b1b}
+.bg-primary-light{background-color:#fef2f2}
+</style>
+  <link rel="stylesheet" href="/css/styles.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "@id": "https://oklahomabloodinstitute.com/#organization",
+  "name": "Oklahoma Blood Donors",
+  "url": "https://oklahomabloodinstitute.com",
+  "description": "Connecting Oklahoma communities with life-saving blood and plasma donation opportunities at certified donor centers across the state.",
+  "telephone": "+1-877-340-8777",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Oklahoma City",
+    "addressRegion": "OK",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Oklahoma"
+  },
+  "medicalSpecialty": "Blood Banking",
+  "sameAs": [
+    "https://oklahomabloodinstitute.com"
+  ],
+  "serviceType": "Blood Donation",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Blood Donation Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Whole Blood Donation",
+          "description": "Donate whole blood and save up to three lives. Takes 45-60 minutes total."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Plasma Donation",
+          "description": "Donate plasma with higher compensation. Takes 60-90 minutes."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Platelet Donation",
+          "description": "Donate platelets critical for cancer patients. Takes 90-120 minutes."
         }
       }
-    }
-  </script>
-  <link rel="stylesheet" href="/css/styles.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Oklahoma Blood Donors",
-    "description": "Connecting Oklahoma communities with life-saving blood donation opportunities at Our Blood Institute donor centers across the state.",
-    "url": "https://oklahomabloodinstitute.com",
-    "areaServed": { "@type": "State", "name": "Oklahoma" },
-    "serviceType": "Blood Donation"
+    ]
   }
-  </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Oklahoma Blood Donors","url":"https://oklahomabloodinstitute.com","description":"Connecting Oklahoma communities with life-saving blood donation opportunities at Our Blood Institute donor centers across the state.","areaServed":{"@type":"State","name":"Oklahoma"},"serviceType":"Blood Donation","hasOfferCatalog":{"@type":"OfferCatalog","name":"Blood Donation Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Whole Blood Donation","description":"Donate whole blood and save up to three lives. Takes 45-60 minutes total."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Plasma Donation","description":"Donate plasma with higher compensation. Takes 60-90 minutes."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Platelet Donation","description":"Donate platelets critical for cancer patients. Takes 90-120 minutes."}}]}}</script>
+}
+</script>
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200&h=675&fit=crop&q=80" fetchpriority="high" imagesrcset="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&h=450&fit=crop&q=80 800w, https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200&h=675&fit=crop&q=80 1200w, https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1600&h=900&fit=crop&q=80 1600w" imagesizes="100vw"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Oklahoma Blood Donors","url":"https://oklahomabloodinstitute.com","description":"Find blood donation centers across Oklahoma, learn eligibility requirements, and schedule your donation today.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://oklahomabloodinstitute.com/locations?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I donate blood in Oklahoma?","acceptedAnswer":{"@type":"Answer","text":"To donate blood in Oklahoma, find your nearest Oklahoma Blood Donors center, schedule an appointment online or by phone, and bring a valid photo ID. You must be at least 17 years old (16 with parental consent), weigh at least 110 pounds, and be in generally good health. The entire process takes 45-60 minutes."}},{"@type":"Question","name":"Do you get paid for donating blood in Oklahoma?","acceptedAnswer":{"@type":"Answer","text":"Yes. Plasma donors receive the highest compensation, typically paid via a prepaid debit card after each donation. Whole blood and platelet donors may receive gift cards, merchandise, or sweepstakes entries. Compensation amounts vary by location and donation type — contact your nearest center for current rates."}},{"@type":"Question","name":"What are the requirements to donate blood in Oklahoma?","acceptedAnswer":{"@type":"Answer","text":"To donate blood in Oklahoma you must be at least 17 years old (16 with parental consent), weigh at least 110 pounds, have a valid government-issued photo ID, and be in generally good health. You cannot have had a recent illness, certain medications, or recent travel to specific countries. The screening nurse will ask about your health history before donation."}},{"@type":"Question","name":"How long does it take to donate blood?","acceptedAnswer":{"@type":"Answer","text":"Whole blood donation takes about 45-60 minutes total, with the actual blood draw taking only 8-10 minutes. Plasma donation takes 60-90 minutes. Platelet donation takes 90-120 minutes. Plan for extra time on your first visit for registration and a brief health screening."}},{"@type":"Question","name":"How often can I donate blood?","acceptedAnswer":{"@type":"Answer","text":"Whole blood can be donated every 56 days (8 weeks). Plasma can be donated up to twice per week. Platelets can be donated every 7 days, up to 24 times per year. Double red cell donations are allowed every 112 days. The type of donation determines how frequently you can give."}},{"@type":"Question","name":"What blood type is most needed in Oklahoma?","acceptedAnswer":{"@type":"Answer","text":"O negative (O-) is the universal blood type and always in critical demand — it can be given to any patient in emergencies. O positive (O+) is needed in the highest volume because it is the most common blood type and compatible with 85% of patients. AB negative plasma is also critically needed as the universal plasma type."}},{"@type":"Question","name":"What should I eat before donating blood?","acceptedAnswer":{"@type":"Answer","text":"Eat a healthy, iron-rich meal within a few hours before donating. Good options include lean meats, spinach, beans, lentils, and fortified cereals. Avoid fatty foods the morning of your donation as they can affect your blood test results. Drink at least 16 ounces of water in the 2 hours before your appointment to stay hydrated."}},{"@type":"Question","name":"Where are blood donation centers in Oklahoma?","acceptedAnswer":{"@type":"Answer","text":"Oklahoma Blood Donors operates 13 donor centers across Oklahoma including locations in Oklahoma City, Tulsa, Edmond, Norman, Broken Arrow, Lawton, Enid, Ada, Ardmore, Yukon, Stillwater, Muskogee, and Bartlesville. Visit oklahomabloodinstitute.com/locations to find your nearest center, get hours, and schedule an appointment."}},{"@type":"Question","name":"Can I donate blood if I have tattoos?","acceptedAnswer":{"@type":"Answer","text":"Yes, in most cases. In Oklahoma, if your tattoo was done at a licensed, state-regulated facility, there is no waiting period before donating. If the tattoo was done in an unlicensed setting, you may need to wait 3 months. Tell the screening staff about your tattoos and they will determine your eligibility."}},{"@type":"Question","name":"Is blood donation safe?","acceptedAnswer":{"@type":"Answer","text":"Yes. Blood donation is a safe, medically supervised procedure. All equipment used is sterile and single-use — needles are never reused. Trained medical staff monitor you throughout the process. Most donors feel fine immediately after donating. Minor side effects like lightheadedness are rare and typically resolve within a few minutes of resting."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"DonateAction","name":"Donate Blood in Oklahoma","description":"Schedule a blood donation at one of 13 Oklahoma Blood Donors centers across Oklahoma. Help save up to 3 lives per donation.","url":"https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912","recipient":{"@type":"Organization","name":"Oklahoma Blood Donors","url":"https://oklahomabloodinstitute.com"},"agent":{"@type":"Organization","name":"Oklahoma Blood Donors","url":"https://oklahomabloodinstitute.com"}}</script>
   
   <!-- Google Analytics 4 -->

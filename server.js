@@ -138,6 +138,76 @@ function transformHtml(html, options = {}) {
     }
   }
 
+
+  // 4) AEO: Fix donate-blood city pages — Article → MedicalOrganization/LocalBusiness + HowTo
+  if (options.locationSlug) {
+    const loc = locationData[options.locationSlug];
+    if (loc) {
+      const cityName = loc.city;
+      const fullAddr = `${loc.address}, ${loc.city}, ${loc.state} ${loc.zip}`;
+
+      // Replace the generic Organization block with MedicalOrganization
+      h = h.replace(
+        /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/,
+        '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors"'
+      );
+
+      // Replace Article schema with MedicalOrganization + LocalBusiness
+      const articleRegex = /<script type="application\/ld\+json">\s*\{[^}]*"@type"\s*:\s*"Article"[\s\S]*?<\/script>/;
+      if (articleRegex.test(h)) {
+        const localBusinessSchema = {
+          "@context": "https://schema.org",
+          "@type": ["MedicalOrganization", "LocalBusiness"],
+          "@id": `https://oklahomabloodinstitute.com/donate-blood/${options.locationSlug}#location`,
+          "name": `Oklahoma Blood Donors — ${cityName}`,
+          "description": `Donate blood in ${cityName}, Oklahoma. Walk-ins welcome at the ${loc.name}.`,
+          "url": `https://oklahomabloodinstitute.com/donate-blood/${options.locationSlug}`,
+          "telephone": loc.phone,
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": loc.address,
+            "addressLocality": loc.city,
+            "addressRegion": "OK",
+            "postalCode": loc.zip,
+            "addressCountry": "US"
+          },
+          "openingHoursSpecification": (loc.openingHoursSpec || []).map(spec => ({
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": spec.split(' ')[0],
+            "opens": spec.split(' ')[1]?.split('-')[0],
+            "closes": spec.split(' ')[1]?.split('-')[1]
+          })),
+          "medicalSpecialty": "Blood Banking",
+          "parentOrganization": {
+            "@type": "MedicalOrganization",
+            "@id": "https://oklahomabloodinstitute.com/#organization",
+            "name": "Oklahoma Blood Donors"
+          }
+        };
+
+        const howToSchema = {
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": `How to Donate Blood in ${cityName}, Oklahoma`,
+          "description": `Step-by-step guide to donating blood at the ${loc.name} in ${cityName}.`,
+          "step": [
+            {"@type": "HowToStep", "position": 1, "name": "Check Eligibility", "text": "You must be at least 16 years old (with parental consent) or 17+, weigh at least 110 lbs, and be in generally good health. Most medications are acceptable."},
+            {"@type": "HowToStep", "position": 2, "name": "Schedule Your Appointment", "text": `Visit oklahomabloodinstitute.com/schedule or call ${loc.phone} to book a time at the ${loc.name}.`},
+            {"@type": "HowToStep", "position": 3, "name": "Prepare for Your Visit", "text": "Eat a healthy meal, drink plenty of water, and bring a valid photo ID. Wear a shirt with sleeves that roll up easily."},
+            {"@type": "HowToStep", "position": 4, "name": "Complete Your Donation", "text": "The donation itself takes about 10 minutes. You will have a brief health screening, then donate approximately one pint of whole blood."},
+            {"@type": "HowToStep", "position": 5, "name": "Rest and Recover", "text": "Enjoy complimentary snacks and drinks in the canteen area. Avoid heavy lifting for 24 hours and stay hydrated."}
+          ],
+          "totalTime": "PT60M"
+        };
+
+        h = h.replace(
+          articleRegex,
+          `<script type="application/ld+json">${JSON.stringify(localBusinessSchema)}</script>\n<script type="application/ld+json">${JSON.stringify(howToSchema)}</script>`
+        );
+      }
+    }
+  }
+
   return h;
 }
 
