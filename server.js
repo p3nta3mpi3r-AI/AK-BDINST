@@ -126,12 +126,12 @@ function transformHtml(html, options = {}) {
       if (loc.hours) {
         // "Monday-Friday: 7:00 AM - 7:00 PM, Saturday-Sunday: 8:00 AM - 5:00 PM"
         h = h.replace(
-          /Monday[\s\u2013\u2014-]+Friday:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM)(?:,?\s*(?:Saturday[\s\u2013\u2014-]+Sunday:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM))?)?/gi,
+          /Monday[\s\u2013\u2014-]+Friday:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM)(?:(?:,|\s+and)?\s*(?:Saturday[\s\u2013\u2014-]+Sunday:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM))?)?/gi,
           loc.hours
         );
         // "Mon-Fri 8:00 AM - 6:00 PM, Sat 9:00 AM - 3:00 PM"
         h = h.replace(
-          /Mon(?:day)?[\s-]+Fri(?:day)?:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM)(?:,?\s*Sat(?:urday)?(?:[\s-]+Sun(?:day)?)?:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM))?/gi,
+          /Mon(?:day)?[\s-]+Fri(?:day)?:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM)(?:(?:,|\s+and)?\s*Sat(?:urday)?(?:[\s-]+Sun(?:day)?)?:?\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*[\u2013\u2014–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM))?/gi,
           loc.hours
         );
       }
@@ -207,6 +207,13 @@ function transformHtml(html, options = {}) {
       }
     }
   }
+
+  // 5) Global AEO: Upgrade Organization → MedicalOrganization on ALL pages
+  // This catches pages not handled by section 4 (blog, faq, questions, guides, etc.)
+  h = h.replace(
+    /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/g,
+    '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors","telephone":"+1-877-340-8777"'
+  );
 
   return h;
 }
