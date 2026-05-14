@@ -208,7 +208,59 @@ function transformHtml(html, options = {}) {
     }
   }
 
-  // 5) Global AEO: Upgrade Organization → MedicalOrganization on ALL pages
+  // 5) AEO: Inject BlogPosting + Author/Publisher schema for blog posts
+  if (options.blogSlug) {
+    // Extract title from <title> tag
+    const titleMatch = h.match(/<title>([^<]+)<\/title>/);
+    const pageTitle = titleMatch ? titleMatch[1].replace(/ \| Oklahoma Blood Donors$/, '').trim() : 'Blood Donation Guide';
+
+    // Extract meta description
+    const descMatch = h.match(/<meta\s+name="description"\s+content="([^"]*)"/);
+    const pageDesc = descMatch ? descMatch[1] : '';
+
+    const blogPostingSchema = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": pageTitle,
+      "description": pageDesc,
+      "url": `https://oklahomabloodinstitute.com/blog/${options.blogSlug}`,
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-05-14",
+      "author": {
+        "@type": "Organization",
+        "@id": "https://oklahomabloodinstitute.com/#organization",
+        "name": "Oklahoma Blood Donors",
+        "url": "https://oklahomabloodinstitute.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://oklahomabloodinstitute.com/#organization",
+        "name": "Oklahoma Blood Donors",
+        "url": "https://oklahomabloodinstitute.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://oklahomabloodinstitute.com/images/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://oklahomabloodinstitute.com/blog/${options.blogSlug}`
+      },
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Oklahoma Blood Donors Blog",
+        "url": "https://oklahomabloodinstitute.com/blog"
+      }
+    };
+
+    // Inject before </head>
+    h = h.replace(
+      '</head>',
+      `<script type="application/ld+json">${JSON.stringify(blogPostingSchema)}</script>\n</head>`
+    );
+  }
+
+  // 6) Global AEO: Upgrade Organization → MedicalOrganization on ALL pages
   // This catches pages not handled by section 4 (blog, faq, questions, guides, etc.)
   h = h.replace(
     /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/g,
@@ -307,7 +359,7 @@ app.get('/blog/:slug', (req, res) => {
   serveHtml(
     path.join(VIEWS, 'blog', `${req.params.slug}.html`),
     res,
-    { fixYear: true }
+    { fixYear: true, blogSlug: req.params.slug }
   );
 });
 
@@ -428,12 +480,24 @@ app.get('/sitemap.xml', (req, res) => {
   if (fs.existsSync(sitemapPath)) {
     res.set('Content-Type', 'application/xml');
     res.set('Cache-Control', 'public, max-age=86400');
-    return res.sendFile(sitemapPath);
+    return res.sendFile(sitemapPath, (err) => {
+      if (err && !res.headersSent) {
+        console.error('[SITEMAP ERROR]', err.message);
+        res.status(500).send('Sitemap error');
+      }
+    });
   }
   const viewsSitemap = path.join(VIEWS, 'sitemap.xml');
   if (fs.existsSync(viewsSitemap)) {
-    res.set('Content-Type', 'application/xml');
-    return res.sendFile(viewsSitemap);
+    // Read and send directly to guarantee 200 status
+    try {
+      const xml = fs.readFileSync(viewsSitemap, 'utf8');
+      res.set('Content-Type', 'application/xml');
+      res.set('Cache-Control', 'public, max-age=86400');
+      return res.status(200).send(xml);
+    } catch (e) {
+      console.error('[SITEMAP ERROR]', e.message);
+    }
   }
   res.status(404).send('Sitemap not found');
 });
