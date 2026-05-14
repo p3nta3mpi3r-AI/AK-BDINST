@@ -363,6 +363,52 @@ app.get('/requirements', (req, res) => {
   serveHtml(path.join(VIEWS, 'requirements.html'), res);
 });
 
+
+// ─── Plasma City Pages ──────────────────────────────────────────────
+app.get('/plasma', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'index.html'), res);
+});
+
+app.get('/plasma/oklahoma-city', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'oklahoma-city.html'), res);
+});
+
+app.get('/plasma/tulsa', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'tulsa.html'), res);
+});
+
+app.get('/plasma/norman', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'norman.html'), res);
+});
+
+app.get('/plasma/edmond', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'edmond.html'), res);
+});
+
+app.get('/plasma/lawton', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'lawton.html'), res);
+});
+
+app.get('/plasma/broken-arrow', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'broken-arrow.html'), res);
+});
+
+app.get('/plasma/enid', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'enid.html'), res);
+});
+
+app.get('/plasma/midwest-city', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'midwest-city.html'), res);
+});
+
+app.get('/plasma/stillwater', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'stillwater.html'), res);
+});
+
+app.get('/plasma/moore', (req, res) => {
+  serveHtml(path.join(VIEWS, 'plasma', 'moore.html'), res);
+});
+
 app.get('/blog', (req, res) => {
   serveHtml(path.join(VIEWS, 'blog.html'), res, { fixYear: true });
 });
