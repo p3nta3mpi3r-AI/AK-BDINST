@@ -6,6 +6,19 @@ const app  = express();
 const PORT = process.env.PORT || 3000;
 const VIEWS = path.join(__dirname, 'views');
 
+// ─── Security Headers ──────────────────────────────────────────────
+app.disable('x-powered-by');
+app.use((req, res, next) => {
+  res.set('X-Frame-Options', 'SAMEORIGIN');
+  res.set('X-Content-Type-Options', 'nosniff');
+  res.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  if (req.secure || req.headers['x-forwarded-proto'] === 'https') {
+    res.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  }
+  next();
+});
+
 // ─── Correct OBI location data ──────────────────────────────────────
 let locationData = {};
 try {
