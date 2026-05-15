@@ -1,0 +1,423 @@
+/* OK Blood Donor — Editorial Stylesheet
+   oklahomabloodinstitute.com
+   Primary: #b91c1c | Text: #111827 | Muted: #6b7280
+   ================================================== */
+
+/* 1. RESET & BASE
+   -------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #111827;
+  background: #fff;
+  line-height: 1.7;
+}
+
+a { color: #b91c1c; text-decoration: underline; }
+a:hover { color: #7f1d1d; }
+
+img { max-width: 100%; display: block; }
+
+/* 2. LAYOUT
+   -------------------------------------------------- */
+.article-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+/* 3. SITE HEADER & NAV
+   -------------------------------------------------- */
+.site-header {
+  background: #111827;
+  color: #fff;
+  padding: 0 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+}
+
+.site-header .header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.65rem 0;
+}
+
+.brand {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+}
+
+.brand span { color: #f87171; }
+
+.site-header nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  align-items: center;
+}
+
+.site-header nav ul li a {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  border-radius: 3px;
+  transition: color .15s, background .15s;
+}
+
+.site-header nav ul li a:hover,
+.site-header nav ul li a[aria-current="page"] {
+  color: #fff;
+  background: rgba(255,255,255,.1);
+}
+
+.site-header nav ul li a[aria-current="page"] {
+  color: #fca5a5;
+}
+
+.site-header .cta {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: #b91c1c;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.4rem 0.85rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background .15s;
+}
+
+.site-header .cta:hover { background: #991b1b; color: #fff; }
+
+/* 4. BREADCRUMBS
+   -------------------------------------------------- */
+.breadcrumbs {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-bottom: 1.75rem;
+}
+
+.breadcrumbs a { color: #6b7280; text-decoration: none; }
+.breadcrumbs a:hover { color: #b91c1c; text-decoration: underline; }
+.breadcrumbs .sep { margin: 0 0.4rem; }
+
+/* 5. ARTICLE TYPOGRAPHY
+   -------------------------------------------------- */
+.eyebrow {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #b91c1c;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: clamp(1.65rem, 4vw, 2.35rem);
+  line-height: 1.22;
+  color: #111827;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: #111827;
+  margin: 2rem 0 0.6rem;
+  font-weight: 700;
+}
+
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; font-weight: 700; }
+
+.lede {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid #b91c1c;
+  padding-left: 1rem;
+}
+
+p { margin-bottom: 1.25rem; }
+
+strong { font-weight: 700; }
+
+/* 6. LISTS
+   -------------------------------------------------- */
+ul, ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+li { margin-bottom: 0.35rem; }
+
+.center-quick-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0 1.5rem;
+}
+
+.center-quick-list li {
+  padding: 0.55rem 0.75rem;
+  border-left: 3px solid #b91c1c;
+  background: #fef2f2;
+  margin-bottom: 0.5rem;
+  font-size: 0.93rem;
+  border-radius: 0 4px 4px 0;
+}
+
+/* 7. CTA BOX
+   -------------------------------------------------- */
+.cta-box {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-left: 4px solid #b91c1c;
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.cta-box h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #b91c1c;
+}
+
+.cta-box p { font-size: 0.95rem; margin-bottom: 1rem; }
+
+.cta-primary {
+  display: inline-block;
+  background: #b91c1c;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.65rem 1.5rem;
+  border-radius: 4px;
+  transition: background .15s;
+}
+
+.cta-primary:hover { background: #991b1b; color: #fff; }
+
+/* 8. RELATED ASIDE
+   -------------------------------------------------- */
+.related {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.related h3 { margin-top: 0; font-size: 1rem; color: #374151; }
+
+.related ul { padding-left: 1.25rem; margin-bottom: 0; }
+
+.related ul li { margin-bottom: 0.4rem; font-size: 0.92rem; }
+
+/* 9. SOURCES & DISCLAIMER
+   -------------------------------------------------- */
+.sources {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.sources li {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 0.35rem;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.sources li::before {
+  content: '↗';
+  position: absolute;
+  left: 0;
+  color: #b91c1c;
+}
+
+.sources a { color: #6b7280; }
+.sources a:hover { color: #b91c1c; }
+
+.disclaimer {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  border-top: 1px solid #f3f4f6;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  line-height: 1.55;
+}
+
+/* 10. DETAILS / SUMMARY (FAQ accordion)
+   -------------------------------------------------- */
+details {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.1rem 0;
+}
+
+details + details { border-top: none; }
+
+summary {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+  padding: 0.85rem 0.25rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::after {
+  content: '+';
+  color: #b91c1c;
+  font-size: 1.2rem;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+details[open] summary::after { content: '−'; }
+
+details[open] summary { color: #b91c1c; }
+
+details > *:not(summary) {
+  padding: 0 0.25rem 1rem;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* 11. NEWS GRID (listing page)
+   -------------------------------------------------- */
+.news-grid-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.news-grid-wrap h1 { margin-bottom: 0.35rem; }
+
+.news-grid-wrap .page-intro {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.news-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: box-shadow .15s, border-color .15s;
+}
+
+.news-card:hover {
+  box-shadow: 0 4px 16px rgba(185,28,28,.1);
+  border-color: #fca5a5;
+}
+
+.news-card .card-date {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: #b91c1c;
+}
+
+.news-card h2 {
+  font-size: 1.1rem;
+  line-height: 1.3;
+  margin: 0;
+  color: #111827;
+}
+
+.news-card h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-card h2 a:hover { color: #b91c1c; }
+
+.news-card .card-excerpt {
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.55;
+  flex: 1;
+  margin: 0;
+}
+
+.news-card .read-more {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #b91c1c;
+  text-decoration: none;
+  margin-top: 0.25rem;
+}
+
+.news-card .read-more:hover { text-decoration: underline; color: #7f1d1d; }
+
+/* 12. FOOTER
+   -------------------------------------------------- */
+.site-footer {
+  background: #111827;
+  color: #9ca3af;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  padding: 1.5rem 1.25rem;
+  line-height: 1.6;
+}
+
+.site-footer a { color: #d1d5db; }
+.site-footer a:hover { color: #fff; }
+
+/* 13. RESPONSIVE
+   -------------------------------------------------- */
+@media (max-width: 640px) {
+  .site-header .header-inner { gap: 0.5rem; }
+  .site-header nav ul { gap: 0; }
+  .news-grid { grid-template-columns: 1fr; }
+  .lede { font-size: 1rem; }
+  h1 { font-size: 1.6rem; }
+}
