@@ -421,3 +421,77 @@ details > *:not(summary) {
   .lede { font-size: 1rem; }
   h1 { font-size: 1.6rem; }
 }
+
+/* 14. MOBILE NAV — SLIDE-IN DRAWER
+   -------------------------------------------------- */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-nav-overlay.open {
+  display: block;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 280px;
+  max-width: 85vw;
+  height: 100vh;
+  height: 100dvh;
+  background: #fff;
+  z-index: 50;
+  padding: 1.5rem;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+}
+
+.dark .mobile-nav {
+  background: #030712;
+  color: #f3f4f6;
+}
+
+.mobile-nav.open {
+  left: 0;
+}
+
+/* Hide mobile nav entirely on md+ screens — even if .open is set */
+@media (min-width: 768px) {
+  .mobile-nav,
+  .mobile-nav-overlay {
+    display: none !important;
+  }
+}
+
+/* 15. FAQ ACCORDION FIX
+   -------------------------------------------------- */
+.faq-answer {
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+/* 16. BLOG FEATURED IMAGE CONSTRAINT
+   -------------------------------------------------- */
+.blog-featured-img,
+.featured-guide img,
+[class*="featured"] img {
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* 17. PRINT STYLES
+   -------------------------------------------------- */
+@media print {
+  .mobile-nav,
+  .mobile-nav-overlay,
+  .no-print { display: none !important; }
+}
