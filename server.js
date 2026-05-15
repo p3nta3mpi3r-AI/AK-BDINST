@@ -477,6 +477,10 @@ app.get('/donate-blood/:slug', (req, res) => {
 });
 
 // News pages
+app.get('/news', (req, res) => {
+  serveHtml(path.join(VIEWS, 'news.html'), res, { fixYear: true });
+});
+
 app.get('/news/:slug', (req, res) => {
   serveHtml(
     path.join(VIEWS, 'news', `${req.params.slug}.html`),
