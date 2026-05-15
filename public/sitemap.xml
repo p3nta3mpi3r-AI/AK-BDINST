@@ -145,24 +145,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://oklahomabloodinstitute.com/locations/stillwater</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/locations/muskogee</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/locations/bartlesville</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://oklahomabloodinstitute.com/blog/oklahoma-city-guide</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -374,24 +356,6 @@
   </url>
   <url>
     <loc>https://oklahomabloodinstitute.com/donate-blood/yukon</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/donate-blood/stillwater</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/donate-blood/muskogee</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/donate-blood/bartlesville</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1189,60 +1153,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oklahomabloodinstitute.com/blog/stillwater-guide</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/stillwater-compensation</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/stillwater-tips</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/muskogee-guide</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/muskogee-compensation</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/muskogee-tips</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/bartlesville-guide</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/bartlesville-compensation</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/bartlesville-tips</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://oklahomabloodinstitute.com/donate/74008</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -1412,12 +1322,6 @@
   </url>
   <url>
     <loc>https://oklahomabloodinstitute.com/plasma/midwest-city</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/plasma/stillwater</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

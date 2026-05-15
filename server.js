@@ -401,9 +401,6 @@ app.get('/plasma/midwest-city', (req, res) => {
   serveHtml(path.join(VIEWS, 'plasma', 'midwest-city.html'), res);
 });
 
-app.get('/plasma/stillwater', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', 'stillwater.html'), res);
-});
 
 app.get('/plasma/moore', (req, res) => {
   serveHtml(path.join(VIEWS, 'plasma', 'moore.html'), res);

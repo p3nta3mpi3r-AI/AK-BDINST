@@ -202,60 +202,6 @@
       "El Reno"
     ]
   },
-  "stillwater": {
-    "name": "Stillwater Donor Center",
-    "address": "2214 N Boomer Rd",
-    "city": "Stillwater",
-    "state": "OK",
-    "zip": "74075",
-    "phone": "(405) 744-5433",
-    "hours": "Mon-Fri 8am-6pm, Sat 9am-3pm",
-    "openingHoursSpec": [
-      "Mo-Fr 08:00-18:00",
-      "Sa 09:00-15:00"
-    ],
-    "areaServed": [
-      "Stillwater",
-      "Perkins",
-      "Cushing"
-    ]
-  },
-  "muskogee": {
-    "name": "Muskogee Donor Center",
-    "address": "3031 N York St",
-    "city": "Muskogee",
-    "state": "OK",
-    "zip": "74403",
-    "phone": "(918) 686-5433",
-    "hours": "Mon-Fri 8am-6pm, Sat 9am-3pm",
-    "openingHoursSpec": [
-      "Mo-Fr 08:00-18:00",
-      "Sa 09:00-15:00"
-    ],
-    "areaServed": [
-      "Muskogee",
-      "Tahlequah",
-      "Fort Gibson"
-    ]
-  },
-  "bartlesville": {
-    "name": "Bartlesville Donor Center",
-    "address": "4100 SE Adams Blvd",
-    "city": "Bartlesville",
-    "state": "OK",
-    "zip": "74006",
-    "phone": "(918) 335-5433",
-    "hours": "Mon-Fri 8am-6pm, Sat 9am-3pm",
-    "openingHoursSpec": [
-      "Mo-Fr 08:00-18:00",
-      "Sa 09:00-15:00"
-    ],
-    "areaServed": [
-      "Bartlesville",
-      "Nowata",
-      "Dewey"
-    ]
-  },
   "tinker-afb-mobile": {
     "name": "Tinker AFB Mobile Blood Drive",
     "address": "550 CMMXS/MXDPB BLDG 3707",
