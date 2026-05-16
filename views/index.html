@@ -322,15 +322,52 @@
             <a href="/locations" class="mt-4 inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-6 text-white" style="background-color: oklch(0.547 0.213 27.325)">Find a Center Near You</a>
             <p class="text-sm text-gray-500 dark:text-gray-400 mt-3">Prefer to book on your phone? Scan the QR code above with your smartphone camera.</p>
           </div>
-          <div class="flex flex-col items-center justify-center text-center">
-            <h3 class="text-xl font-bold mb-2">Schedule Your Donation</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">Sign up for your appointment at your nearest Oklahoma donor center. Complete the form in under 2 minutes.</p>
-            <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" data-ga-cta="schedule_form_cta"
-              class="w-full rounded-md text-sm font-bold h-12 px-8 text-white cursor-pointer shadow-lg flex items-center justify-center gap-2"
-              style="background-color: oklch(0.547 0.213 27.325);">
-              Sign Up to Donate
-            </a>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-3">No commitment. No spam. Unsubscribe anytime.</p>
+          <div class="flex flex-col justify-center">
+            <h3 class="text-xl font-bold mb-3">Schedule Your Donation</h3>
+            <form class="donor-signup-form space-y-3" onsubmit="submitScheduleForm(event)">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+                <input type="text" id="name" name="name" required
+                  class="w-full px-3 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                  placeholder="Jane Doe" oninput="clearFieldError(this)">
+                <span id="name-error" class="hidden text-red-600 text-xs mt-1"></span>
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                <input type="email" id="email" name="email" required
+                  class="w-full px-3 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                  placeholder="jane@email.com" oninput="clearFieldError(this)">
+                <span id="email-error" class="hidden text-red-600 text-xs mt-1"></span>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label for="zip_code" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">OK ZIP Code</label>
+                  <input type="text" id="zip_code" name="zip_code" required maxlength="5" inputmode="numeric" pattern="[0-9]*"
+                    class="w-full px-3 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                    placeholder="73104" oninput="clearFieldError(this)">
+                  <span id="zip_code-error" class="hidden text-red-600 text-xs mt-1"></span>
+                </div>
+                <div>
+                  <label for="blood_type" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Blood Type</label>
+                  <select id="blood_type" name="blood_type"
+                    class="w-full px-3 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors">
+                    <option value="unknown">Don't know</option>
+                    <option value="O+">O+</option><option value="O-">O−</option>
+                    <option value="A+">A+</option><option value="A-">A−</option>
+                    <option value="B+">B+</option><option value="B-">B−</option>
+                    <option value="AB+">AB+</option><option value="AB-">AB−</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit"
+                class="w-full rounded-lg text-sm font-bold h-12 text-white shadow-md cursor-pointer transition-colors"
+                style="background-color: oklch(0.547 0.213 27.325);"
+                onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'"
+                onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">
+                Sign Up to Donate
+              </button>
+              <p class="text-xs text-gray-500 dark:text-gray-400 text-center">No spam. Unsubscribe anytime.</p>
+            </form>
           </div>
         </div>
       </div>
@@ -526,19 +563,63 @@
 
     
   <section class="py-16 bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-6">Ready to Make a Difference?</h2>
-      
-  <div class="flex flex-col items-center gap-3">
-    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Scan to schedule on mobile:</p>
-    <div class="qr-container">
-      <img src="https://cdn.chat2db-ai.com/app/avatar/custom/49ee916e-d17a-45bc-b0ae-012482b8e67a_753314.png" alt="QR Code to schedule blood donation appointment" width="180" height="180" class="mx-auto">
-    </div>
-    <p class="text-xs text-gray-500 dark:text-gray-400">Use your smartphone camera to scan and schedule</p>
-  </div>
-      <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" data-ga-cta="cta_section_primary" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-11 px-8 text-white shadow-lg" style="background-color: oklch(0.547 0.213 27.325)">Sign Up to Donate Now</a>
-        <a href="/locations" data-ga-cta="cta_section_secondary" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-11 px-8 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">Find Nearest Center</a>
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Ready to Make a Difference?</h2>
+      <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+        <!-- Left: QR Code -->
+        <div class="text-center flex flex-col items-center justify-center">
+          <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-3">Scan to schedule on mobile:</p>
+          <div class="qr-container">
+            <img src="https://cdn.chat2db-ai.com/app/avatar/custom/49ee916e-d17a-45bc-b0ae-012482b8e67a_753314.png" alt="QR Code to schedule blood donation appointment" width="200" height="200" class="mx-auto">
+          </div>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-3">Use your smartphone camera to scan and schedule</p>
+          <a href="/locations" class="mt-4 inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-6 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Find Nearest Center</a>
+        </div>
+        <!-- Right: Signup Form -->
+        <div class="flex flex-col justify-center">
+          <h3 class="text-xl font-bold mb-3">Sign Up in Under 2 Minutes</h3>
+          <form class="donor-signup-form space-y-3" onsubmit="submitScheduleForm(event)">
+            <div>
+              <label for="name-bottom" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+              <input type="text" id="name-bottom" name="name" required
+                class="w-full px-3 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                placeholder="Jane Doe">
+            </div>
+            <div>
+              <label for="email-bottom" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+              <input type="email" id="email-bottom" name="email" required
+                class="w-full px-3 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                placeholder="jane@email.com">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label for="zip_code-bottom" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">OK ZIP Code</label>
+                <input type="text" id="zip_code-bottom" name="zip_code" required maxlength="5" inputmode="numeric" pattern="[0-9]*"
+                  class="w-full px-3 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                  placeholder="73104">
+              </div>
+              <div>
+                <label for="blood_type-bottom" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Blood Type</label>
+                <select id="blood_type-bottom" name="blood_type"
+                  class="w-full px-3 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors">
+                  <option value="unknown">Don't know</option>
+                  <option value="O+">O+</option><option value="O-">O−</option>
+                  <option value="A+">A+</option><option value="A-">A−</option>
+                  <option value="B+">B+</option><option value="B-">B−</option>
+                  <option value="AB+">AB+</option><option value="AB-">AB−</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit"
+              class="w-full rounded-lg text-sm font-bold h-12 text-white shadow-md cursor-pointer transition-colors"
+              style="background-color: oklch(0.547 0.213 27.325);"
+              onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'"
+              onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">
+              Sign Up to Donate
+            </button>
+            <p class="text-xs text-gray-500 dark:text-gray-400 text-center">No spam. Unsubscribe anytime.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>

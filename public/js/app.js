@@ -6,7 +6,7 @@
 // Target: OBI Donor Portal ZIP scheduler (real appointment booking)
 // Fallback: Donable agent registration (kept as DONABLE_URL)
 // ============================================================
-var SCHEDULER_URL = 'https://www.yourbloodinstitute.org/donor/schedules/zip';
+var SCHEDULER_URL = 'https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912';
 var DONABLE_URL = 'https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912';
 
 // Safe GA4 event helper — no-ops gracefully if GA4 script isn't loaded
@@ -205,15 +205,24 @@ function clearFieldError(el) {
   }
 }
 
-// Donation schedule form — PATCHED: saves locally then redirects to OBI scheduler
+// Donation schedule form — saves locally for analytics then redirects to Donable
 async function submitScheduleForm(event) {
   event.preventDefault();
   var form = event.target;
 
-  // Inline validation
-  var nameOk = validateField('name', function(v) { return v.length >= 2 ? true : 'Please enter your full name'; });
-  var emailOk = validateField('email', function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? true : 'Please enter a valid email address'; });
-  var zipOk = validateField('zip_code', function(v) { return /^7[34][0-9]{3}$/.test(v) ? true : 'Please enter a valid Oklahoma ZIP code (73000-74999)'; });
+  // Get field elements from the submitting form (supports multiple forms on one page)
+  var nameEl = form.querySelector('[name="name"]');
+  var emailEl = form.querySelector('[name="email"]');
+  var zipEl = form.querySelector('[name="zip_code"]');
+
+  // Inline validation using the form's own fields
+  var nameOk = nameEl && nameEl.value.trim().length >= 2;
+  var emailOk = emailEl && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim());
+  var zipOk = zipEl && /^7[34][0-9]{3}$/.test(zipEl.value.trim());
+
+  if (!nameOk && nameEl) { nameEl.classList.add('border-red-500'); var err = nameEl.parentElement.querySelector('[id$="-error"]'); if(err){err.textContent='Please enter your full name';err.classList.remove('hidden');} }
+  if (!emailOk && emailEl) { emailEl.classList.add('border-red-500'); var err = emailEl.parentElement.querySelector('[id$="-error"]'); if(err){err.textContent='Please enter a valid email';err.classList.remove('hidden');} }
+  if (!zipOk && zipEl) { zipEl.classList.add('border-red-500'); var err = zipEl.parentElement.querySelector('[id$="-error"]'); if(err){err.textContent='Enter a valid OK ZIP (73000-74999)';err.classList.remove('hidden');} }
   if (!nameOk || !emailOk || !zipOk) return;
 
   var formData = new FormData(form);
@@ -273,27 +282,26 @@ function initHeroVideo() {
 }
 
 // ============================================================
-// OBI SCHEDULER LINK REWRITER — rewrites all CTA links to OBI scheduler
-// This runs on every page load and catches ALL href="#schedule-form",
-// href="/#schedule-form", and href="/donate" CTA links.
-// Target: https://www.yourbloodinstitute.org/donor/schedules/zip
+// DONABLE LINK REWRITER — rewrites schedule/donate CTA links to Donable
+// Ensures all legacy href="#schedule-form", href="/#schedule-form", and
+// href="/donate" links point to the Donable registration page.
 // ============================================================
 function rewriteCtaLinks() {
-  // Rewrite all schedule-form anchor links to OBI scheduler
+  // Rewrite schedule-form anchor links to Donable
   document.querySelectorAll('a[href="#schedule-form"], a[href="/#schedule-form"]').forEach(function(link) {
     link.href = SCHEDULER_URL;
     link.addEventListener('click', function() {
-      trackEvent('cta_click_scheduler', { original_href: 'schedule-form', button_text: link.textContent.trim(), destination: 'obi_zip_scheduler' });
+      trackEvent('cta_click_donable', { original_href: 'schedule-form', button_text: link.textContent.trim(), destination: 'donable' });
     });
   });
 
-  // Rewrite /donate CTA links (on city pages)
+  // Rewrite /donate CTA links to Donable
   document.querySelectorAll('a[href="/donate"]').forEach(function(link) {
     var text = link.textContent.trim().toLowerCase();
     if (text.includes('schedule') || text.includes('sign up') || text.includes('donate') || text.includes('now')) {
       link.href = SCHEDULER_URL;
       link.addEventListener('click', function() {
-        trackEvent('cta_click_scheduler', { original_href: '/donate', button_text: link.textContent.trim(), destination: 'obi_zip_scheduler' });
+        trackEvent('cta_click_donable', { original_href: '/donate', button_text: link.textContent.trim(), destination: 'donable' });
       });
     }
   });
@@ -371,8 +379,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // *** OBI SCHEDULER REDIRECT: Rewrite all CTA links to OBI donor scheduler ***
   rewriteCtaLinks();
 
-  // *** HIDE DUMMY FORM: Remove the local form, keep QR code ***
-  hideDummyForm();
+  // *** FORM DISPLAY: Real donation form is now live next to QR code ***
+  // hideDummyForm() — disabled; donor-signup-form is the production form
 
   // Hide sticky bar when near top of page (don't cover hero content)
   var stickyBar = document.getElementById('sticky-mobile-cta');
