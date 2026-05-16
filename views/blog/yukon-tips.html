@@ -134,7 +134,7 @@
           <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
         <!-- Mobile menu button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Open menu" aria-expanded="false">
+        <button id="mobile-menu-btn" onclick="toggleMobileNav()" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Open menu" aria-expanded="false">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
@@ -143,11 +143,11 @@
 
   <!-- Mobile Navigation Overlay -->
   <div id="mobile-nav" class="fixed inset-0 z-50 hidden" aria-hidden="true">
-    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="mobile-nav-overlay"></div>
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="mobile-nav-overlay" onclick="closeMobileNav()"></div>
     <nav class="absolute right-0 top-0 bottom-0 w-72 bg-white dark:bg-gray-950 shadow-2xl p-6 flex flex-col gap-2 overflow-y-auto" aria-label="Mobile navigation">
       <div class="flex justify-between items-center mb-4">
         <span class="font-bold text-lg">Menu</span>
-        <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Close menu">
+        <button id="mobile-menu-close" onclick="closeMobileNav()" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Close menu">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
@@ -155,12 +155,6 @@
       <a href="/questions/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">FAQs</a>
       <a href="/blog/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">Blog</a>
       <a href="/locations/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">Locations</a>
-      <div class="mt-auto pt-6 border-t border-gray-200 dark:border-gray-800">
-        <a href="tel:+14052783100" class="flex items-center gap-2 px-4 py-3 rounded-lg bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 font-medium">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call to Schedule
-        </a>
-      </div>
     </nav>
   </div>
 
@@ -625,82 +619,15 @@
   </footer>
 
   <!-- Sticky Mobile CTA -->
-  <div class="fixed bottom-0 left-0 right-0 z-30 md:hidden bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 p-3 flex gap-2">
-    <a href="tel:405-354-7080" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 text-sm font-semibold">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      Call
-    </a>
-    <a href="#schedule-form" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-white text-sm font-bold" style="background-color: oklch(0.547 0.213 27.325)">
-      Schedule Now
-    </a>
-  </div>
 
   <!-- Theme toggle -->
-  <script>
-    const toggle = document.getElementById('theme-toggle');
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-      });
-    }
-  </script>
 
   <!-- Mobile nav -->
-  <script>
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const menuClose = document.getElementById('mobile-menu-close');
-    const mobileNav = document.getElementById('mobile-nav');
-    const overlay = document.getElementById('mobile-nav-overlay');
-    function openNav() { mobileNav.classList.remove('hidden'); mobileNav.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
-    function closeNav() { mobileNav.classList.add('hidden'); mobileNav.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
-    if (menuBtn) menuBtn.addEventListener('click', openNav);
-    if (menuClose) menuClose.addEventListener('click', closeNav);
-    if (overlay) overlay.addEventListener('click', closeNav);
-  </script>
 
   <!-- FAQ Accordion -->
   
 
   <!-- Form submission -->
-  <script>
-    function submitScheduleForm(e) {
-      e.preventDefault();
-      const form = e.target;
-      const name = form.querySelector('#name').value.trim();
-      const email = form.querySelector('#email').value.trim();
-      const zip = form.querySelector('#zip_code').value.trim();
-      let valid = true;
-
-      // Reset errors
-      form.querySelectorAll('[id$="-error"]').forEach(el => { el.classList.add('hidden'); el.textContent = ''; });
-
-      if (name.length < 2) {
-        document.getElementById('name-error').textContent = 'Please enter your full name.';
-        document.getElementById('name-error').classList.remove('hidden');
-        valid = false;
-      }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        document.getElementById('email-error').textContent = 'Please enter a valid email.';
-        document.getElementById('email-error').classList.remove('hidden');
-        valid = false;
-      }
-      if (!/^\d{5}$/.test(zip)) {
-        document.getElementById('zip_code-error').textContent = 'Enter a 5-digit ZIP code.';
-        document.getElementById('zip_code-error').classList.remove('hidden');
-        valid = false;
-      }
-
-      if (valid) {
-        const btn = form.querySelector('button[type="submit"]');
-        btn.textContent = 'Thank You!';
-        btn.disabled = true;
-        btn.style.opacity = '0.7';
-        setTimeout(() => { btn.textContent = 'Sign Up to Donate'; btn.disabled = false; btn.style.opacity = '1'; }, 3000);
-      }
-    }
-  </script>
-
 
   <!-- Sticky Mobile CTA Bar -->
   <div id="sticky-mobile-cta" class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 shadow-[0_-4px_16px_rgba(0,0,0,0.12)] px-4 py-3 flex items-center justify-between gap-3" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));">
