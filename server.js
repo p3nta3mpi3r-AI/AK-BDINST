@@ -16,6 +16,13 @@ try {
   console.warn('data/locations.json not found, address corrections disabled');
 }
 
+// ─── SEO: redirect .html blog URLs to clean URLs (avoid duplicate content) ──
+app.use((req, res, next) => {
+  const m = req.path.match(/^\/blog\/(.+)\.html$/);
+  if (m) return res.redirect(301, `/blog/${m[1]}`);
+  next();
+});
+
 // ─── Static files ───────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '7d',
