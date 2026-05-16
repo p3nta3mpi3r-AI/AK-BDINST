@@ -1,13 +1,13 @@
 // Oklahoma Blood Donors - Client-side JavaScript
 
 // ============================================================
-// OBI SCHEDULER REDIRECT — fixes all 38 broken signup CTAs
-// Added: 2026-05-09  |  Updated: 2026-05-09  |  Ticket: P0-05
-// Target: OBI Donor Portal ZIP scheduler (real appointment booking)
-// Fallback: Donable agent registration (kept as DONABLE_URL)
+// OBI SCHEDULER — all CTA links scroll to on-page Donable iframe
+// Direct links to donableapp.com removed because Donable's
+// "Remember me" feature pre-fills personal data on return visits.
+// Iframes don't have this issue (third-party storage blocked).
 // ============================================================
-var SCHEDULER_URL = 'https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912';
-var DONABLE_URL = 'https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912';
+var SCHEDULER_URL = '#schedule-form';
+var DONABLE_URL = '#schedule-form';
 
 // Safe GA4 event helper — no-ops gracefully if GA4 script isn't loaded
 function trackEvent(eventName, params) {
@@ -395,21 +395,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Defer hero video until after page is interactive
   initHeroVideo();
 
-  // *** OBI SCHEDULER REDIRECT: Rewrite all CTA links to OBI donor scheduler ***
+  // *** CTA LINK REWRITER: Points all CTAs to on-page iframe (not external Donable) ***
   rewriteCtaLinks();
 
-  // *** FORM DISPLAY: Real donation form is now live next to QR code ***
-  // hideDummyForm() — disabled; donor-signup-form is the production form
-
-  // Hide sticky bar when near top of page (don't cover hero content)
-  var stickyBar = document.getElementById('sticky-mobile-cta');
-  if (stickyBar) {
-    function updateStickyVisibility() {
-      stickyBar.style.display = (window.scrollY < 300) ? 'none' : '';
-    }
-    updateStickyVisibility();
-    window.addEventListener('scroll', updateStickyVisibility, { passive: true });
-  }
+  // *** FORM DISPLAY: Donable iframe embeds are the production forms ***
+  // Sticky mobile CTA bar removed — was opening Donable directly with prefilled data
 
   // Restore urgency banner if not dismissed in this session
   restoreUrgencyBanner();
