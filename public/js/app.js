@@ -205,37 +205,56 @@ function clearFieldError(el) {
   }
 }
 
-// Donation schedule form — saves locally for analytics then redirects to Donable
+// Donation schedule form — validates 6 Donable-matching fields, saves for analytics, redirects
 async function submitScheduleForm(event) {
   event.preventDefault();
   var form = event.target;
 
   // Get field elements from the submitting form (supports multiple forms on one page)
-  var nameEl = form.querySelector('[name="name"]');
+  var firstNameEl = form.querySelector('[name="first_name"]');
+  var lastNameEl = form.querySelector('[name="last_name"]');
+  var phoneEl = form.querySelector('[name="phone"]');
+  var dobEl = form.querySelector('[name="dob"]');
   var emailEl = form.querySelector('[name="email"]');
   var zipEl = form.querySelector('[name="zip_code"]');
 
-  // Inline validation using the form's own fields
-  var nameOk = nameEl && nameEl.value.trim().length >= 2;
+  // Inline validation matching Donable requirements
+  var firstOk = firstNameEl && firstNameEl.value.trim().length >= 1;
+  var lastOk = lastNameEl && lastNameEl.value.trim().length >= 1;
+  var phoneOk = phoneEl && /^[0-9]{10}$/.test(phoneEl.value.trim().replace(/\D/g, ''));
+  var dobOk = dobEl && dobEl.value.trim().length >= 8;
   var emailOk = emailEl && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim());
   var zipOk = zipEl && /^7[34][0-9]{3}$/.test(zipEl.value.trim());
 
-  if (!nameOk && nameEl) { nameEl.classList.add('border-red-500'); var err = nameEl.parentElement.querySelector('[id$="-error"]'); if(err){err.textContent='Please enter your full name';err.classList.remove('hidden');} }
-  if (!emailOk && emailEl) { emailEl.classList.add('border-red-500'); var err = emailEl.parentElement.querySelector('[id$="-error"]'); if(err){err.textContent='Please enter a valid email';err.classList.remove('hidden');} }
-  if (!zipOk && zipEl) { zipEl.classList.add('border-red-500'); var err = zipEl.parentElement.querySelector('[id$="-error"]'); if(err){err.textContent='Enter a valid OK ZIP (73000-74999)';err.classList.remove('hidden');} }
-  if (!nameOk || !emailOk || !zipOk) return;
+  // Show field-level errors
+  function showErr(el, msg) {
+    if (!el) return;
+    el.classList.add('border-red-500');
+    var err = el.parentElement.querySelector('[id$="-error"]');
+    if (err) { err.textContent = msg; err.classList.remove('hidden'); }
+  }
+  if (!firstOk) showErr(firstNameEl, 'First name is required');
+  if (!lastOk) showErr(lastNameEl, 'Last name is required');
+  if (!phoneOk) showErr(phoneEl, 'Enter a 10-digit phone number');
+  if (!dobOk) showErr(dobEl, 'Date of birth is required');
+  if (!emailOk) showErr(emailEl, 'Please enter a valid email');
+  if (!zipOk) showErr(zipEl, 'Enter a valid OK ZIP (73000-74999)');
+  if (!firstOk || !lastOk || !phoneOk || !dobOk || !emailOk || !zipOk) return;
 
   var formData = new FormData(form);
+  var rawPhone = (formData.get('phone') || '').replace(/\D/g, '');
   var data = {
-    name: formData.get('name') || '',
+    first_name: formData.get('first_name') || '',
+    last_name: formData.get('last_name') || '',
+    name: (formData.get('first_name') || '') + ' ' + (formData.get('last_name') || ''),
+    phone: rawPhone,
+    dob: formData.get('dob') || '',
     email: formData.get('email') || '',
-    zip_code: formData.get('zip_code') || '',
-    blood_type: formData.get('blood_type') || 'unknown'
+    zip_code: formData.get('zip_code') || ''
   };
 
   var submitBtn = form.querySelector('button[type="submit"]');
   if (submitBtn) {
-    var originalText = submitBtn.textContent;
     submitBtn.textContent = 'Redirecting to scheduler...';
     submitBtn.disabled = true;
   }
@@ -248,10 +267,10 @@ async function submitScheduleForm(event) {
       body: JSON.stringify(data)
     }).catch(function() {}); // don't block redirect if local save fails
 
-    trackEvent('donate_signup', { blood_type: data.blood_type, zip_code: data.zip_code });
+    trackEvent('donate_signup', { zip_code: data.zip_code });
     trackEvent('form_submit', { form_name: 'donor_signup', page_url: window.location.pathname });
 
-    // REDIRECT TO OBI SCHEDULER — the real appointment booking system
+    // REDIRECT TO DONABLE — the real appointment scheduling system
     window.location.href = SCHEDULER_URL;
 
   } catch (err) {

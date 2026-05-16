@@ -500,13 +500,20 @@ app.get('/donate-near-me/:zip', (req, res) => {
 });
 
 // ─── API: Donor Signup ──────────────────────────────────────────────
+// Accepts 6-field Donable-matching form: first_name, last_name, phone, dob, email, zip_code
+// Also backward-compatible with old 4-field form (name, email, zip_code, blood_type)
 app.post('/api/signups', async (req, res) => {
-  const { name, email, zip_code, blood_type, source } = req.body;
+  const { first_name, last_name, name, phone, dob, email, zip_code, blood_type, source } = req.body;
+
+  // Build full name from first+last or use legacy name field
+  const fullName = (first_name && last_name)
+    ? `${first_name.trim()} ${last_name.trim()}`
+    : (name || '').trim();
 
   // Validation
-  if (!name || !email || !zip_code) {
+  if (!fullName || !email || !zip_code) {
     return res.status(400).json({
-      error: 'Missing required fields: name, email, zip_code'
+      error: 'Missing required fields: name (or first_name+last_name), email, zip_code'
     });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -516,8 +523,11 @@ app.post('/api/signups', async (req, res) => {
     return res.status(400).json({ error: 'Invalid Oklahoma ZIP code' });
   }
 
+  const extras = [];
+  if (phone) extras.push(`phone=${phone}`);
+  if (dob) extras.push(`dob=${dob}`);
   console.log(
-    `[SIGNUP] ${new Date().toISOString()} | ${name} | ${email} | ${zip_code} | ${blood_type || 'unknown'} | ${source || 'web'}`
+    `[SIGNUP] ${new Date().toISOString()} | ${fullName} | ${email} | ${zip_code} | ${blood_type || 'n/a'} | ${source || 'web'} | ${extras.join(' ') || 'no-extras'}`
   );
 
   // Database insert (if DATABASE_URL is configured)
@@ -528,16 +538,34 @@ app.post('/api/signups', async (req, res) => {
         connectionString: process.env.DATABASE_URL,
         ssl: { rejectUnauthorized: false }
       });
-      const result = await pool.query(
-        'INSERT INTO signups (name, email, zip_code, blood_type, source, created_at) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING id',
-        [name, email, zip_code, blood_type || 'unknown', source || 'web']
-      );
-      await pool.end();
-      return res.status(201).json({
-        success: true,
-        message: 'Signup recorded',
-        signup_id: result.rows[0].id
-      });
+      // Try extended insert with phone+dob columns; fall back to original columns
+      try {
+        const result = await pool.query(
+          'INSERT INTO signups (name, email, zip_code, blood_type, phone, dob, source, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7, NOW()) RETURNING id',
+          [fullName, email, zip_code, blood_type || 'unknown', phone || null, dob || null, source || 'web']
+        );
+        await pool.end();
+        return res.status(201).json({
+          success: true,
+          message: 'Signup recorded',
+          signup_id: result.rows[0].id
+        });
+      } catch (colErr) {
+        // phone/dob columns may not exist yet — retry with original columns
+        if (colErr.message && colErr.message.includes('column')) {
+          const result = await pool.query(
+            'INSERT INTO signups (name, email, zip_code, blood_type, source, created_at) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING id',
+            [fullName, email, zip_code, blood_type || 'unknown', source || 'web']
+          );
+          await pool.end();
+          return res.status(201).json({
+            success: true,
+            message: 'Signup recorded',
+            signup_id: result.rows[0].id
+          });
+        }
+        throw colErr;
+      }
     } catch (dbErr) {
       console.error('[SIGNUP DB ERROR]', dbErr.message);
       // Fall through to non-DB response
