@@ -16,6 +16,20 @@ try {
   console.warn('data/locations.json not found, address corrections disabled');
 }
 
+// ─── Security headers ──────────────────────────────────────────────
+app.disable('x-powered-by');
+app.use((req, res, next) => {
+  res.set({
+    'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'SAMEORIGIN',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+    'Content-Security-Policy': "frame-ancestors 'self'"
+  });
+  next();
+});
+
 // ─── SEO: redirect .html blog URLs to clean URLs (avoid duplicate content) ──
 app.use((req, res, next) => {
   const m = req.path.match(/^\/blog\/(.+)\.html$/);
