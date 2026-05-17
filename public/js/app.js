@@ -314,6 +314,15 @@ function rewriteCtaLinks() {
     });
   });
 
+  // Rewrite any remaining direct Donable links to on-page iframe
+  // (server-side transform handles most, this catches edge cases)
+  document.querySelectorAll('a[href*="donableapp.com"]').forEach(function(link) {
+    link.href = '/#schedule-form';
+    link.addEventListener('click', function() {
+      trackEvent('cta_click_donable', { original_href: 'donableapp_direct', button_text: link.textContent.trim(), destination: 'schedule-form' });
+    });
+  });
+
   // Rewrite /donate CTA links to Donable
   document.querySelectorAll('a[href="/donate"]').forEach(function(link) {
     var text = link.textContent.trim().toLowerCase();

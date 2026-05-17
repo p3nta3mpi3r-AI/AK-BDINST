@@ -57,6 +57,16 @@ app.use(express.urlencoded({ extended: true }));
 function transformHtml(html, options = {}) {
   let h = html;
 
+  // 0) Replace direct Donable links with on-page iframe anchor
+  // Direct links (e.g. https://donableapp.com/register/1664F99D-...) trigger
+  // Donable's "Remember me" feature which prefills personal data from previous
+  // visits. Using /#schedule-form instead routes to the homepage iframe embed
+  // where third-party cookies are blocked, preventing prefill.
+  h = h.replace(
+    /href="https:\/\/donableapp\.com\/register\/[^"]*"/gi,
+    'href="/#schedule-form"'
+  );
+
   // 1) Swap Tailwind CDN for purged CSS (saves ~440KB)
   h = h.replace(
     /<script\s+src="https:\/\/cdn\.tailwindcss\.com"><\/script>/gi,
