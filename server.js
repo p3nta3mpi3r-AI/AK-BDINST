@@ -600,6 +600,140 @@ app.post('/api/signups', async (req, res) => {
   });
 });
 
+// ─── Bot detection helper ──────────────────────────────────────────
+const BOT_UA_PATTERNS = [
+  /bot/i, /crawl/i, /spider/i, /slurp/i, /mediapartners/i,
+  /facebookexternalhit/i, /Twitterbot/i, /LinkedInBot/i,
+  /WhatsApp/i, /Discordbot/i, /Googlebot/i, /bingbot/i,
+  /YandexBot/i, /DuckDuckBot/i, /Baiduspider/i, /Sogou/i,
+  /Applebot/i, /AhrefsBot/i, /SemrushBot/i, /MJ12bot/i,
+  /DotBot/i, /PetalBot/i, /UptimeRobot/i, /pingdom/i,
+  /StatusCake/i, /Checkly/i, /HeadlessChrome/i, /PhantomJS/i,
+  /curl/i, /wget/i, /python-requests/i, /Go-http-client/i,
+  /node-fetch/i, /axios/i, /libwww/i, /httpx/i,
+  /Scrapy/i, /Nutch/i, /archive\.org_bot/i
+];
+
+// Exploit scanners (always block / log separately)
+const SCANNER_PATHS = [
+  /\.env/i, /\.git/i, /wp-admin/i, /wp-login/i, /wp-content/i,
+  /phpinfo/i, /phpmyadmin/i, /\.php$/i, /xmlrpc/i, /cgi-bin/i,
+  /\.asp$/i, /\.aspx$/i, /\.jsp$/i, /admin\/config/i, /\.sql$/i,
+  /telescope\/requests/i, /actuator/i, /debug\/default/i
+];
+
+function isBot(userAgent) {
+  if (!userAgent) return true;
+  return BOT_UA_PATTERNS.some(p => p.test(userAgent));
+}
+
+function isScanner(reqPath) {
+  return SCANNER_PATHS.some(p => p.test(reqPath));
+}
+
+// ─── API: Page-View Tracking ──────────────────────────────────────
+// Client fires POST from app.js trackPageView() on every page load
+app.post('/api/track/page-view', async (req, res) => {
+  const ua = req.headers['user-agent'] || '';
+  const botFlag = isBot(ua);
+  const scannerFlag = isScanner(req.body.path || '');
+  const { path: pagePath, referrer, utm_source, utm_medium, utm_campaign } = req.body;
+
+  // Always return 200 quickly — never block the client
+  res.json({ ok: true });
+
+  // Log to console for real-time monitoring
+  const tag = botFlag ? 'BOT' : (scannerFlag ? 'SCANNER' : 'HUMAN');
+  console.log(
+    `[PAGEVIEW][${tag}] ${new Date().toISOString()} | ${pagePath || '/'} | ref=${referrer || 'direct'} | utm=${utm_source || '-'}/${utm_medium || '-'}/${utm_campaign || '-'} | ua=${ua.substring(0, 80)}`
+  );
+
+  // Database insert (if DATABASE_URL is configured)
+  if (process.env.DATABASE_URL) {
+    try {
+      const { Pool } = require('pg');
+      const pool = new Pool({
+        connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false }
+      });
+
+      // Auto-create page_views table if it doesn't exist
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS page_views (
+          id SERIAL PRIMARY KEY,
+          path TEXT NOT NULL,
+          referrer TEXT,
+          utm_source TEXT,
+          utm_medium TEXT,
+          utm_campaign TEXT,
+          user_agent TEXT,
+          ip TEXT,
+          is_bot BOOLEAN DEFAULT false,
+          is_scanner BOOLEAN DEFAULT false,
+          created_at TIMESTAMPTZ DEFAULT NOW()
+        )
+      `);
+
+      // Get IP (behind proxy like Cloudflare/Render)
+      const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim()
+        || req.headers['cf-connecting-ip']
+        || req.socket.remoteAddress
+        || null;
+
+      await pool.query(
+        `INSERT INTO page_views (path, referrer, utm_source, utm_medium, utm_campaign, user_agent, ip, is_bot, is_scanner)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+        [
+          pagePath || '/',
+          referrer || null,
+          utm_source || null,
+          utm_medium || null,
+          utm_campaign || null,
+          ua.substring(0, 500),
+          ip,
+          botFlag,
+          scannerFlag
+        ]
+      );
+      await pool.end();
+    } catch (dbErr) {
+      console.error('[PAGEVIEW DB ERROR]', dbErr.message);
+    }
+  }
+});
+
+// ─── API: Signups Count (social proof) ─────────────────────────────
+// Returns total signups for the social proof counter on the homepage
+app.get('/api/signups/count', async (req, res) => {
+  // Default to the hardcoded baseline if DB isn't available
+  let count = 847;
+
+  if (process.env.DATABASE_URL) {
+    try {
+      const { Pool } = require('pg');
+      const pool = new Pool({
+        connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false }
+      });
+      const result = await pool.query('SELECT COUNT(*) AS total FROM signups');
+      const dbCount = parseInt(result.rows[0].total, 10);
+      // Use DB count + baseline offset (847 existing before DB tracking started)
+      count = 847 + dbCount;
+      await pool.end();
+    } catch (dbErr) {
+      console.error('[SIGNUPS COUNT DB ERROR]', dbErr.message);
+      // Fall through to default
+    }
+  }
+
+  res.set('Cache-Control', 'public, max-age=300'); // cache 5 min
+  res.json({ count });
+});
+
+// ─── Security: Block exploit scanners with 403 ────────────────────
+// .env probes, wp-admin scanners, etc. — return 403 instead of 404
+// (placed AFTER API routes so it doesn't block legitimate API calls)
+
 // ─── IndexNow Verification ──────────────────────────────────────────
 app.get('/1acaceda82049435cdc869f315b88148.txt', (req, res) => {
   res.type('text').send('1acaceda82049435cdc869f315b88148');
@@ -655,6 +789,22 @@ app.get('/osu', (req, res) => {
 
 app.get('/osu/flyer', (req, res) => {
   serveHtml(path.join(VIEWS, 'osu-flyer.html'), res);
+});
+
+// ─── Exploit Scanner Blocker ────────────────────────────────────────
+// Return 403 for .env probes, wp-admin scanners, PHP exploits, etc.
+// Logs the attempt so we can monitor attack patterns.
+app.use((req, res, next) => {
+  if (isScanner(req.path)) {
+    const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim()
+      || req.headers['cf-connecting-ip']
+      || req.socket.remoteAddress || '?';
+    console.warn(
+      `[SCANNER BLOCKED] ${new Date().toISOString()} | ${req.method} ${req.path} | ip=${ip} | ua=${(req.headers['user-agent'] || '').substring(0, 80)}`
+    );
+    return res.status(403).send('Forbidden');
+  }
+  next();
 });
 
 // ─── 404 Handler ────────────────────────────────────────────────────

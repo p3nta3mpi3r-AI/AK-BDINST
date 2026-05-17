@@ -385,12 +385,29 @@ function hideDummyForm() {
   }
 }
 
+// Social proof counter — fetch live signup count and update the homepage banner
+function loadSocialProofCount() {
+  var counterEl = document.querySelector('[data-signup-count]');
+  if (!counterEl) return; // not on a page with the counter
+  fetch('/api/signups/count')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data && data.count) {
+        counterEl.textContent = 'Join ' + data.count.toLocaleString() + '+ Oklahomans who\'ve pledged to donate';
+      }
+    })
+    .catch(function() {}); // silent — keep hardcoded fallback
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
   initTheme();
 
   // Track page view with UTM attribution
   trackPageView();
+
+  // Load dynamic social proof counter
+  loadSocialProofCount();
 
   // Defer hero video until after page is interactive
   initHeroVideo();
