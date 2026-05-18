@@ -1,13 +1,12 @@
 // Oklahoma Blood Donors - Client-side JavaScript
 
 // ============================================================
-// OBI SCHEDULER — all CTA links scroll to on-page Donable iframe
-// Direct links to donableapp.com removed because Donable's
-// "Remember me" feature pre-fills personal data on return visits.
-// Iframes don't have this issue (third-party storage blocked).
+// OBI SCHEDULER — CTA links direct to Donable registration page.
+// On-page Donable iframes also exist for users who prefer to
+// fill out the form without leaving the site.
 // ============================================================
-var SCHEDULER_URL = '#schedule-form';
-var DONABLE_URL = '#schedule-form';
+var SCHEDULER_URL = 'https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912';
+var DONABLE_URL = 'https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912';
 
 // Safe GA4 event helper — no-ops gracefully if GA4 script isn't loaded
 function trackEvent(eventName, params) {
@@ -301,29 +300,18 @@ function initHeroVideo() {
 }
 
 // ============================================================
-// DONABLE LINK REWRITER — rewrites schedule/donate CTA links to Donable
-// Ensures all legacy href="#schedule-form", href="/#schedule-form", and
-// href="/donate" links point to the Donable registration page.
+// CTA CLICK TRACKER — attaches GA4 tracking to all donation CTA links.
+// Links are NOT rewritten; hrefs in HTML are the source of truth.
 // ============================================================
 function rewriteCtaLinks() {
-  // Rewrite schedule-form anchor links to Donable
-  document.querySelectorAll('a[href="#schedule-form"], a[href="/#schedule-form"]').forEach(function(link) {
-    link.href = SCHEDULER_URL;
-    link.addEventListener('click', function() {
-      trackEvent('cta_click_donable', { original_href: 'schedule-form', button_text: link.textContent.trim(), destination: 'donable' });
-    });
-  });
-
-  // Rewrite any remaining direct Donable links to on-page iframe
-  // (server-side transform handles most, this catches edge cases)
+  // Track clicks on Donable direct links
   document.querySelectorAll('a[href*="donableapp.com"]').forEach(function(link) {
-    link.href = '/#schedule-form';
     link.addEventListener('click', function() {
-      trackEvent('cta_click_donable', { original_href: 'donableapp_direct', button_text: link.textContent.trim(), destination: 'schedule-form' });
+      trackEvent('cta_click_donable', { button_text: link.textContent.trim(), destination: 'donable' });
     });
   });
 
-  // Rewrite /donate CTA links to Donable
+  // Track clicks on /donate links and rewrite them to Donable
   document.querySelectorAll('a[href="/donate"]').forEach(function(link) {
     var text = link.textContent.trim().toLowerCase();
     if (text.includes('schedule') || text.includes('sign up') || text.includes('donate') || text.includes('now')) {

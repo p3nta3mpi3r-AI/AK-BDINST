@@ -38,14 +38,11 @@ app.use((req, res, next) => {
 });
 
 // ─── Static files ───────────────────────────────────────────────────
-// Cache 1 hour with must-revalidate so browsers check for updates on deploys.
-// Never use 'immutable' on unversioned filenames — it locks mobile Safari
-// into the cached copy for the entire max-age window with no way to bust it.
 app.use(express.static(path.join(__dirname, 'public'), {
-  maxAge: '1h',
+  maxAge: '7d',
   setHeaders: (res, filePath) => {
     if (filePath.endsWith('.css') || filePath.endsWith('.js')) {
-      res.set('Cache-Control', 'public, max-age=3600, must-revalidate');
+      res.set('Cache-Control', 'public, max-age=604800, immutable');
     }
   }
 }));
@@ -57,27 +54,18 @@ app.use(express.urlencoded({ extended: true }));
 // ─── HTML Transformation Engine ─────────────────────────────────────
 // Replaces: Tailwind CDN -> purged CSS, 2024->2026, fake->real addresses
 
-// Cache-bust version — bump on every deploy that changes JS or CSS
-const ASSET_VERSION = '20260518a';
-
 function transformHtml(html, options = {}) {
   let h = html;
 
-  // 0) Cache-bust all local JS and CSS references
-  // Appends ?v=VERSION to /js/*.js and /css/*.css so browsers fetch fresh copies
-  h = h.replace(
-    /(<(?:script|link)[^>]*(?:src|href)="\/(?:js|css)\/[^"?]+)("|(?:\?[^"]*)?")/gi,
-    function(match, prefix, suffix) {
-      // Strip any existing ?v= param, then append current version
-      var clean = prefix.replace(/\?v=[^"]*/, '');
-      return clean + '?v=' + ASSET_VERSION + '"';
-    }
-  );
+  // 0) Donable links pass through unchanged — the Donable form is embedded
+  // via iframes AND linked directly for QR codes and bottom-of-page CTAs.
+  // Previously these were rewritten to /#schedule-form, but that broke
+  // QR code tap-through and confused users expecting external navigation.
 
   // 1) Swap Tailwind CDN for purged CSS (saves ~440KB)
   h = h.replace(
     /<script\s+src="https:\/\/cdn\.tailwindcss\.com"><\/script>/gi,
-    '<link rel="stylesheet" href="/css/tailwind-purged.css?v=' + ASSET_VERSION + '">'
+    '<link rel="stylesheet" href="/css/tailwind-purged.css">'
   );
 
   // Remove Tailwind config <script> block and replace with essential utility styles
@@ -186,8 +174,8 @@ function transformHtml(html, options = {}) {
 
       // Replace the generic Organization block with MedicalOrganization
       h = h.replace(
-        /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"OK Blood Donor"/,
-        '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"OK Blood Donor"'
+        /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/,
+        '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors"'
       );
 
       // Replace Article schema with MedicalOrganization + LocalBusiness
@@ -197,7 +185,7 @@ function transformHtml(html, options = {}) {
           "@context": "https://schema.org",
           "@type": ["MedicalOrganization", "LocalBusiness"],
           "@id": `https://oklahomabloodinstitute.com/donate-blood/${options.locationSlug}#location`,
-          "name": `OK Blood Donor — ${cityName}`,
+          "name": `Oklahoma Blood Donors — ${cityName}`,
           "description": `Donate blood in ${cityName}, Oklahoma. Walk-ins welcome at the ${loc.name}.`,
           "url": `https://oklahomabloodinstitute.com/donate-blood/${options.locationSlug}`,
           "telephone": loc.phone,
@@ -219,7 +207,7 @@ function transformHtml(html, options = {}) {
           "parentOrganization": {
             "@type": "MedicalOrganization",
             "@id": "https://oklahomabloodinstitute.com/#organization",
-            "name": "OK Blood Donor"
+            "name": "Oklahoma Blood Donors"
           }
         };
 
@@ -250,7 +238,7 @@ function transformHtml(html, options = {}) {
   if (options.blogSlug) {
     // Extract title from <title> tag
     const titleMatch = h.match(/<title>([^<]+)<\/title>/);
-    const pageTitle = titleMatch ? titleMatch[1].replace(/ \| OK Blood Donor$/, '').trim() : 'Blood Donation Guide';
+    const pageTitle = titleMatch ? titleMatch[1].replace(/ \| Oklahoma Blood Donors$/, '').trim() : 'Blood Donation Guide';
 
     // Extract meta description
     const descMatch = h.match(/<meta\s+name="description"\s+content="([^"]*)"/);
@@ -267,13 +255,13 @@ function transformHtml(html, options = {}) {
       "author": {
         "@type": "Organization",
         "@id": "https://oklahomabloodinstitute.com/#organization",
-        "name": "OK Blood Donor",
+        "name": "Oklahoma Blood Donors",
         "url": "https://oklahomabloodinstitute.com"
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://oklahomabloodinstitute.com/#organization",
-        "name": "OK Blood Donor",
+        "name": "Oklahoma Blood Donors",
         "url": "https://oklahomabloodinstitute.com",
         "logo": {
           "@type": "ImageObject",
@@ -286,7 +274,7 @@ function transformHtml(html, options = {}) {
       },
       "isPartOf": {
         "@type": "Blog",
-        "name": "OK Blood Donor Blog",
+        "name": "Oklahoma Blood Donors Blog",
         "url": "https://oklahomabloodinstitute.com/blog"
       }
     };
@@ -340,19 +328,9 @@ function transformHtml(html, options = {}) {
   // 7) Global AEO: Upgrade Organization → MedicalOrganization on ALL pages
   // This catches pages not handled by section 4 (blog, faq, questions, guides, etc.)
   h = h.replace(
-    /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"OK Blood Donor"/g,
-    '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"OK Blood Donor","telephone":"+1-877-340-8777"'
+    /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/g,
+    '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors","telephone":"+1-877-340-8777"'
   );
-
-  // 8) Brand alignment: Enforce canonical "OK Blood Donor" across all pages
-  // Replace legacy "Oklahoma Blood Donors" (made-up hybrid, not a real org name)
-  h = h.replace(/Oklahoma Blood Donors/g, 'OK Blood Donor');
-  // Replace "Oklahoma Blood Institute" in UI chrome only (title, meta, nav, footer)
-  // Preserves legitimate OBI references in article/FAQ content
-  h = h.replace(/(<title>[^<]*)Oklahoma Blood Institute([^<]*<\/title>)/g, '$1OK Blood Donor$2');
-  h = h.replace(/(content="[^"]*)Oklahoma Blood Institute([^"]*")/g, '$1OK Blood Donor$2');
-  h = h.replace(/(class="[^"]*font-bold[^"]*">)Oklahoma Blood Institute(<\/span>)/g, '$1OK Blood Donor$2');
-  h = h.replace(/(?:©|&copy;)\s*\d{4}\s*Oklahoma Blood Institute/g, '&copy; 2026 OK Blood Donor');
 
   return h;
 }
@@ -368,10 +346,10 @@ function serveHtml(filePath, res, options = {}) {
       return res.status(404).send('Page not found');
     }
     const transformed = transformHtml(html, options);
-    // Cache HTML: 5 min in browser, 1 hour at CDN, stale OK for 1 hour while revalidating
+    // Cache HTML for 1 hour at CDN, 5 min in browser
     res.set(
       'Cache-Control',
-      'public, max-age=300, s-maxage=3600, stale-while-revalidate=3600'
+      'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400'
     );
     res.type('html').send(transformed);
   });
