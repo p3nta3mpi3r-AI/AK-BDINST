@@ -352,7 +352,7 @@ function transformHtml(html, options = {}) {
   h = h.replace(/(<title>[^<]*)Oklahoma Blood Institute([^<]*<\/title>)/g, '$1OK Blood Donor$2');
   h = h.replace(/(content="[^"]*)Oklahoma Blood Institute([^"]*")/g, '$1OK Blood Donor$2');
   h = h.replace(/(class="[^"]*font-bold[^"]*">)Oklahoma Blood Institute(<\/span>)/g, '$1OK Blood Donor$2');
-  h = h.replace(/© \d{4} Oklahoma Blood Institute/g, '© 2026 OK Blood Donor');
+  h = h.replace(/(?:©|&copy;)\s*\d{4}\s*Oklahoma Blood Institute/g, '&copy; 2026 OK Blood Donor');
 
   return h;
 }
