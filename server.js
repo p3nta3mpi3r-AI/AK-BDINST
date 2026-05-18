@@ -38,11 +38,14 @@ app.use((req, res, next) => {
 });
 
 // ─── Static files ───────────────────────────────────────────────────
+// Cache 1 hour with must-revalidate so browsers check for updates on deploys.
+// Never use 'immutable' on unversioned filenames — it locks mobile Safari
+// into the cached copy for the entire max-age window with no way to bust it.
 app.use(express.static(path.join(__dirname, 'public'), {
-  maxAge: '7d',
+  maxAge: '1h',
   setHeaders: (res, filePath) => {
     if (filePath.endsWith('.css') || filePath.endsWith('.js')) {
-      res.set('Cache-Control', 'public, max-age=604800, immutable');
+      res.set('Cache-Control', 'public, max-age=3600, must-revalidate');
     }
   }
 }));
@@ -54,13 +57,27 @@ app.use(express.urlencoded({ extended: true }));
 // ─── HTML Transformation Engine ─────────────────────────────────────
 // Replaces: Tailwind CDN -> purged CSS, 2024->2026, fake->real addresses
 
+// Cache-bust version — bump on every deploy that changes JS or CSS
+const ASSET_VERSION = '20260518a';
+
 function transformHtml(html, options = {}) {
   let h = html;
+
+  // 0) Cache-bust all local JS and CSS references
+  // Appends ?v=VERSION to /js/*.js and /css/*.css so browsers fetch fresh copies
+  h = h.replace(
+    /(<(?:script|link)[^>]*(?:src|href)="\/(?:js|css)\/[^"?]+)("|(?:\?[^"]*)?")/gi,
+    function(match, prefix, suffix) {
+      // Strip any existing ?v= param, then append current version
+      var clean = prefix.replace(/\?v=[^"]*/, '');
+      return clean + '?v=' + ASSET_VERSION + '"';
+    }
+  );
 
   // 1) Swap Tailwind CDN for purged CSS (saves ~440KB)
   h = h.replace(
     /<script\s+src="https:\/\/cdn\.tailwindcss\.com"><\/script>/gi,
-    '<link rel="stylesheet" href="/css/tailwind-purged.css">'
+    '<link rel="stylesheet" href="/css/tailwind-purged.css?v=' + ASSET_VERSION + '">'
   );
 
   // Remove Tailwind config <script> block and replace with essential utility styles
@@ -341,10 +358,10 @@ function serveHtml(filePath, res, options = {}) {
       return res.status(404).send('Page not found');
     }
     const transformed = transformHtml(html, options);
-    // Cache HTML for 1 hour at CDN, 5 min in browser
+    // Cache HTML: 5 min in browser, 1 hour at CDN, stale OK for 1 hour while revalidating
     res.set(
       'Cache-Control',
-      'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400'
+      'public, max-age=300, s-maxage=3600, stale-while-revalidate=3600'
     );
     res.type('html').send(transformed);
   });
