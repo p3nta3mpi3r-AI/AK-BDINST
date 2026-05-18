@@ -186,8 +186,8 @@ function transformHtml(html, options = {}) {
 
       // Replace the generic Organization block with MedicalOrganization
       h = h.replace(
-        /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/,
-        '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors"'
+        /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"OK Blood Donor"/,
+        '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"OK Blood Donor"'
       );
 
       // Replace Article schema with MedicalOrganization + LocalBusiness
@@ -197,7 +197,7 @@ function transformHtml(html, options = {}) {
           "@context": "https://schema.org",
           "@type": ["MedicalOrganization", "LocalBusiness"],
           "@id": `https://oklahomabloodinstitute.com/donate-blood/${options.locationSlug}#location`,
-          "name": `Oklahoma Blood Donors — ${cityName}`,
+          "name": `OK Blood Donor — ${cityName}`,
           "description": `Donate blood in ${cityName}, Oklahoma. Walk-ins welcome at the ${loc.name}.`,
           "url": `https://oklahomabloodinstitute.com/donate-blood/${options.locationSlug}`,
           "telephone": loc.phone,
@@ -219,7 +219,7 @@ function transformHtml(html, options = {}) {
           "parentOrganization": {
             "@type": "MedicalOrganization",
             "@id": "https://oklahomabloodinstitute.com/#organization",
-            "name": "Oklahoma Blood Donors"
+            "name": "OK Blood Donor"
           }
         };
 
@@ -250,7 +250,7 @@ function transformHtml(html, options = {}) {
   if (options.blogSlug) {
     // Extract title from <title> tag
     const titleMatch = h.match(/<title>([^<]+)<\/title>/);
-    const pageTitle = titleMatch ? titleMatch[1].replace(/ \| Oklahoma Blood Donors$/, '').trim() : 'Blood Donation Guide';
+    const pageTitle = titleMatch ? titleMatch[1].replace(/ \| OK Blood Donor$/, '').trim() : 'Blood Donation Guide';
 
     // Extract meta description
     const descMatch = h.match(/<meta\s+name="description"\s+content="([^"]*)"/);
@@ -267,13 +267,13 @@ function transformHtml(html, options = {}) {
       "author": {
         "@type": "Organization",
         "@id": "https://oklahomabloodinstitute.com/#organization",
-        "name": "Oklahoma Blood Donors",
+        "name": "OK Blood Donor",
         "url": "https://oklahomabloodinstitute.com"
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://oklahomabloodinstitute.com/#organization",
-        "name": "Oklahoma Blood Donors",
+        "name": "OK Blood Donor",
         "url": "https://oklahomabloodinstitute.com",
         "logo": {
           "@type": "ImageObject",
@@ -286,7 +286,7 @@ function transformHtml(html, options = {}) {
       },
       "isPartOf": {
         "@type": "Blog",
-        "name": "Oklahoma Blood Donors Blog",
+        "name": "OK Blood Donor Blog",
         "url": "https://oklahomabloodinstitute.com/blog"
       }
     };
@@ -340,9 +340,19 @@ function transformHtml(html, options = {}) {
   // 7) Global AEO: Upgrade Organization → MedicalOrganization on ALL pages
   // This catches pages not handled by section 4 (blog, faq, questions, guides, etc.)
   h = h.replace(
-    /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/g,
-    '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors","telephone":"+1-877-340-8777"'
+    /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"OK Blood Donor"/g,
+    '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"OK Blood Donor","telephone":"+1-877-340-8777"'
   );
+
+  // 8) Brand alignment: Enforce canonical "OK Blood Donor" across all pages
+  // Replace legacy "Oklahoma Blood Donors" (made-up hybrid, not a real org name)
+  h = h.replace(/Oklahoma Blood Donors/g, 'OK Blood Donor');
+  // Replace "Oklahoma Blood Institute" in UI chrome only (title, meta, nav, footer)
+  // Preserves legitimate OBI references in article/FAQ content
+  h = h.replace(/(<title>[^<]*)Oklahoma Blood Institute([^<]*<\/title>)/g, '$1OK Blood Donor$2');
+  h = h.replace(/(content="[^"]*)Oklahoma Blood Institute([^"]*")/g, '$1OK Blood Donor$2');
+  h = h.replace(/(class="[^"]*font-bold[^"]*">)Oklahoma Blood Institute(<\/span>)/g, '$1OK Blood Donor$2');
+  h = h.replace(/© \d{4} Oklahoma Blood Institute/g, '© 2026 OK Blood Donor');
 
   return h;
 }
