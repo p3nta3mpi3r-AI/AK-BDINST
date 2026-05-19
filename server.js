@@ -389,6 +389,14 @@ app.get('/requirements', (req, res) => {
   serveHtml(path.join(VIEWS, 'requirements.html'), res);
 });
 
+app.get('/contact', (req, res) => {
+  serveHtml(path.join(VIEWS, 'contact.html'), res);
+});
+
+// /eligibility → redirect to the eligibility guide (SEO keyword target)
+app.get('/eligibility', (req, res) => {
+  res.redirect(301, '/guides/eligibility');
+});
 
 // ─── Plasma City Pages ──────────────────────────────────────────────
 app.get('/plasma', (req, res) => {
