@@ -96,16 +96,19 @@ function restoreUrgencyBanner() {
 
 // FAQ accordion
 function toggleFaq(element) {
-  const answer = element.nextElementSibling;
-  const icon = element.querySelector('.faq-icon');
+  var answer = element.nextElementSibling;
+  var icon = element.querySelector('.faq-icon');
 
-  document.querySelectorAll('.faq-answer.open').forEach(el => {
+  // Close all other open answers and update their aria-expanded
+  document.querySelectorAll('.faq-answer.open').forEach(function(el) {
     if (el !== answer) {
       el.classList.remove('open');
       el.style.maxHeight = '0';
       el.style.padding = '0 1.5rem';
-      const otherIcon = el.previousElementSibling.querySelector('.faq-icon');
+      var otherBtn = el.previousElementSibling;
+      var otherIcon = otherBtn.querySelector('.faq-icon');
       if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+      otherBtn.setAttribute('aria-expanded', 'false');
     }
   });
 
@@ -114,13 +117,25 @@ function toggleFaq(element) {
     answer.style.maxHeight = '0';
     answer.style.padding = '0 1.5rem';
     if (icon) icon.style.transform = 'rotate(0deg)';
+    element.setAttribute('aria-expanded', 'false');
   } else {
     answer.classList.add('open');
     answer.style.maxHeight = answer.scrollHeight + 32 + 'px';
     answer.style.padding = '1rem 1.5rem';
     if (icon) icon.style.transform = 'rotate(180deg)';
+    element.setAttribute('aria-expanded', 'true');
   }
 }
+
+// Initialize FAQ buttons with aria-expanded on page load
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.faq-answer').forEach(function(answer) {
+    var btn = answer.previousElementSibling;
+    if (btn && btn.tagName === 'BUTTON') {
+      btn.setAttribute('aria-expanded', answer.classList.contains('open') ? 'true' : 'false');
+    }
+  });
+});
 
 // FAQ category filter
 function filterFaq(category) {

@@ -332,6 +332,57 @@ function transformHtml(html, options = {}) {
     '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors","telephone":"+1-877-340-8777"'
   );
 
+  // 8) Accessibility fixes (WCAG 2.1 AA compliance) — applied to ALL pages
+  // 8a) Skip-to-content link — first focusable element for keyboard/screen reader users
+  h = h.replace(
+    /<body([^>]*)>\s*/,
+    `<body$1>\n  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:rounded-md focus:shadow-lg focus:ring-2" style="color: oklch(0.547 0.213 27.325)">Skip to main content</a>\n`
+  );
+  // Add id="main-content" to <main> for skip link target
+  h = h.replace(/<main\b(?![^>]*id=)/, '<main id="main-content"');
+
+  // 8b) Navigation aria-labels
+  h = h.replace(
+    /<nav class="hidden md:flex items-center/g,
+    '<nav aria-label="Main navigation" class="hidden md:flex items-center'
+  );
+  h = h.replace(
+    /<nav class="flex flex-col space-y-4 text-base font-medium">/g,
+    '<nav aria-label="Mobile navigation" class="flex flex-col space-y-4 text-base font-medium">'
+  );
+
+  // 8c) Hamburger button aria-label
+  h = h.replace(
+    /onclick="toggleMobileNav\(\)"\s*class="cursor-pointer/g,
+    'onclick="toggleMobileNav()" aria-label="Open mobile menu" class="cursor-pointer'
+  );
+
+  // 8d) Theme toggle button — already has sr-only span, add aria-label for clarity
+  h = h.replace(
+    /onclick="toggleTheme\(\)"\s*class="cursor-pointer/g,
+    'onclick="toggleTheme()" aria-label="Toggle dark mode" class="cursor-pointer'
+  );
+
+  // 8e) Fix gray-400 text contrast on light backgrounds (2.4:1 → 4.6:1)
+  // gray-400 (#9ca3af) on white = 2.43:1 — FAILS AA
+  // gray-500 (#6b7280) on white = 4.64:1 — PASSES AA
+  // In dark mode, gray-400 on gray-950 = 7.8:1 — passes, so keep dark:text-gray-400
+  h = h.replace(/text-gray-400 dark:text-gray-500/g, 'text-gray-500 dark:text-gray-400');
+  h = h.replace(/text-gray-400 dark:text-gray-400/g, 'text-gray-500 dark:text-gray-400');
+
+  // 8f) Add aria-hidden to ALL inline SVGs (they're decorative icons)
+  // Screen readers announce unlabelled SVGs as empty images — hide them
+  h = h.replace(/<svg\s(?!.*aria-hidden)/g, '<svg aria-hidden="true" ');
+
+  // 8g) Announce new-tab links for screen reader users
+  h = h.replace(
+    /target="_blank"([^>]*>)([^<]*)<\/a>/g,
+    (match, attrs, text) => {
+      if (match.includes('sr-only')) return match; // already has announcement
+      return `target="_blank"${attrs}${text} <span class="sr-only">(opens in new tab)</span></a>`;
+    }
+  );
+
   return h;
 }
 
