@@ -175,7 +175,7 @@ function transformHtml(html, options = {}) {
       // Replace the generic Organization block with MedicalOrganization
       h = h.replace(
         /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/,
-        '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"OK Blood Donor"'
+        '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors"'
       );
 
       // Replace Article schema with MedicalOrganization + LocalBusiness
@@ -185,7 +185,7 @@ function transformHtml(html, options = {}) {
           "@context": "https://schema.org",
           "@type": ["MedicalOrganization", "LocalBusiness"],
           "@id": `https://oklahomabloodinstitute.com/donate-blood/${options.locationSlug}#location`,
-          "name": `OK Blood Donor — ${cityName}`,
+          "name": `Oklahoma Blood Donors — ${cityName}`,
           "description": `Donate blood in ${cityName}, Oklahoma. Walk-ins welcome at the ${loc.name}.`,
           "url": `https://oklahomabloodinstitute.com/donate-blood/${options.locationSlug}`,
           "telephone": loc.phone,
@@ -207,7 +207,7 @@ function transformHtml(html, options = {}) {
           "parentOrganization": {
             "@type": "MedicalOrganization",
             "@id": "https://oklahomabloodinstitute.com/#organization",
-            "name": "OK Blood Donor"
+            "name": "Oklahoma Blood Donors"
           }
         };
 
@@ -238,7 +238,7 @@ function transformHtml(html, options = {}) {
   if (options.blogSlug) {
     // Extract title from <title> tag
     const titleMatch = h.match(/<title>([^<]+)<\/title>/);
-    const pageTitle = titleMatch ? titleMatch[1].replace(/ \| (?:Oklahoma Blood Donors|OK Blood Donor)$/, '').trim() : 'Blood Donation Guide';
+    const pageTitle = titleMatch ? titleMatch[1].replace(/ \| Oklahoma Blood Donors$/, '').trim() : 'Blood Donation Guide';
 
     // Extract meta description
     const descMatch = h.match(/<meta\s+name="description"\s+content="([^"]*)"/);
@@ -255,13 +255,13 @@ function transformHtml(html, options = {}) {
       "author": {
         "@type": "Organization",
         "@id": "https://oklahomabloodinstitute.com/#organization",
-        "name": "OK Blood Donor",
+        "name": "Oklahoma Blood Donors",
         "url": "https://oklahomabloodinstitute.com"
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://oklahomabloodinstitute.com/#organization",
-        "name": "OK Blood Donor",
+        "name": "Oklahoma Blood Donors",
         "url": "https://oklahomabloodinstitute.com",
         "logo": {
           "@type": "ImageObject",
@@ -274,7 +274,7 @@ function transformHtml(html, options = {}) {
       },
       "isPartOf": {
         "@type": "Blog",
-        "name": "OK Blood Donor Blog",
+        "name": "Oklahoma Blood Donors Blog",
         "url": "https://oklahomabloodinstitute.com/blog"
       }
     };
@@ -329,7 +329,7 @@ function transformHtml(html, options = {}) {
   // This catches pages not handled by section 4 (blog, faq, questions, guides, etc.)
   h = h.replace(
     /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/g,
-    '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"OK Blood Donor","telephone":"+1-877-340-8777"'
+    '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors","telephone":"+1-877-340-8777"'
   );
 
   // 8) Accessibility fixes (WCAG 2.1 AA compliance) — applied to ALL pages
@@ -382,39 +382,6 @@ function transformHtml(html, options = {}) {
       return `target="_blank"${attrs}${text} <span class="sr-only">(opens in new tab)</span></a>`;
     }
   );
-
-  // 9) Brand alignment — canonical name is "OK Blood Donor" everywhere
-  // Catches any remaining template-level brand strings the per-section
-  // transforms above did not reach. Order matters: longest match first.
-
-  // 9a) JSON-LD / schema: replace in name fields (within quotes)
-  h = h.replace(/"name"\s*:\s*"Oklahoma Blood Donors"/g, '"name":"OK Blood Donor"');
-  h = h.replace(/"name"\s*:\s*"Oklahoma Blood Institute"/g, '"name":"OK Blood Donor"');
-
-  // 9b) HTML <title> and OG/Twitter meta tags
-  h = h.replace(/(<title>[^<]*?)Oklahoma Blood Donors/g, '$1OK Blood Donor');
-  h = h.replace(/(<title>[^<]*?)Oklahoma Blood Institute/g, '$1OK Blood Donor');
-  h = h.replace(/(content="[^"]*?)Oklahoma Blood Donors/g, '$1OK Blood Donor');
-  h = h.replace(/(content="[^"]*?)Oklahoma Blood Institute/g, '$1OK Blood Donor');
-
-  // 9c) Nav brand span and footer copyright
-  h = h.replace(/>Oklahoma Blood Donors</g, '>OK Blood Donor<');
-  h = h.replace(/>\s*Oklahoma Blood Institute\s*</g, '>OK Blood Donor<');
-  // Footer copyright: "&copy; 2026 Oklahoma Blood Donors. All rights reserved."
-  h = h.replace(/&copy;\s*\d{4}\s*Oklahoma Blood Donors/g, '&copy; 2026 OK Blood Donor');
-  h = h.replace(/&copy;\s*\d{4}\s*Oklahoma Blood Institute/g, '&copy; 2026 OK Blood Donor');
-  // CTA / link text: "About Oklahoma Blood Donors" -> "About OK Blood Donor"
-  h = h.replace(/About Oklahoma Blood Donors/g, 'About OK Blood Donor');
-  h = h.replace(/About Oklahoma Blood Institute/g, 'About OK Blood Donor');
-
-  // 9d) Description fields in schema that mention "Our Blood Institute donor centers"
-  h = h.replace(/"Our Blood Institute donor centers"/g, '"certified blood donor centers across Oklahoma"');
-  h = h.replace(/Our Blood Institute donor centers/g, 'certified blood donor centers across Oklahoma');
-
-  // NOTE: Legitimate references to the real OBI nonprofit ("formerly known as
-  // the Oklahoma Blood Institute", "Our Blood Institute announced") inside
-  // article body text are NOT replaced — the patterns above are scoped to
-  // structural elements (title, meta, nav, schema, footer).
 
   return h;
 }
@@ -525,6 +492,10 @@ app.get('/plasma/moore', (req, res) => {
 });
 
 app.get('/blog', (req, res) => {
+  serveHtml(path.join(VIEWS, 'blog.html'), res, { fixYear: true });
+});
+// Catch trailing-slash variant to prevent unnecessary 301 redirect
+app.get('/blog/', (req, res) => {
   serveHtml(path.join(VIEWS, 'blog.html'), res, { fixYear: true });
 });
 
