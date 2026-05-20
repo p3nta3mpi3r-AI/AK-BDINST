@@ -392,7 +392,9 @@ function serveHtml(filePath, res, options = {}) {
     if (err) {
       const notFound = path.join(VIEWS, '404.html');
       if (fs.existsSync(notFound)) {
-        return res.status(404).sendFile(notFound);
+        // Read + transform so 404 page gets purged CSS, a11y fixes, etc.
+        const notFoundHtml = fs.readFileSync(notFound, 'utf8');
+        return res.status(404).type('html').send(transformHtml(notFoundHtml));
       }
       return res.status(404).send('Page not found');
     }
@@ -880,7 +882,9 @@ app.use((req, res, next) => {
 app.use((req, res) => {
   const notFound = path.join(VIEWS, '404.html');
   if (fs.existsSync(notFound)) {
-    return res.status(404).sendFile(notFound);
+    // Read + transform so 404 page gets purged CSS, a11y fixes, etc.
+    const html = fs.readFileSync(notFound, 'utf8');
+    return res.status(404).type('html').send(transformHtml(html));
   }
   res.status(404).send('Page not found');
 });
