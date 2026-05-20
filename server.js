@@ -400,6 +400,12 @@ function transformHtml(html, options = {}) {
   // 9c) Nav brand span and footer copyright
   h = h.replace(/>Oklahoma Blood Donors</g, '>OK Blood Donor<');
   h = h.replace(/>\s*Oklahoma Blood Institute\s*</g, '>OK Blood Donor<');
+  // Footer copyright: "&copy; 2026 Oklahoma Blood Donors. All rights reserved."
+  h = h.replace(/&copy;\s*\d{4}\s*Oklahoma Blood Donors/g, '&copy; 2026 OK Blood Donor');
+  h = h.replace(/&copy;\s*\d{4}\s*Oklahoma Blood Institute/g, '&copy; 2026 OK Blood Donor');
+  // CTA / link text: "About Oklahoma Blood Donors" -> "About OK Blood Donor"
+  h = h.replace(/About Oklahoma Blood Donors/g, 'About OK Blood Donor');
+  h = h.replace(/About Oklahoma Blood Institute/g, 'About OK Blood Donor');
 
   // 9d) Description fields in schema that mention "Our Blood Institute donor centers"
   h = h.replace(/"Our Blood Institute donor centers"/g, '"certified blood donor centers across Oklahoma"');
