@@ -63,8 +63,14 @@ function transformHtml(html, options = {}) {
   // QR code tap-through and confused users expecting external navigation.
 
   // 1) Swap Tailwind CDN for purged CSS (saves ~440KB)
+  // Catches <script src="..."> form (most pages)
   h = h.replace(
     /<script\s+src="https:\/\/cdn\.tailwindcss\.com"><\/script>/gi,
+    '<link rel="stylesheet" href="/css/tailwind-purged.css">'
+  );
+  // Catches <link href="..."> form (plasma pages use this variant)
+  h = h.replace(
+    /<link\s+href="https:\/\/cdn\.tailwindcss\.com"\s+rel="stylesheet"\s*\/?>/gi,
     '<link rel="stylesheet" href="/css/tailwind-purged.css">'
   );
 
@@ -90,6 +96,9 @@ function transformHtml(html, options = {}) {
     h = h.replace(/"datePublished"\s*:\s*"2024/g, '"datePublished":"2026');
     h = h.replace(/"dateModified"\s*:\s*"2025/g, '"dateModified":"2026');
   }
+
+  // 2b) Fix {2026} template literal in plasma page titles/content
+  h = h.replace(/\{2026\}/g, '2026');
 
   // 3) Fix location data (addresses, phones, hours)
   if (options.locationSlug) {
@@ -818,6 +827,11 @@ app.get('/google:verificationCode.html', (req, res) => {
 });
 
 // ─── Sitemap ────────────────────────────────────────────────────────
+// Footer links to /sitemap — redirect to the actual XML file
+app.get('/sitemap', (req, res) => {
+  res.redirect(301, '/sitemap.xml');
+});
+
 app.get('/sitemap.xml', (req, res) => {
   const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
   if (fs.existsSync(sitemapPath)) {
