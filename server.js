@@ -645,6 +645,22 @@ app.post('/api/signups', async (req, res) => {
         connectionString: process.env.DATABASE_URL,
         ssl: { rejectUnauthorized: false }
       });
+
+      // Auto-create signups table if it doesn't exist
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS signups (
+          id SERIAL PRIMARY KEY,
+          name TEXT NOT NULL,
+          email TEXT NOT NULL,
+          zip_code TEXT NOT NULL,
+          blood_type TEXT DEFAULT 'unknown',
+          phone TEXT,
+          dob TEXT,
+          source TEXT DEFAULT 'web',
+          created_at TIMESTAMPTZ DEFAULT NOW()
+        )
+      `);
+
       // Try extended insert with phone+dob columns; fall back to original columns
       try {
         const result = await pool.query(
