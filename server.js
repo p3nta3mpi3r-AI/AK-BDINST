@@ -392,6 +392,13 @@ function transformHtml(html, options = {}) {
     }
   );
 
+  // 9) Global brand cleanup — canonical name is "OK Blood Donor" (finalized May 2026)
+  // Earlier transform sections and raw HTML templates still emit "Oklahoma Blood Donors."
+  // This final pass ensures the rendered output uses the canonical brand name everywhere:
+  // title tags, JSON-LD schema name fields, nav, footer copyright, headings, OG/Twitter meta.
+  // Does NOT touch "Oklahoma Blood Institute" (the real OBI nonprofit at ourbloodinstitute.org).
+  h = h.replace(/Oklahoma Blood Donors/g, 'OK Blood Donor');
+
   return h;
 }
 
