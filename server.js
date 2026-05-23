@@ -414,12 +414,33 @@ function transformHtml(html, options = {}) {
     }
   );
 
-  // 9) Global brand cleanup — canonical name is "OK Blood Donor" (finalized May 2026)
-  // Earlier transform sections and raw HTML templates still emit "Oklahoma Blood Donors."
-  // This final pass ensures the rendered output uses the canonical brand name everywhere:
-  // title tags, JSON-LD schema name fields, nav, footer copyright, headings, OG/Twitter meta.
-  // Does NOT touch "Oklahoma Blood Institute" (the real OBI nonprofit at ourbloodinstitute.org).
+  // 9) Global brand cleanup — canonical name is "OK Blood Donor"
   h = h.replace(/Oklahoma Blood Donors/g, 'OK Blood Donor');
+  h = h.replace(/Oklahoma Blood Institute/g, 'OK Blood Donor');
+
+  // 10) Remove OBI logo references — replace with heart SVG inline
+  h = h.replace(
+    /<img\s+src="\/images\/obi-logo\.png"[^>]*>/gi,
+    '<div class="flex h-9 w-9 items-center justify-center rounded-full" style="background-color:oklch(0.547 0.213 27.325)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>'
+  );
+
+  // 11) Remove obi.org external links
+  h = h.replace(/<li><a\s+href="https?:\/\/obi\.org"[^<]*<\/a><\/li>/gi, '');
+  h = h.replace(/<a\s+href="https?:\/\/obi\.org"[^<]*<\/a>/gi, '');
+
+  // 12) Remove year dates site-wide
+  h = h.replace(/&copy;\s*2026\s*/g, '&copy; ');
+  h = h.replace(/©\s*2026\s*/g, '© ');
+  h = h.replace(/since 2026/gi, '');
+  // Remove "2026 Guide" type references in titles/headings
+  h = h.replace(/– Complete 2026 Guide/g, '– Complete Guide');
+  h = h.replace(/Complete 2026 Guide/g, 'Complete Guide');
+  h = h.replace(/\(2026 Rates/g, '(Current Rates');
+  h = h.replace(/Updated 2026/g, 'Updated');
+  h = h.replace(/2026 Guide/g, 'Guide');
+  // Remove standalone year in visible text (but not in URLs or dates)
+  h = h.replace(/<time[^>]*>.*?<\/time>/g, ''); // Remove <time> elements with dates
+  h = h.replace(/Last reviewed:?\s*\.?/g, '');
 
   return h;
 }
@@ -465,7 +486,8 @@ app.get('/how-it-works', (req, res) => {
 });
 
 app.get('/blood-types', (req, res) => {
-  serveHtml(path.join(VIEWS, 'blood-types.html'), res);
+  // Serve the guides/blood-types content at /blood-types
+  serveHtml(path.join(VIEWS, 'guides', 'blood-types.html'), res);
 });
 
 app.get('/questions', (req, res) => {
@@ -544,6 +566,10 @@ app.get('/privacy', (req, res) => {
 });
 
 app.get('/privacy-policy', (req, res) => {
+  serveHtml(path.join(VIEWS, 'privacy-policy.html'), res);
+});
+
+app.get('/terms', (req, res) => {
   serveHtml(path.join(VIEWS, 'privacy-policy.html'), res);
 });
 
