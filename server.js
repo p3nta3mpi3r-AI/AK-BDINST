@@ -37,6 +37,29 @@ app.use((req, res, next) => {
   next();
 });
 
+// ─── Sitemap with XSL stylesheet (must be BEFORE static files) ──────
+app.get('/sitemap.xml', (req, res) => {
+  const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
+  const viewsSitemap = path.join(VIEWS, 'sitemap.xml');
+  let xml;
+  if (fs.existsSync(sitemapPath)) {
+    try { xml = fs.readFileSync(sitemapPath, 'utf8'); } catch (e) { /* fall through */ }
+  }
+  if (!xml && fs.existsSync(viewsSitemap)) {
+    try { xml = fs.readFileSync(viewsSitemap, 'utf8'); } catch (e) { /* fall through */ }
+  }
+  if (!xml) return res.status(404).send('Sitemap not found');
+  if (!xml.includes('xml-stylesheet')) {
+    xml = xml.replace(
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
+    );
+  }
+  res.set('Content-Type', 'application/xml');
+  res.set('Cache-Control', 'public, max-age=86400');
+  return res.status(200).send(xml);
+});
+
 // ─── Static files ───────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '7d',
@@ -855,29 +878,7 @@ app.get('/sitemap', (req, res) => {
   res.redirect(301, '/sitemap.xml');
 });
 
-app.get('/sitemap.xml', (req, res) => {
-  const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
-  const viewsSitemap = path.join(VIEWS, 'sitemap.xml');
-  let xml;
-  if (fs.existsSync(sitemapPath)) {
-    try { xml = fs.readFileSync(sitemapPath, 'utf8'); } catch (e) { /* fall through */ }
-  }
-  if (!xml && fs.existsSync(viewsSitemap)) {
-    try { xml = fs.readFileSync(viewsSitemap, 'utf8'); } catch (e) { /* fall through */ }
-  }
-  if (!xml) return res.status(404).send('Sitemap not found');
-
-  // Inject XSL stylesheet reference for human-readable browser rendering
-  if (!xml.includes('xml-stylesheet')) {
-    xml = xml.replace(
-      '<?xml version="1.0" encoding="UTF-8"?>',
-      '<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
-    );
-  }
-  res.set('Content-Type', 'application/xml');
-  res.set('Cache-Control', 'public, max-age=86400');
-  return res.status(200).send(xml);
-});
+// Sitemap handler moved above static middleware — see line ~40
 
 // ─── Robots.txt ─────────────────────────────────────────────────────
 app.get('/robots.txt', (req, res) => {
