@@ -124,6 +124,11 @@ function transformHtml(html, options = {}) {
     /<link\s+href="https:\/\/cdn\.tailwindcss\.com"\s+rel="stylesheet"\s*\/?>/gi,
     '<link rel="stylesheet" href="/css/tailwind-purged.css?v=2">'
   );
+  // Cache-bust existing purged CSS references (e.g., homepage uses direct link)
+  h = h.replace(
+    /\/css\/tailwind-purged\.css(?:\?v=\d+)?"/g,
+    '/css/tailwind-purged.css?v=2"'
+  );
 
   // Remove Tailwind config <script> block and replace with essential utility styles
   h = h.replace(
