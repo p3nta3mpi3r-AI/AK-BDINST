@@ -857,29 +857,26 @@ app.get('/sitemap', (req, res) => {
 
 app.get('/sitemap.xml', (req, res) => {
   const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
-  if (fs.existsSync(sitemapPath)) {
-    res.set('Content-Type', 'application/xml');
-    res.set('Cache-Control', 'public, max-age=86400');
-    return res.sendFile(sitemapPath, (err) => {
-      if (err && !res.headersSent) {
-        console.error('[SITEMAP ERROR]', err.message);
-        res.status(500).send('Sitemap error');
-      }
-    });
-  }
   const viewsSitemap = path.join(VIEWS, 'sitemap.xml');
-  if (fs.existsSync(viewsSitemap)) {
-    // Read and send directly to guarantee 200 status
-    try {
-      const xml = fs.readFileSync(viewsSitemap, 'utf8');
-      res.set('Content-Type', 'application/xml');
-      res.set('Cache-Control', 'public, max-age=86400');
-      return res.status(200).send(xml);
-    } catch (e) {
-      console.error('[SITEMAP ERROR]', e.message);
-    }
+  let xml;
+  if (fs.existsSync(sitemapPath)) {
+    try { xml = fs.readFileSync(sitemapPath, 'utf8'); } catch (e) { /* fall through */ }
   }
-  res.status(404).send('Sitemap not found');
+  if (!xml && fs.existsSync(viewsSitemap)) {
+    try { xml = fs.readFileSync(viewsSitemap, 'utf8'); } catch (e) { /* fall through */ }
+  }
+  if (!xml) return res.status(404).send('Sitemap not found');
+
+  // Inject XSL stylesheet reference for human-readable browser rendering
+  if (!xml.includes('xml-stylesheet')) {
+    xml = xml.replace(
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
+    );
+  }
+  res.set('Content-Type', 'application/xml');
+  res.set('Cache-Control', 'public, max-age=86400');
+  return res.status(200).send(xml);
 });
 
 // ─── Robots.txt ─────────────────────────────────────────────────────
