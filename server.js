@@ -431,19 +431,32 @@ function transformHtml(html, options = {}) {
   h = h.replace(/<li>\s*<a\s+href="https?:\/\/obi\.org"[\s\S]*?<\/a>\s*<\/li>/gi, '');
   h = h.replace(/<a\s+href="https?:\/\/obi\.org"[\s\S]*?<\/a>/gi, '');
 
-  // 12) Remove year dates site-wide
+  // 12) Remove year dates site-wide (but preserve URLs and schema date fields)
   h = h.replace(/&copy;\s*2026\s*/g, '&copy; ');
   h = h.replace(/©\s*2026\s*/g, '© ');
   h = h.replace(/since 2026/gi, '');
-  // Remove "2026 Guide" type references in titles/headings
+  // Title/heading patterns
   h = h.replace(/– Complete 2026 Guide/g, '– Complete Guide');
   h = h.replace(/Complete 2026 Guide/g, 'Complete Guide');
-  h = h.replace(/\(2026 Rates/g, '(Current Rates');
-  h = h.replace(/Updated 2026/g, 'Updated');
   h = h.replace(/2026 Guide/g, 'Guide');
-  // Remove standalone year in visible text (but not in URLs or dates)
-  h = h.replace(/<time[^>]*>.*?<\/time>/g, ''); // Remove <time> elements with dates
-  h = h.replace(/Last reviewed:?\s*\.?/g, '');
+  h = h.replace(/2026 Rates/g, 'Current Rates');
+  h = h.replace(/Updated 2026/g, 'Updated');
+  // Body content patterns (visible text only)
+  h = h.replace(/ in 2026/g, '');
+  h = h.replace(/ In 2026/g, '');
+  h = h.replace(/ for 2026/g, '');
+  h = h.replace(/as of 2026/g, '');
+  h = h.replace(/>2026 /g, '>');
+  // Compensation page specific
+  h = h.replace(/2026 compensation/gi, 'Current compensation');
+  h = h.replace(/2026 Compensation/g, 'Current Compensation');
+  h = h.replace(/2026 Enid/g, 'Enid');
+  h = h.replace(/2026 area/g, 'area');
+  h = h.replace(/2026 but subject/g, 'but subject');
+  h = h.replace(/current as of 2026/gi, 'current');
+  // Remove <time> elements with dates
+  h = h.replace(/<time[^>]*>[^<]*<\/time>/g, '');
+  h = h.replace(/Last reviewed:?\s*\.?\s*/g, '');
 
   return h;
 }
