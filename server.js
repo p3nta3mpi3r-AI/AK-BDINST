@@ -37,7 +37,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ─── Sitemap with XSL stylesheet (must be BEFORE static files) ──────
+// ─── Sitemap: XML for bots, HTML for browsers ──────────────────────
 app.get('/sitemap.xml', (req, res) => {
   const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
   const viewsSitemap = path.join(VIEWS, 'sitemap.xml');
@@ -49,15 +49,43 @@ app.get('/sitemap.xml', (req, res) => {
     try { xml = fs.readFileSync(viewsSitemap, 'utf8'); } catch (e) { /* fall through */ }
   }
   if (!xml) return res.status(404).send('Sitemap not found');
-  if (!xml.includes('xml-stylesheet')) {
-    xml = xml.replace(
-      '<?xml version="1.0" encoding="UTF-8"?>',
-      '<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
-    );
+
+  // Detect browser (serve HTML) vs bot (serve XML)
+  const ua = (req.headers['user-agent'] || '').toLowerCase();
+  const isBot = /googlebot|bingbot|yandex|baiduspider|duckduckbot|slurp|msnbot|crawl|spider|bot/i.test(ua);
+
+  if (isBot) {
+    res.set('Content-Type', 'application/xml');
+    res.set('Cache-Control', 'public, max-age=86400');
+    return res.status(200).send(xml);
   }
-  res.set('Content-Type', 'application/xml');
-  res.set('Cache-Control', 'public, max-age=86400');
-  return res.status(200).send(xml);
+
+  // Parse URLs from XML and render as HTML for browsers
+  const urls = [];
+  const urlRegex = /<url>\s*<loc>([^<]+)<\/loc>(?:\s*<lastmod>([^<]*)<\/lastmod>)?(?:\s*<changefreq>([^<]*)<\/changefreq>)?(?:\s*<priority>([^<]*)<\/priority>)?\s*<\/url>/g;
+  let m;
+  while ((m = urlRegex.exec(xml)) !== null) {
+    urls.push({ loc: m[1], lastmod: m[2] || '', changefreq: m[3] || '', priority: m[4] || '' });
+  }
+  const rows = urls.map(u =>
+    `<tr><td><a href="${u.loc}">${u.loc.replace('https://oklahomabloodinstitute.com','')|| '/'}</a></td><td>${u.lastmod}</td><td>${u.priority}</td></tr>`
+  ).join('\n');
+
+  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sitemap — Oklahoma Blood Institute</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,sans-serif;color:#1f2937;padding:2rem;max-width:1200px;margin:0 auto}
+h1{font-size:2rem;margin-bottom:.5rem}p.sub{color:#6b7280;margin-bottom:2rem}.count{color:#b91c1c;font-weight:700}
+table{width:100%;border-collapse:collapse;box-shadow:0 1px 3px rgba(0,0,0,.1);border-radius:.5rem;overflow:hidden}
+thead{background:#b91c1c}th{color:#fff;padding:.75rem 1rem;text-align:left;font-size:.9rem}
+td{padding:.75rem 1rem;font-size:.9rem;border-bottom:1px solid #e5e7eb}tr:hover{background:#f9fafb}
+a{color:#b91c1c;text-decoration:none}a:hover{text-decoration:underline}
+@media(max-width:768px){body{padding:1rem}th,td{padding:.5rem;font-size:.8rem}}</style></head>
+<body><h1>Sitemap</h1><p class="sub">Oklahoma Blood Institute &mdash; <span class="count">${urls.length}</span> pages</p>
+<table><thead><tr><th>URL</th><th>Last Modified</th><th>Priority</th></tr></thead><tbody>${rows}</tbody></table>
+<p style="margin-top:2rem;font-size:.8rem;color:#9ca3af">This sitemap helps search engines discover all pages on our site.</p></body></html>`;
+
+  res.set('Content-Type', 'text/html');
+  res.set('Cache-Control', 'public, max-age=3600');
+  return res.status(200).send(html);
 });
 
 // ─── Static files ───────────────────────────────────────────────────
@@ -89,12 +117,12 @@ function transformHtml(html, options = {}) {
   // Catches <script src="..."> form (most pages)
   h = h.replace(
     /<script\s+src="https:\/\/cdn\.tailwindcss\.com"><\/script>/gi,
-    '<link rel="stylesheet" href="/css/tailwind-purged.css">'
+    '<link rel="stylesheet" href="/css/tailwind-purged.css?v=2">'
   );
   // Catches <link href="..."> form (plasma pages use this variant)
   h = h.replace(
     /<link\s+href="https:\/\/cdn\.tailwindcss\.com"\s+rel="stylesheet"\s*\/?>/gi,
-    '<link rel="stylesheet" href="/css/tailwind-purged.css">'
+    '<link rel="stylesheet" href="/css/tailwind-purged.css?v=2">'
   );
 
   // Remove Tailwind config <script> block and replace with essential utility styles
