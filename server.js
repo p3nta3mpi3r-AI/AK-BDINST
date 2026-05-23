@@ -427,9 +427,9 @@ function transformHtml(html, options = {}) {
   // 10b) Fix logo URL in JSON-LD schema
   h = h.replace(/\/images\/obi-logo\.png/g, '/images/hero-donation.jpg');
 
-  // 11) Remove obi.org external links
-  h = h.replace(/<li><a\s+href="https?:\/\/obi\.org"[^<]*<\/a><\/li>/gi, '');
-  h = h.replace(/<a\s+href="https?:\/\/obi\.org"[^<]*<\/a>/gi, '');
+  // 11) Remove obi.org external links (handles nested spans inside anchors)
+  h = h.replace(/<li>\s*<a\s+href="https?:\/\/obi\.org"[\s\S]*?<\/a>\s*<\/li>/gi, '');
+  h = h.replace(/<a\s+href="https?:\/\/obi\.org"[\s\S]*?<\/a>/gi, '');
 
   // 12) Remove year dates site-wide
   h = h.replace(/&copy;\s*2026\s*/g, '&copy; ');
