@@ -10,5 +10,48 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Render deploy
-        run: curl -fsS -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+      - name: Trigger Render deploy via API
+        id: trigger
+        run: |
+          RESPONSE=$(curl -fsS -X POST \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
+            -d '{"clearCache":"do_not_clear"}')
+          echo "response=$RESPONSE" >> $GITHUB_OUTPUT
+          DEPLOY_ID=$(echo $RESPONSE | python3 -c "import sys,json; print(json.load(sys.stdin).get('id','unknown'))")
+          echo "deploy_id=$DEPLOY_ID" >> $GITHUB_OUTPUT
+          echo "Deploy triggered: $DEPLOY_ID"
+
+      - name: Wait for deploy to go live
+        run: |
+          DEPLOY_ID="${{ steps.trigger.outputs.deploy_id }}"
+          echo "Polling deploy $DEPLOY_ID..."
+          for i in $(seq 1 24); do
+            STATUS=$(curl -fsS \
+              -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+              "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys/$DEPLOY_ID" \
+              | python3 -c "import sys,json; print(json.load(sys.stdin).get('status','unknown'))")
+            echo "  [$i/24] Status: $STATUS"
+            if [ "$STATUS" = "live" ]; then
+              echo "Deploy is live."
+              exit 0
+            fi
+            if [ "$STATUS" = "build_failed" ] || [ "$STATUS" = "update_failed" ] || [ "$STATUS" = "deactivated" ]; then
+              echo "Deploy failed with status: $STATUS"
+              exit 1
+            fi
+            sleep 15
+          done
+          echo "Timed out waiting for deploy."
+          exit 1
+
+      - name: Verify live site health
+        run: |
+          HTTP=$(curl -o /dev/null -s -w "%{http_code}" https://oklahomabloodinstitute.com/)
+          echo "Site health check: HTTP $HTTP"
+          if [ "$HTTP" != "200" ]; then
+            echo "Health check failed — site returned $HTTP"
+            exit 1
+          fi
+          echo "Site is healthy."
