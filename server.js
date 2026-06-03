@@ -493,6 +493,16 @@ app.get('/schedule', (req, res) => {
   res.redirect(302, 'https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912');
 });
 
+// SEO landing page for scheduling (separate from the /schedule affiliate redirect)
+app.get('/schedule-appointment', (req, res) => {
+  serveHtml(path.join(VIEWS, 'schedule.html'), res);
+});
+
+// North Oklahoma City donor center
+app.get('/locations/north-oklahoma-city', (req, res) => {
+  serveHtml(path.join(VIEWS, 'locations', 'north-oklahoma-city.html'), res);
+});
+
 app.get('/locations', (req, res) => {
   serveHtml(path.join(VIEWS, 'locations.html'), res);
 });
