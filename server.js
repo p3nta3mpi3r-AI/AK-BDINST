@@ -963,6 +963,41 @@ app.get('/robots.txt', (req, res) => {
   );
 });
 
+// ─── Campus Cluster Pages ──────────────────────────────────────────
+app.get('/campuses', (req, res) => {
+  serveHtml(path.join(VIEWS, 'campuses', 'index.html'), res);
+});
+
+app.get('/campuses/osu', (req, res) => {
+  serveHtml(path.join(VIEWS, 'campuses', 'osu.html'), res);
+});
+
+app.get('/campuses/osu/blood-drive', (req, res) => {
+  serveHtml(path.join(VIEWS, 'campuses', 'osu', 'blood-drive.html'), res);
+});
+
+app.get('/campuses/ou', (req, res) => {
+  serveHtml(path.join(VIEWS, 'campuses', 'ou.html'), res);
+});
+
+app.get('/campuses/ou/blood-drive', (req, res) => {
+  serveHtml(path.join(VIEWS, 'campuses', 'ou', 'blood-drive.html'), res);
+});
+
+// ─── Compare Cluster Pages ───────────────────────────────────────────
+app.get('/compare', (req, res) => {
+  serveHtml(path.join(VIEWS, 'compare', 'index.html'), res);
+});
+
+app.get('/compare/:slug', (req, res) => {
+  serveHtml(path.join(VIEWS, 'compare', `${req.params.slug}.html`), res);
+});
+
+// ─── FAQ Children Pages ──────────────────────────────────────────────
+app.get('/faq/:slug', (req, res) => {
+  serveHtml(path.join(VIEWS, 'faq', `${req.params.slug}.html`), res);
+});
+
 // ─── OSU Campaign Pages ────────────────────────────────────────────
 app.get('/osu', (req, res) => {
   serveHtml(path.join(VIEWS, 'osu.html'), res);
