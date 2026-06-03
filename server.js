@@ -333,11 +333,109 @@ function transformHtml(html, options = {}) {
     const city = options.locationSlug;
     relatedLinks.push(
       { href: `/blog/${city}-guide`, text: `${city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())} Donation Guide` },
+      { href: `/plasma/${city}`, text: `Plasma Donation in ${city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}` },
+      { href: `/donate-blood/${city}`, text: `Donate Blood in ${city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}` },
       { href: `/how-it-works`, text: 'How Blood Donation Works' },
       { href: `/blood-types`, text: 'Blood Types & Compatibility' },
       { href: `/questions`, text: 'Common Questions' },
       { href: `/faq`, text: 'FAQ' },
       { href: `/blog`, text: 'All Blog Posts' }
+    );
+  } else if (options.donateZip) {
+    // ZIP donate pages — link to location, city blog, plasma, and informational pages
+    const zipCityMap = {
+      // Oklahoma City area
+      '73101': 'oklahoma-city', '73102': 'oklahoma-city', '73103': 'oklahoma-city', '73104': 'oklahoma-city',
+      '73105': 'oklahoma-city', '73106': 'oklahoma-city', '73107': 'oklahoma-city', '73108': 'oklahoma-city',
+      '73109': 'oklahoma-city', '73110': 'midwest-city', '73111': 'oklahoma-city', '73112': 'oklahoma-city',
+      '73114': 'oklahoma-city', '73115': 'oklahoma-city', '73116': 'oklahoma-city', '73117': 'oklahoma-city',
+      '73118': 'oklahoma-city', '73119': 'oklahoma-city', '73120': 'oklahoma-city', '73121': 'oklahoma-city',
+      '73122': 'oklahoma-city', '73127': 'oklahoma-city', '73128': 'oklahoma-city', '73129': 'oklahoma-city',
+      '73130': 'oklahoma-city', '73131': 'oklahoma-city', '73132': 'oklahoma-city', '73134': 'oklahoma-city',
+      '73135': 'oklahoma-city', '73139': 'oklahoma-city', '73141': 'oklahoma-city', '73142': 'oklahoma-city',
+      '73145': 'midwest-city', '73149': 'oklahoma-city', '73150': 'oklahoma-city', '73151': 'oklahoma-city',
+      '73159': 'oklahoma-city', '73160': 'oklahoma-city', '73162': 'oklahoma-city', '73165': 'oklahoma-city',
+      '73170': 'oklahoma-city',
+      // Norman
+      '73069': 'norman', '73071': 'norman', '73072': 'norman',
+      // Edmond
+      '73003': 'edmond', '73007': 'edmond', '73012': 'edmond', '73013': 'edmond', '73025': 'edmond', '73034': 'edmond',
+      // Tulsa area
+      '74101': 'tulsa', '74102': 'tulsa', '74103': 'tulsa', '74104': 'tulsa', '74105': 'tulsa',
+      '74106': 'tulsa', '74107': 'tulsa', '74108': 'tulsa', '74110': 'tulsa', '74112': 'tulsa',
+      '74114': 'tulsa', '74115': 'tulsa', '74116': 'tulsa', '74119': 'tulsa', '74120': 'tulsa',
+      '74126': 'tulsa', '74127': 'tulsa', '74128': 'tulsa', '74129': 'tulsa', '74130': 'tulsa',
+      '74131': 'tulsa', '74132': 'tulsa', '74133': 'tulsa', '74134': 'tulsa', '74135': 'tulsa',
+      '74136': 'tulsa', '74137': 'tulsa', '74145': 'tulsa', '74146': 'tulsa',
+      '74008': 'tulsa', '74033': 'tulsa', '74037': 'tulsa', '74047': 'tulsa',
+      '74063': 'tulsa', '74066': 'tulsa', '74070': 'tulsa', '74055': 'tulsa',
+      // Broken Arrow
+      '74011': 'broken-arrow', '74012': 'broken-arrow', '74013': 'broken-arrow', '74014': 'broken-arrow',
+      // Stillwater
+      '74074': 'stillwater', '74075': 'stillwater', '74076': 'stillwater',
+      // Enid
+      '73701': 'enid', '73703': 'enid', '73705': 'enid',
+      // Lawton
+      '73501': 'lawton', '73503': 'lawton', '73505': 'lawton', '73507': 'lawton',
+      // Ada
+      '74820': 'ada', '74821': 'ada',
+      // Ardmore
+      '73401': 'ardmore', '73402': 'ardmore',
+      // Yukon / Mustang
+      '73099': 'yukon', '73085': 'yukon', '73064': 'yukon',
+      // Muskogee / Claremore / Catoosa / Collinsville / Bartlesville
+      '74401': 'tulsa', '74402': 'tulsa', '74403': 'tulsa',
+      '74019': 'tulsa', '74010': 'broken-arrow', '74015': 'broken-arrow', '74021': 'tulsa',
+      '74003': 'tulsa', '74005': 'tulsa', '74006': 'tulsa'
+    };
+    const city = zipCityMap[options.donateZip] || 'oklahoma-city';
+    const cityName = city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    relatedLinks.push(
+      { href: `/locations/${city}`, text: `${cityName} Donor Center` },
+      { href: `/blog/${city}-guide`, text: `${cityName} Blood Donation Guide` },
+      { href: `/plasma/${city}`, text: `Plasma Donation in ${cityName}` },
+      { href: `/donate-blood/${city}`, text: `Donate Blood in ${cityName}` },
+      { href: `/how-it-works`, text: 'How Blood Donation Works' },
+      { href: `/requirements`, text: 'Donation Requirements' },
+      { href: `/questions/first-time-donating`, text: 'First Time Donating?' },
+      { href: `/blood-types`, text: 'Blood Type Guide' }
+    );
+  } else if (options.plasmaSlug) {
+    const city = options.plasmaSlug;
+    const cityName = city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    relatedLinks.push(
+      { href: `/locations/${city}`, text: `${cityName} Donor Center` },
+      { href: `/blog/${city}-guide`, text: `${cityName} Blood Donation Guide` },
+      { href: `/blog/${city}-compensation`, text: `${cityName} Compensation Info` },
+      { href: `/donate-blood/${city}`, text: `Donate Blood in ${cityName}` },
+      { href: `/how-it-works`, text: 'How Blood Donation Works' },
+      { href: `/requirements`, text: 'Donation Requirements' },
+      { href: `/questions/does-it-hurt`, text: 'Does Donating Hurt?' },
+      { href: `/faq`, text: 'FAQ' }
+    );
+  } else if (options.bloodTypeSlug) {
+    const bt = options.bloodTypeSlug;
+    const btName = bt.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    relatedLinks.push(
+      { href: `/blood-types`, text: 'All Blood Types' },
+      { href: `/donate-blood/oklahoma-city`, text: 'Donate in Oklahoma City' },
+      { href: `/donate-blood/tulsa`, text: 'Donate in Tulsa' },
+      { href: `/locations`, text: 'Find a Donor Center' },
+      { href: `/requirements`, text: 'Donation Requirements' },
+      { href: `/how-it-works`, text: 'How Blood Donation Works' },
+      { href: `/questions/first-time-donating`, text: 'First Time Donating?' },
+      { href: `/blog`, text: 'Blood Donation Blog' }
+    );
+  } else if (options.questionSlug) {
+    relatedLinks.push(
+      { href: `/questions`, text: 'All Questions' },
+      { href: `/how-it-works`, text: 'How Blood Donation Works' },
+      { href: `/requirements`, text: 'Donation Requirements' },
+      { href: `/locations`, text: 'Find a Donor Center' },
+      { href: `/blood-types`, text: 'Blood Type Guide' },
+      { href: `/faq`, text: 'FAQ' },
+      { href: `/donate-blood/oklahoma-city`, text: 'Donate in Oklahoma City' },
+      { href: `/blog`, text: 'Blood Donation Blog' }
     );
   }
   if (relatedLinks.length > 0) {
@@ -354,6 +452,164 @@ function transformHtml(html, options = {}) {
       </div>
     </section>`;
     h = h.replace('</main>', sectionHtml + '\n  </main>');
+  }
+
+
+  // 6b) ZIP page unique content differentiation (SEO indexing boost)
+  if (options.donateZip) {
+    const zipLocalContent = {
+      // Oklahoma City area
+      '73101': { area: 'Downtown Oklahoma City', landmarks: 'Bricktown Entertainment District, Myriad Botanical Gardens', community: 'the heart of OKC\'s urban core' },
+      '73102': { area: 'Downtown Oklahoma City', landmarks: 'Oklahoma City National Memorial, Paycom Center', community: 'downtown Oklahoma City near the central business district' },
+      '73103': { area: 'Midtown Oklahoma City', landmarks: 'Automobile Alley, St. Anthony Hospital', community: 'OKC\'s vibrant Midtown neighborhood' },
+      '73104': { area: 'Health Sciences Center', landmarks: 'OU Health Sciences Center, Oklahoma Medical Research Foundation', community: 'Oklahoma City\'s medical corridor' },
+      '73105': { area: 'Lincoln Terrace', landmarks: 'State Capitol Complex, Governor\'s Mansion', community: 'the Capitol Hill area near state government offices' },
+      '73106': { area: 'Heritage Hills', landmarks: 'Heritage Hills Historic District, Classen Blvd corridor', community: 'one of OKC\'s oldest and most charming neighborhoods' },
+      '73107': { area: 'West Oklahoma City', landmarks: 'Lake Overholser, Wiley Post Airport', community: 'western Oklahoma City near Lake Overholser' },
+      '73108': { area: 'Capitol Hill', landmarks: 'Capitol Hill Main Street, Wheeler District', community: 'the diverse Capitol Hill neighborhood in south OKC' },
+      '73109': { area: 'South Oklahoma City', landmarks: 'South Oklahoma City area shopping centers', community: 'the south Oklahoma City corridor' },
+      '73110': { area: 'Midwest City', landmarks: 'Tinker Air Force Base, Rose State College', community: 'Midwest City near Tinker AFB' },
+      '73111': { area: 'Northeast Oklahoma City', landmarks: 'Remington Park Racing & Casino, Oklahoma City Zoo', community: 'northeast OKC near the Adventure District' },
+      '73112': { area: 'Warr Acres / Bethany', landmarks: 'Southern Nazarene University, Warr Acres area', community: 'the Warr Acres / Bethany community' },
+      '73114': { area: 'North Oklahoma City', landmarks: 'Penn Square Mall, Nichols Hills', community: 'north central Oklahoma City' },
+      '73115': { area: 'Del City / Southeast OKC', landmarks: 'Del City area, Tinker AFB vicinity', community: 'the southeast OKC and Del City area' },
+      '73116': { area: 'Nichols Hills / The Village', landmarks: 'Nichols Hills, Casady Square', community: 'the upscale Nichols Hills and Village area' },
+      '73117': { area: 'Spencer / Northeast OKC', landmarks: 'Oklahoma City Zoo, Remington Park', community: 'the Spencer and northeast Oklahoma City area' },
+      '73118': { area: 'Belle Isle / North OKC', landmarks: 'Belle Isle area, 50 Penn Place', community: 'the Belle Isle neighborhood in north OKC' },
+      '73119': { area: 'South Oklahoma City', landmarks: 'South OKC community centers, Western Ave corridor', community: 'south Oklahoma City residential areas' },
+      '73120': { area: 'North Oklahoma City', landmarks: 'Quail Springs Mall, Lake Hefner', community: 'north Oklahoma City near Lake Hefner' },
+      '73121': { area: 'Northeast Oklahoma City', landmarks: 'Eastside OKC, I-35 corridor', community: 'northeast Oklahoma City' },
+      '73122': { area: 'Bethany', landmarks: 'Southern Nazarene University, Lake Overholser', community: 'the Bethany community west of OKC' },
+      '73127': { area: 'West Oklahoma City', landmarks: 'Czech Hall, Yukon border area', community: 'west Oklahoma City near the Yukon city limits' },
+      '73128': { area: 'West Oklahoma City', landmarks: 'Will Rogers World Airport vicinity', community: 'far west Oklahoma City' },
+      '73129': { area: 'Southeast Oklahoma City', landmarks: 'SE 29th corridor, Del City border', community: 'southeast Oklahoma City' },
+      '73130': { area: 'Midwest City', landmarks: 'Tinker Air Force Base, Midwest City Parks', community: 'the eastern Midwest City area' },
+      '73131': { area: 'Northeast Oklahoma City', landmarks: 'NE OKC, Sooner Road corridor', community: 'far northeast Oklahoma City' },
+      '73132': { area: 'Northwest Oklahoma City', landmarks: 'Hefner Parkway area, NW Expressway', community: 'northwest Oklahoma City' },
+      '73134': { area: 'North Oklahoma City', landmarks: 'Memorial Road shopping, Quail Springs', community: 'north OKC\'s Memorial Road corridor' },
+      '73135': { area: 'South Oklahoma City', landmarks: 'Will Rogers World Airport, SW OKC', community: 'south Oklahoma City near the airport' },
+      '73139': { area: 'South Oklahoma City', landmarks: 'South OKC, SW 59th corridor', community: 'the south Oklahoma City area' },
+      '73141': { area: 'Northeast Oklahoma City', landmarks: 'Lake Stanley Draper vicinity', community: 'far northeast Oklahoma City' },
+      '73142': { area: 'Northwest Oklahoma City', landmarks: 'Lake Hefner, NW OKC golf courses', community: 'northwest Oklahoma City near Lake Hefner' },
+      '73145': { area: 'Tinker AFB', landmarks: 'Tinker Air Force Base', community: 'the Tinker Air Force Base community' },
+      '73149': { area: 'South Oklahoma City', landmarks: 'South OKC residential community', community: 'south central Oklahoma City' },
+      '73150': { area: 'Southeast Oklahoma City', landmarks: 'SE OKC, Choctaw border', community: 'southeast Oklahoma City near Choctaw' },
+      '73151': { area: 'Northeast Oklahoma City', landmarks: 'NE OKC, Jones border area', community: 'far northeast Oklahoma City' },
+      '73159': { area: 'Southwest Oklahoma City', landmarks: 'SW OKC, Moore border', community: 'southwest Oklahoma City' },
+      '73160': { area: 'Moore', landmarks: 'Moore Warren Theatre, Buck Thomas Park', community: 'the Moore community south of OKC' },
+      '73162': { area: 'Northwest Oklahoma City', landmarks: 'Deer Creek, NW OKC', community: 'the Deer Creek area in northwest OKC' },
+      '73165': { area: 'Southeast Oklahoma City', landmarks: 'SE OKC near Lake Stanley Draper', community: 'southeast Oklahoma City' },
+      '73170': { area: 'South Oklahoma City / Moore', landmarks: 'Moore, South OKC corridor', community: 'the South OKC and Moore border area' },
+      // Norman
+      '73069': { area: 'Norman', landmarks: 'University of Oklahoma, Lloyd Noble Center', community: 'the Norman community, home of OU Sooners' },
+      '73071': { area: 'East Norman', landmarks: 'Norman Regional Hospital, east Norman parks', community: 'east Norman residential neighborhoods' },
+      '73072': { area: 'West Norman', landmarks: 'Westwood Park, west Norman shopping', community: 'west Norman neighborhoods' },
+      // Edmond
+      '73003': { area: 'Edmond', landmarks: 'University of Central Oklahoma, Downtown Edmond', community: 'downtown Edmond and the UCO campus area' },
+      '73007': { area: 'North Edmond', landmarks: 'Arcadia Lake, north Edmond neighborhoods', community: 'the growing north Edmond community' },
+      '73012': { area: 'Edmond', landmarks: 'Hafer Park, Edmond Santa Fe High School', community: 'central Edmond near Hafer Park' },
+      '73013': { area: 'South Edmond', landmarks: 'Cross Timbers, south Edmond shopping centers', community: 'south Edmond near I-35' },
+      '73025': { area: 'Edmond', landmarks: 'Edmond area neighborhoods, Covell Road', community: 'the Edmond community along Covell Road' },
+      '73034': { area: 'Edmond', landmarks: 'Coffee Creek, north Edmond developments', community: 'northeast Edmond neighborhoods' },
+      // Tulsa area
+      '74101': { area: 'Downtown Tulsa', landmarks: 'BOK Center, Blue Dome District', community: 'the vibrant downtown Tulsa area' },
+      '74102': { area: 'Downtown Tulsa', landmarks: 'Tulsa Performing Arts Center, Center of the Universe', community: 'downtown Tulsa\'s arts and business district' },
+      '74103': { area: 'Downtown Tulsa', landmarks: 'Brady Arts District, ONEOK Field', community: 'Tulsa\'s historic Brady District' },
+      '74104': { area: 'Midtown Tulsa', landmarks: 'Cherry Street, Utica Square', community: 'the popular Cherry Street neighborhood' },
+      '74105': { area: 'South Tulsa', landmarks: 'Riverside, Gathering Place park', community: 'Tulsa\'s Riverside area near Gathering Place' },
+      '74106': { area: 'North Tulsa', landmarks: 'Greenwood District, OSU-Tulsa', community: 'the historic Greenwood District in north Tulsa' },
+      '74107': { area: 'West Tulsa', landmarks: 'West Tulsa, Red Fork area', community: 'west Tulsa residential neighborhoods' },
+      '74108': { area: 'Catoosa / East Tulsa', landmarks: 'Hard Rock Hotel & Casino, Cherokee Nation', community: 'the Catoosa and east Tulsa area' },
+      '74110': { area: 'North Tulsa', landmarks: 'Mohawk Park, Tulsa Zoo', community: 'north Tulsa near the Tulsa Zoo' },
+      '74112': { area: 'East Tulsa', landmarks: 'Woodland Hills Mall, Broken Arrow border', community: 'east Tulsa and the Woodland Hills area' },
+      '74114': { area: 'Midtown Tulsa', landmarks: 'Brookside, Philbrook Museum of Art', community: 'the charming Brookside neighborhood' },
+      '74115': { area: 'North Tulsa', landmarks: 'Tulsa International Airport, Mohawk area', community: 'north Tulsa near the airport' },
+      '74116': { area: 'East Tulsa', landmarks: 'East Tulsa, Garnett Road area', community: 'east Tulsa neighborhoods' },
+      '74119': { area: 'Downtown Tulsa', landmarks: 'Blue Dome District, historic Route 66', community: 'downtown Tulsa along Route 66' },
+      '74120': { area: 'Midtown Tulsa', landmarks: 'TU campus, Florence Park', community: 'midtown Tulsa near the University of Tulsa' },
+      '74126': { area: 'North Tulsa', landmarks: 'Turley, north Tulsa neighborhoods', community: 'the Turley area in far north Tulsa' },
+      '74127': { area: 'West Tulsa', landmarks: 'West Tulsa, Sand Springs border', community: 'west Tulsa near Sand Springs' },
+      '74128': { area: 'East Tulsa', landmarks: 'East Tulsa, Mingo Road area', community: 'east Tulsa along the Mingo corridor' },
+      '74129': { area: 'East Tulsa', landmarks: 'East Tulsa, Garnett area', community: 'east Tulsa residential areas' },
+      '74130': { area: 'North Tulsa', landmarks: 'North Tulsa, Owasso border', community: 'far north Tulsa' },
+      '74131': { area: 'Southwest Tulsa', landmarks: 'Southwest Tulsa, Jenks border', community: 'southwest Tulsa near Jenks' },
+      '74132': { area: 'South Tulsa', landmarks: 'South Tulsa, Creek Turnpike area', community: 'south Tulsa residential neighborhoods' },
+      '74133': { area: 'South Tulsa', landmarks: 'Tulsa Hills Shopping Center, south Tulsa', community: 'the Tulsa Hills area in south Tulsa' },
+      '74134': { area: 'Southeast Tulsa', landmarks: 'SE Tulsa, Bixby border', community: 'southeast Tulsa' },
+      '74135': { area: 'Midtown / South Tulsa', landmarks: 'Oral Roberts University, south Tulsa', community: 'south central Tulsa near ORU' },
+      '74136': { area: 'South Tulsa', landmarks: 'Southern Hills Country Club, south Tulsa', community: 'south Tulsa\'s Southern Hills area' },
+      '74137': { area: 'South Tulsa', landmarks: 'Jenks border, south Tulsa shopping', community: 'far south Tulsa near Jenks' },
+      '74145': { area: 'East Tulsa', landmarks: 'East Tulsa, Memorial Drive area', community: 'east Tulsa along Memorial Drive' },
+      '74146': { area: 'East Tulsa', landmarks: 'East Tulsa, I-44 corridor', community: 'east Tulsa near the I-44 corridor' },
+      // Broken Arrow
+      '74011': { area: 'North Broken Arrow', landmarks: 'Broken Arrow Expressway, Rose District', community: 'northern Broken Arrow near the Rose District' },
+      '74012': { area: 'Central Broken Arrow', landmarks: 'Broken Arrow Performing Arts Center, Central Park', community: 'the heart of Broken Arrow' },
+      '74013': { area: 'South Broken Arrow', landmarks: 'south Broken Arrow neighborhoods', community: 'south Broken Arrow residential areas' },
+      '74014': { area: 'East Broken Arrow', landmarks: 'east Broken Arrow, New Tulsa area', community: 'east Broken Arrow and surrounding communities' },
+      // Stillwater
+      '74074': { area: 'Stillwater', landmarks: 'Oklahoma State University, Boone Pickens Stadium', community: 'the Stillwater community, home of the OSU Cowboys' },
+      '74075': { area: 'North Stillwater', landmarks: 'North Stillwater, Lakeview Road area', community: 'north Stillwater near the lake' },
+      '74076': { area: 'Stillwater', landmarks: 'OSU campus, Downtown Stillwater', community: 'central Stillwater near Oklahoma State University' },
+      // Enid
+      '73701': { area: 'Enid', landmarks: 'Vance Air Force Base, Enid town square', community: 'Enid, home to Vance Air Force Base' },
+      '73703': { area: 'North Enid', landmarks: 'Leonardo\'s Discovery Warehouse, Meadowlake Park', community: 'north Enid neighborhoods' },
+      '73705': { area: 'East Enid', landmarks: 'Enid Woodring Regional Airport, east Enid', community: 'east Enid area' },
+      // Lawton
+      '73501': { area: 'Lawton', landmarks: 'Fort Sill, Museum of the Great Plains', community: 'Lawton near Fort Sill Army base' },
+      '73503': { area: 'Fort Sill', landmarks: 'Fort Sill Military Reservation', community: 'the Fort Sill military community' },
+      '73505': { area: 'East Lawton', landmarks: 'Cameron University, east Lawton', community: 'east Lawton near Cameron University' },
+      '73507': { area: 'Lawton', landmarks: 'Wichita Mountains Wildlife Refuge nearby', community: 'Lawton near the Wichita Mountains' },
+      // Ada
+      '74820': { area: 'Ada', landmarks: 'East Central University, Chickasaw Nation HQ', community: 'Ada, center of the Chickasaw Nation' },
+      '74821': { area: 'Ada', landmarks: 'Ada area, Valley View Regional Hospital', community: 'the Ada community in Pontotoc County' },
+      // Ardmore
+      '73401': { area: 'Ardmore', landmarks: 'Ardmore Convention Center, Lake Murray nearby', community: 'Ardmore, gateway to Lake Murray' },
+      '73402': { area: 'Ardmore', landmarks: 'Southern Oklahoma, I-35 corridor', community: 'the Ardmore community in southern Oklahoma' },
+      // Yukon
+      '73099': { area: 'Yukon', landmarks: 'Czech Heritage, Route 66 landmarks, Yukon\'s Best Flour Mill', community: 'Yukon, the Czech Capital of Oklahoma' },
+      '73085': { area: 'Yukon', landmarks: 'West Yukon, Canadian County', community: 'the Yukon and Canadian County area' },
+      '73064': { area: 'Mustang', landmarks: 'Mustang Town Center, Wild Horse Park', community: 'the Mustang community west of OKC' },
+      // Nearby Tulsa metro
+      '74008': { area: 'Bixby', landmarks: 'Bixby community, south of Tulsa', community: 'the family-friendly Bixby community' },
+      '74033': { area: 'Glenpool', landmarks: 'Glenpool, south Tulsa metro', community: 'Glenpool in the south Tulsa metro' },
+      '74037': { area: 'Jenks', landmarks: 'Jenks Aquarium, Riverwalk', community: 'Jenks, home of the Oklahoma Aquarium' },
+      '74047': { area: 'Mounds', landmarks: 'Mounds, Creek County', community: 'the Mounds community in Creek County' },
+      '74063': { area: 'Sand Springs', landmarks: 'Sand Springs, Keystone Lake', community: 'Sand Springs near Keystone Lake' },
+      '74066': { area: 'Sapulpa', landmarks: 'Downtown Sapulpa, Route 66 heritage', community: 'Sapulpa along historic Route 66' },
+      '74070': { area: 'Skiatook', landmarks: 'Skiatook Lake, north Tulsa metro', community: 'Skiatook near the lake' },
+      '74055': { area: 'Owasso', landmarks: 'Owasso, north Tulsa suburb', community: 'the growing Owasso community' },
+      // Muskogee / Rogers County
+      '74401': { area: 'Muskogee', landmarks: 'Honor Heights Park, USS Batfish', community: 'Muskogee, home of Honor Heights Park' },
+      '74402': { area: 'Muskogee', landmarks: 'Muskogee Civic Center', community: 'the Muskogee community' },
+      '74403': { area: 'East Muskogee', landmarks: 'east Muskogee, Fort Gibson border', community: 'east Muskogee area' },
+      '74019': { area: 'Claremore', landmarks: 'Will Rogers Memorial, Rogers State University', community: 'Claremore, birthplace of Will Rogers' },
+      '74010': { area: 'Catoosa', landmarks: 'Hard Rock Hotel & Casino, Blue Whale', community: 'Catoosa, home of the famous Blue Whale' },
+      '74015': { area: 'Catoosa', landmarks: 'Cherokee Nation facilities, east Catoosa', community: 'the Catoosa community east of Tulsa' },
+      '74021': { area: 'Collinsville', landmarks: 'Collinsville, north of Tulsa', community: 'the small-town Collinsville community' },
+      '74003': { area: 'Bartlesville', landmarks: 'Price Tower, Woolaroc Museum', community: 'Bartlesville, home of Phillips 66 heritage' },
+      '74005': { area: 'Bartlesville', landmarks: 'Downtown Bartlesville, Frank Phillips Home', community: 'Bartlesville in Washington County' },
+      '74006': { area: 'Bartlesville', landmarks: 'Bartlesville area, Oklahoma Wesleyan University', community: 'the Bartlesville community' }
+    };
+    const localInfo = zipLocalContent[options.donateZip];
+    if (localInfo) {
+      const localSection = `
+    <section class="py-8 bg-gray-50 dark:bg-gray-900">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-lg font-bold mb-3 text-gray-900 dark:text-white">Blood Donation in ${localInfo.area}</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
+          Serving ${localInfo.community}, our nearby donor centers make it easy for residents of the ${options.donateZip} ZIP code area to donate blood or plasma.
+          Near ${localInfo.landmarks}, donors can visit one of our conveniently located centers and contribute to Oklahoma's life-saving blood supply.
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+          Every blood donation in ${localInfo.area} can save up to three lives. Walk-ins are welcome, or
+          <a href="/how-it-works" class="text-red-700 dark:text-red-400 underline">schedule your appointment</a>
+          to skip the wait. First-time donors are always welcome—check our
+          <a href="/requirements" class="text-red-700 dark:text-red-400 underline">eligibility requirements</a> to get started.
+        </p>
+      </div>
+    </section>`;
+      h = h.replace('</main>', localSection + '\n  </main>');
+    }
   }
 
   // 7) Global AEO: Upgrade Organization → MedicalOrganization on ALL pages
@@ -543,40 +799,40 @@ app.get('/plasma', (req, res) => {
 });
 
 app.get('/plasma/oklahoma-city', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', 'oklahoma-city.html'), res);
+  serveHtml(path.join(VIEWS, 'plasma', 'oklahoma-city.html'), res, { plasmaSlug: 'oklahoma-city', fixYear: true });
 });
 
 app.get('/plasma/tulsa', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', 'tulsa.html'), res);
+  serveHtml(path.join(VIEWS, 'plasma', 'tulsa.html'), res, { plasmaSlug: 'tulsa', fixYear: true });
 });
 
 app.get('/plasma/norman', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', 'norman.html'), res);
+  serveHtml(path.join(VIEWS, 'plasma', 'norman.html'), res, { plasmaSlug: 'norman', fixYear: true });
 });
 
 app.get('/plasma/edmond', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', 'edmond.html'), res);
+  serveHtml(path.join(VIEWS, 'plasma', 'edmond.html'), res, { plasmaSlug: 'edmond', fixYear: true });
 });
 
 app.get('/plasma/lawton', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', 'lawton.html'), res);
+  serveHtml(path.join(VIEWS, 'plasma', 'lawton.html'), res, { plasmaSlug: 'lawton', fixYear: true });
 });
 
 app.get('/plasma/broken-arrow', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', 'broken-arrow.html'), res);
+  serveHtml(path.join(VIEWS, 'plasma', 'broken-arrow.html'), res, { plasmaSlug: 'broken-arrow', fixYear: true });
 });
 
 app.get('/plasma/enid', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', 'enid.html'), res);
+  serveHtml(path.join(VIEWS, 'plasma', 'enid.html'), res, { plasmaSlug: 'enid', fixYear: true });
 });
 
 app.get('/plasma/midwest-city', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', 'midwest-city.html'), res);
+  serveHtml(path.join(VIEWS, 'plasma', 'midwest-city.html'), res, { plasmaSlug: 'midwest-city', fixYear: true });
 });
 
 
 app.get('/plasma/moore', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', 'moore.html'), res);
+  serveHtml(path.join(VIEWS, 'plasma', 'moore.html'), res, { plasmaSlug: 'moore', fixYear: true });
 });
 
 app.get('/blog', (req, res) => {
@@ -632,17 +888,17 @@ app.get('/blog/:slug', (req, res) => {
 
 // Questions detail pages
 app.get('/questions/:slug', (req, res) => {
-  serveHtml(path.join(VIEWS, 'questions', `${req.params.slug}.html`), res);
+  serveHtml(path.join(VIEWS, 'questions', `${req.params.slug}.html`), res, { questionSlug: req.params.slug });
 });
 
 // Blood type detail pages
 app.get('/blood-types/:slug', (req, res) => {
-  serveHtml(path.join(VIEWS, 'blood-types', `${req.params.slug}.html`), res);
+  serveHtml(path.join(VIEWS, 'blood-types', `${req.params.slug}.html`), res, { bloodTypeSlug: req.params.slug });
 });
 
 // Plasma city pages
 app.get('/plasma/:slug', (req, res) => {
-  serveHtml(path.join(VIEWS, 'plasma', `${req.params.slug}.html`), res);
+  serveHtml(path.join(VIEWS, 'plasma', `${req.params.slug}.html`), res, { plasmaSlug: req.params.slug, fixYear: true });
 });
 
 // Donate blood city pages
@@ -671,7 +927,8 @@ app.get('/news/:slug', (req, res) => {
 app.get('/donate/:zip', (req, res) => {
   serveHtml(
     path.join(VIEWS, 'donate', `${req.params.zip}.html`),
-    res
+    res,
+    { donateZip: req.params.zip }
   );
 });
 
