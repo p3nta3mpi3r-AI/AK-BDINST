@@ -10,34 +10,43 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Render deploy via API
-        id: trigger
+      - name: Trigger Render deploy
         run: |
-          RESPONSE=$(curl -fsS -X POST \
+          HTTP=$(curl -o /dev/null -s -w "%{http_code}" -X POST \
             -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
             -H "Content-Type: application/json" \
             "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
             -d '{"clearCache":"do_not_clear"}')
-          echo "response=$RESPONSE" >> $GITHUB_OUTPUT
-          DEPLOY_ID=$(echo $RESPONSE | python3 -c "import sys,json; print(json.load(sys.stdin).get('id','unknown'))")
-          echo "deploy_id=$DEPLOY_ID" >> $GITHUB_OUTPUT
-          echo "Deploy triggered: $DEPLOY_ID"
+          echo "Trigger response: HTTP $HTTP"
+          if [ "$HTTP" != "201" ] && [ "$HTTP" != "200" ]; then
+            echo "Unexpected status $HTTP — aborting"
+            exit 1
+          fi
+          echo "Deploy triggered successfully."
 
-      - name: Wait for deploy to go live
+      - name: Poll until live
         run: |
-          DEPLOY_ID="${{ steps.trigger.outputs.deploy_id }}"
-          echo "Polling deploy $DEPLOY_ID..."
+          echo "Waiting 20s for deploy to register..."
+          sleep 20
           for i in $(seq 1 24); do
             STATUS=$(curl -fsS \
               -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
-              "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys/$DEPLOY_ID" \
-              | python3 -c "import sys,json; print(json.load(sys.stdin).get('status','unknown'))")
+              "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys?limit=1" \
+              | python3 -c "
+import sys, json
+deploys = json.load(sys.stdin)
+if deploys:
+    d = deploys[0].get('deploy', deploys[0])
+    print(d.get('status', 'unknown'))
+else:
+    print('unknown')
+")
             echo "  [$i/24] Status: $STATUS"
             if [ "$STATUS" = "live" ]; then
               echo "Deploy is live."
               exit 0
             fi
-            if [ "$STATUS" = "build_failed" ] || [ "$STATUS" = "update_failed" ] || [ "$STATUS" = "deactivated" ]; then
+            if [ "$STATUS" = "build_failed" ] || [ "$STATUS" = "update_failed" ]; then
               echo "Deploy failed with status: $STATUS"
               exit 1
             fi
@@ -46,12 +55,12 @@ jobs:
           echo "Timed out waiting for deploy."
           exit 1
 
-      - name: Verify live site health
+      - name: Site health check
         run: |
           HTTP=$(curl -o /dev/null -s -w "%{http_code}" https://oklahomabloodinstitute.com/)
-          echo "Site health check: HTTP $HTTP"
+          echo "Health check: HTTP $HTTP"
           if [ "$HTTP" != "200" ]; then
-            echo "Health check failed — site returned $HTTP"
+            echo "Site returned $HTTP — health check failed"
             exit 1
           fi
           echo "Site is healthy."
