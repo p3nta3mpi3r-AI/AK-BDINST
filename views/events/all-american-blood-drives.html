@@ -831,22 +831,29 @@
       </ol>
     </nav>
 
-    <!-- HERO — Evergreen with removable date badge -->
-    <section class="relative overflow-hidden" style="background: linear-gradient(135deg, #1e3a5f 0%, #b91c1c 50%, #1e3a5f 100%)">
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M30 5L35 20H50L38 30L42 45L30 35L18 45L22 30L10 20H25Z%22 fill=%22white%22 opacity=%220.3%22/%3E%3C/svg%3E'); background-size: 60px 60px;"></div>
-      </div>
-      <div class="relative max-w-7xl mx-auto px-4 py-16 md:py-24 text-center">
+    <!-- HERO — Video background with patriotic donors -->
+    <section class="relative overflow-hidden min-h-[520px] md:min-h-[600px] flex items-center" style="background: #1e3a5f">
+      <!-- Video Background -->
+      <video autoplay muted loop playsinline preload="auto" poster="/videos/all-american-poster.jpg"
+             class="absolute inset-0 w-full h-full object-cover"
+             aria-hidden="true">
+        <source src="/videos/all-american-hero.mp4" type="video/mp4">
+      </video>
+      <!-- Dark overlay for text readability -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+      <!-- Star pattern overlay -->
+      <div class="absolute inset-0 opacity-[0.07]" style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M30 5L35 20H50L38 30L42 45L30 35L18 45L22 30L10 20H25Z%22 fill=%22white%22 opacity=%220.5%22/%3E%3C/svg%3E'); background-size: 60px 60px;"></div>
+      <div class="relative w-full max-w-7xl mx-auto px-4 py-20 md:py-28 text-center">
         <!-- DATED: Remove this <p> tag after the event ends -->
-        <p class="text-red-200 text-sm font-semibold uppercase tracking-widest mb-4">June 11 &#x2013; July 5, 2026</p>
+        <p class="text-white/80 text-sm font-semibold uppercase tracking-widest mb-4">June 11 &#x2013; July 5, 2026</p>
         <!-- /DATED -->
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight" style="text-shadow: 0 2px 8px rgba(0,0,0,0.3)">All American Blood Drives</h1>
-        <p class="text-xl md:text-2xl text-red-100 max-w-3xl mx-auto mb-8 leading-relaxed">Be a hero this summer. Donate blood at a community drive across Oklahoma, Texas &amp; Arkansas &#x2014; and receive a <strong class="text-white">free t-shirt, camp chair &amp; theme park voucher</strong>.</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight" style="text-shadow: 0 2px 12px rgba(0,0,0,0.5)">All American Blood Drives</h1>
+        <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed" style="text-shadow: 0 1px 6px rgba(0,0,0,0.4)">Be a hero this summer. Donate blood at a community drive across Oklahoma, Texas &amp; Arkansas &#x2014; and receive a <strong class="text-white">free t-shirt, camp chair &amp; theme park voucher</strong>.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#schedule-form" class="inline-flex items-center justify-center rounded-lg text-base font-bold h-14 px-10 bg-white text-red-700 shadow-xl hover:bg-red-50 transition-colors">&#x1F4C5; Schedule Your Donation</a>
           <a href="#oklahoma-schedule" class="inline-flex items-center justify-center rounded-lg text-base font-bold h-14 px-10 border-2 border-white text-white hover:bg-white/10 transition-colors">&#x1F4CD; Find a Drive Near You</a>
         </div>
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-white/80 text-sm">
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-white/70 text-sm" style="text-shadow: 0 1px 4px rgba(0,0,0,0.5)">
           <span>&#x1F3E5; 72 Oklahoma drives</span>
           <span class="hidden md:inline">&#x2022;</span>
           <span>&#x1F6B6; Walk-ins welcome</span>

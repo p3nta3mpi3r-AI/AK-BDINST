@@ -503,6 +503,236 @@ app.get('/events/all-american-blood-drives', (req, res) => {
   serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives.html'), res);
 });
 
+// City-specific All American Blood Drive pages (76 cities)
+app.get('/events/all-american-blood-drives/ada', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'ada.html'), res);
+});
+app.get('/events/all-american-blood-drives/altus', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'altus.html'), res);
+});
+app.get('/events/all-american-blood-drives/alva', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'alva.html'), res);
+});
+app.get('/events/all-american-blood-drives/amarillo', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'amarillo.html'), res);
+});
+app.get('/events/all-american-blood-drives/bartlesville', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'bartlesville.html'), res);
+});
+app.get('/events/all-american-blood-drives/batesville', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'batesville.html'), res);
+});
+app.get('/events/all-american-blood-drives/beebe', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'beebe.html'), res);
+});
+app.get('/events/all-american-blood-drives/bellevue', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'bellevue.html'), res);
+});
+app.get('/events/all-american-blood-drives/benton', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'benton.html'), res);
+});
+app.get('/events/all-american-blood-drives/bethany', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'bethany.html'), res);
+});
+app.get('/events/all-american-blood-drives/bristow', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'bristow.html'), res);
+});
+app.get('/events/all-american-blood-drives/broken-arrow', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'broken-arrow.html'), res);
+});
+app.get('/events/all-american-blood-drives/buffalo', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'buffalo.html'), res);
+});
+app.get('/events/all-american-blood-drives/cabot', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'cabot.html'), res);
+});
+app.get('/events/all-american-blood-drives/cache', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'cache.html'), res);
+});
+app.get('/events/all-american-blood-drives/chattanooga', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'chattanooga.html'), res);
+});
+app.get('/events/all-american-blood-drives/chickasha', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'chickasha.html'), res);
+});
+app.get('/events/all-american-blood-drives/choctaw', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'choctaw.html'), res);
+});
+app.get('/events/all-american-blood-drives/clarksville', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'clarksville.html'), res);
+});
+app.get('/events/all-american-blood-drives/clinton', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'clinton.html'), res);
+});
+app.get('/events/all-american-blood-drives/conway', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'conway.html'), res);
+});
+app.get('/events/all-american-blood-drives/cordell', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'cordell.html'), res);
+});
+app.get('/events/all-american-blood-drives/dardanelle', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'dardanelle.html'), res);
+});
+app.get('/events/all-american-blood-drives/dewitt', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'dewitt.html'), res);
+});
+app.get('/events/all-american-blood-drives/duncan', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'duncan.html'), res);
+});
+app.get('/events/all-american-blood-drives/durant', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'durant.html'), res);
+});
+app.get('/events/all-american-blood-drives/elgin', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'elgin.html'), res);
+});
+app.get('/events/all-american-blood-drives/elk-city', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'elk-city.html'), res);
+});
+app.get('/events/all-american-blood-drives/enid', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'enid.html'), res);
+});
+app.get('/events/all-american-blood-drives/eufaula', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'eufaula.html'), res);
+});
+app.get('/events/all-american-blood-drives/fairview', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'fairview.html'), res);
+});
+app.get('/events/all-american-blood-drives/fort-cobb', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'fort-cobb.html'), res);
+});
+app.get('/events/all-american-blood-drives/fort-sill', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'fort-sill.html'), res);
+});
+app.get('/events/all-american-blood-drives/fort-smith', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'fort-smith.html'), res);
+});
+app.get('/events/all-american-blood-drives/friona', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'friona.html'), res);
+});
+app.get('/events/all-american-blood-drives/guthrie', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'guthrie.html'), res);
+});
+app.get('/events/all-american-blood-drives/haskell', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'haskell.html'), res);
+});
+app.get('/events/all-american-blood-drives/heber-springs', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'heber-springs.html'), res);
+});
+app.get('/events/all-american-blood-drives/hereford', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'hereford.html'), res);
+});
+app.get('/events/all-american-blood-drives/hooker', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'hooker.html'), res);
+});
+app.get('/events/all-american-blood-drives/hot-springs', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'hot-springs.html'), res);
+});
+app.get('/events/all-american-blood-drives/hugo', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'hugo.html'), res);
+});
+app.get('/events/all-american-blood-drives/idabel', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'idabel.html'), res);
+});
+app.get('/events/all-american-blood-drives/kingfisher', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'kingfisher.html'), res);
+});
+app.get('/events/all-american-blood-drives/lakeside-city', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'lakeside-city.html'), res);
+});
+app.get('/events/all-american-blood-drives/lawton', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'lawton.html'), res);
+});
+app.get('/events/all-american-blood-drives/little-rock', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'little-rock.html'), res);
+});
+app.get('/events/all-american-blood-drives/mcalester', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'mcalester.html'), res);
+});
+app.get('/events/all-american-blood-drives/midwest-city', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'midwest-city.html'), res);
+});
+app.get('/events/all-american-blood-drives/morrilton', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'morrilton.html'), res);
+});
+app.get('/events/all-american-blood-drives/norman', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'norman.html'), res);
+});
+app.get('/events/all-american-blood-drives/north-little-rock', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'north-little-rock.html'), res);
+});
+app.get('/events/all-american-blood-drives/okeene', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'okeene.html'), res);
+});
+app.get('/events/all-american-blood-drives/oklahoma-city', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'oklahoma-city.html'), res);
+});
+app.get('/events/all-american-blood-drives/pauls-valley', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'pauls-valley.html'), res);
+});
+app.get('/events/all-american-blood-drives/pawhuska', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'pawhuska.html'), res);
+});
+app.get('/events/all-american-blood-drives/perkins', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'perkins.html'), res);
+});
+app.get('/events/all-american-blood-drives/perry', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'perry.html'), res);
+});
+app.get('/events/all-american-blood-drives/pine-bluff', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'pine-bluff.html'), res);
+});
+app.get('/events/all-american-blood-drives/ponca-city', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'ponca-city.html'), res);
+});
+app.get('/events/all-american-blood-drives/rush-springs', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'rush-springs.html'), res);
+});
+app.get('/events/all-american-blood-drives/russellville', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'russellville.html'), res);
+});
+app.get('/events/all-american-blood-drives/searcy', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'searcy.html'), res);
+});
+app.get('/events/all-american-blood-drives/seiling', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'seiling.html'), res);
+});
+app.get('/events/all-american-blood-drives/seminole', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'seminole.html'), res);
+});
+app.get('/events/all-american-blood-drives/shawnee', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'shawnee.html'), res);
+});
+app.get('/events/all-american-blood-drives/skiatook', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'skiatook.html'), res);
+});
+app.get('/events/all-american-blood-drives/spearman', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'spearman.html'), res);
+});
+app.get('/events/all-american-blood-drives/tecumseh', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'tecumseh.html'), res);
+});
+app.get('/events/all-american-blood-drives/tulsa', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'tulsa.html'), res);
+});
+app.get('/events/all-american-blood-drives/vernon', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'vernon.html'), res);
+});
+app.get('/events/all-american-blood-drives/windthorst', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'windthorst.html'), res);
+});
+app.get('/events/all-american-blood-drives/woodward', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'woodward.html'), res);
+});
+app.get('/events/all-american-blood-drives/wynnewood', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'wynnewood.html'), res);
+});
+app.get('/events/all-american-blood-drives/yale', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'yale.html'), res);
+});
+app.get('/events/all-american-blood-drives/yukon', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives', 'yukon.html'), res);
+});
+
 // North Oklahoma City donor center
 app.get('/locations/north-oklahoma-city', (req, res) => {
   serveHtml(path.join(VIEWS, 'locations', 'north-oklahoma-city.html'), res);
