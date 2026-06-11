@@ -422,6 +422,54 @@ details > *:not(summary) {
   h1 { font-size: 1.6rem; }
 }
 
+/* 13b. MOBILE HERO — video header + form below
+   Only affects screens below the md (768px) Tailwind breakpoint.
+   Desktop layout is completely untouched.
+   -------------------------------------------------- */
+@media (max-width: 767px) {
+
+  /* Let section size to content instead of fixed 600px */
+  #hero {
+    min-height: auto !important;
+    background: #f9fafb;          /* neutral bg visible behind the form */
+  }
+
+  /* ── Video: cover only the top "header" area ── */
+  #hero > video {
+    bottom: auto !important;
+    height: 55vh !important;
+    min-height: 380px;
+    max-height: 520px;
+  }
+
+  /* ── Gradient overlay: match the video height ── */
+  #hero > video + div {
+    bottom: auto !important;
+    height: 55vh !important;
+    min-height: 380px;
+    max-height: 520px;
+  }
+
+  /* Tighter padding on the content wrapper */
+  #hero > .relative.z-10 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.5rem;
+  }
+
+  /* ── Form: sits cleanly below the video area ── */
+  #hero-form {
+    position: relative;
+    z-index: 20;
+    margin-top: 1rem;
+    border-radius: 1rem;
+  }
+
+  /* Slightly shorter iframe on small screens */
+  #hero-form iframe {
+    min-height: 700px;
+  }
+}
+
 /* 14. MOBILE NAV — SLIDE-IN DRAWER
    -------------------------------------------------- */
 .mobile-nav-overlay {
