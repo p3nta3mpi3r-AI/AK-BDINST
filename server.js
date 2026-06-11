@@ -1491,6 +1491,17 @@ app.get('/compare', (req, res) => {
   serveHtml(path.join(VIEWS, 'compare', 'index.html'), res);
 });
 
+// Redirects for old/short compare URLs
+app.get('/compare/blood-vs-plasma', (req, res) => {
+  res.redirect(301, '/compare/whole-blood-vs-plasma');
+});
+app.get('/compare/obi-vs-red-cross', (req, res) => {
+  res.redirect(301, '/compare');
+});
+app.get('/compare/obi-vs-oneblood', (req, res) => {
+  res.redirect(301, '/compare');
+});
+
 app.get('/compare/:slug', (req, res) => {
   serveHtml(path.join(VIEWS, 'compare', `${req.params.slug}.html`), res);
 });
