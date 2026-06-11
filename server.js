@@ -498,6 +498,11 @@ app.get('/schedule-appointment', (req, res) => {
   serveHtml(path.join(VIEWS, 'schedule.html'), res);
 });
 
+// ─── Events ─────────────────────────────────────────────────────────
+app.get('/events/all-american-blood-drives', (req, res) => {
+  serveHtml(path.join(VIEWS, 'events', 'all-american-blood-drives.html'), res);
+});
+
 // North Oklahoma City donor center
 app.get('/locations/north-oklahoma-city', (req, res) => {
   serveHtml(path.join(VIEWS, 'locations', 'north-oklahoma-city.html'), res);
