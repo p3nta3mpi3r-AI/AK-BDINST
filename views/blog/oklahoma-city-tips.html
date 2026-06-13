@@ -13,7 +13,7 @@
   <meta property="og:description" content="First-time blood donor tips for Oklahoma City, Oklahoma. What to eat, what to bring, what to expect at the Oklahoma City Blood Donor Center, and how to prepare for a comfortable donation.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://oklahomabloodinstitute.com/blog/oklahoma-city-tips">
-  <meta property="og:site_name" content="Oklahoma Blood Institute">
+  <meta property="og:site_name" content="OBI Blood Donor">
   <meta property="og:image" content="https://oklahomabloodinstitute.com/images/og-blog-oklahoma-city.jpg">
 
   <!-- Twitter -->
@@ -59,9 +59,9 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Oklahoma Blood Institute",
+    "name": "OBI Blood Donor",
     "url": "https://oklahomabloodinstitute.com",
-    "logo": "https://oklahomabloodinstitute.com/images/obi-logo.png",
+    "logo": "https://oklahomabloodinstitute.com/images/logo.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "(405) 278-3100",
@@ -88,8 +88,55 @@
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-red-700 px-4 py-2 rounded z-50">Skip to main content</a>
 
   <!-- Header -->
+<<<<<<< Updated upstream
   <!--SYM:HEADER-->
 <main id="main-content">
+=======
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-gray-950/95 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 h-16">
+      <a href="/" class="flex items-center gap-2 group" aria-label="OBI Blood Donor Home">
+        <img src="/images/logo.png" alt="OBI logo" width="36" height="36" class="rounded-lg" loading="eager">
+        <span class="font-extrabold text-base tracking-tight">OBI Blood Donor</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-sm font-medium" aria-label="Main navigation">
+        <a href="/" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Home</a>
+        <a href="/questions/" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">FAQs</a>
+        <a href="/blog/" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-950/30">Blog</a>
+        <a href="/locations/" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Locations</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <!-- Theme toggle -->
+        <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+          <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" onclick="toggleMobileNav()" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Open menu" aria-expanded="false">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div id="mobile-nav" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="mobile-nav-overlay" onclick="closeMobileNav()"></div>
+    <nav class="absolute right-0 top-0 bottom-0 w-72 bg-white dark:bg-gray-950 shadow-2xl p-6 flex flex-col gap-2 overflow-y-auto" aria-label="Mobile navigation">
+      <div class="flex justify-between items-center mb-4">
+        <span class="font-bold text-lg">Menu</span>
+        <button id="mobile-menu-close" onclick="closeMobileNav()" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Close menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <a href="/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">Home</a>
+      <a href="/questions/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">FAQs</a>
+      <a href="/blog/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">Blog</a>
+      <a href="/locations/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">Locations</a>
+    </nav>
+  </div>
+
+  <main id="main-content">
+>>>>>>> Stashed changes
   <article class="py-12">
     <div class="max-w-3xl mx-auto px-4">
 
@@ -459,7 +506,7 @@
       <span class="text-2xl flex-shrink-0 mt-0.5">&#x2695;&#xFE0F;</span>
       <div>
         <p class="text-sm font-semibold text-gray-900 dark:text-white">Medically Reviewed for Accuracy</p>
-        <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">This content has been reviewed by the Oklahoma Blood Institute clinical advisory team to ensure medical accuracy. Information reflects current FDA blood donation guidelines and Oklahoma-specific eligibility criteria. Last reviewed: <time datetime="2026-05-15">May 15, 2026</time>.</p>
+        <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">This content has been reviewed by the OBI Blood Donor clinical advisory team to ensure medical accuracy. Information reflects current FDA blood donation guidelines and Oklahoma-specific eligibility criteria. Last reviewed: <time datetime="2026-05-15">May 15, 2026</time>.</p>
         <p class="text-xs text-gray-500 dark:text-gray-500 mt-2 italic">This page is for informational purposes only and does not constitute medical advice. Always consult your healthcare provider or contact your nearest donor center for personalized eligibility guidance.</p>
       </div>
     </div>
@@ -477,8 +524,54 @@
   </section>
 
   <!-- Footer -->
+<<<<<<< Updated upstream
   <!--SYM:FOOTER-->
 
+=======
+  <footer class="bg-gray-950 text-gray-400 text-sm">
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <img src="/images/logo.png" alt="OBI logo" width="32" height="32" class="rounded-lg opacity-80">
+            <span class="font-bold text-white text-sm">OBI Blood Donor</span>
+          </div>
+          <p class="text-xs leading-relaxed">Oklahoma's independent, non-profit blood center serving patients across the state since 1977.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white text-xs uppercase tracking-wider mb-3">Resources</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="/questions/" class="hover:text-white transition-colors">FAQs</a></li>
+            <li><a href="/blog/" class="hover:text-white transition-colors">Blog</a></li>
+            <li><a href="/locations/" class="hover:text-white transition-colors">Locations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white text-xs uppercase tracking-wider mb-3">Popular Guides</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="/blog/oklahoma-city-guide" class="hover:text-white transition-colors">OKC Donation Guide</a></li>
+            <li><a href="/blog/tulsa-guide" class="hover:text-white transition-colors">Tulsa Donation Guide</a></li>
+            <li><a href="/blog/norman-guide" class="hover:text-white transition-colors">Norman Donation Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white text-xs uppercase tracking-wider mb-3">Contact</h4>
+          <ul class="space-y-2 text-xs">
+            <li>Main: <a href="tel:+14052783100" class="hover:text-white transition-colors">(405) 278-3100</a></li>
+            <li><a href="https://obi.org" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">obi.org</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs">&copy; 2026 OBI Blood Donor. All rights reserved.</p>
+        <div class="flex gap-4 text-xs">
+          <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="/terms" class="hover:text-white transition-colors">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+>>>>>>> Stashed changes
 
   <!-- Sticky Mobile CTA -->
 

@@ -310,8 +310,8 @@ function transformHtml(html, options = {}) {
 
       // Replace the generic Organization block with MedicalOrganization
       h = h.replace(
-        /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/,
-        '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors"'
+        /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"OBI Blood Donor"/,
+        '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"OBI Blood Donor"'
       );
 
       // Replace Article schema with MedicalOrganization + LocalBusiness
@@ -321,7 +321,7 @@ function transformHtml(html, options = {}) {
           "@context": "https://schema.org",
           "@type": ["MedicalOrganization", "LocalBusiness"],
           "@id": `https://oklahomabloodinstitute.com/donate-blood/${options.locationSlug}#location`,
-          "name": `Oklahoma Blood Donors — ${cityName}`,
+          "name": `OBI Blood Donor — ${cityName}`,
           "description": `Donate blood in ${cityName}, Oklahoma. Walk-ins welcome at the ${loc.name}.`,
           "url": `https://oklahomabloodinstitute.com/donate-blood/${options.locationSlug}`,
           "telephone": loc.phone,
@@ -343,7 +343,7 @@ function transformHtml(html, options = {}) {
           "parentOrganization": {
             "@type": "MedicalOrganization",
             "@id": "https://oklahomabloodinstitute.com/#organization",
-            "name": "Oklahoma Blood Donors"
+            "name": "OBI Blood Donor"
           }
         };
 
@@ -374,7 +374,7 @@ function transformHtml(html, options = {}) {
   if (options.blogSlug) {
     // Extract title from <title> tag
     const titleMatch = h.match(/<title>([^<]+)<\/title>/);
-    const pageTitle = titleMatch ? titleMatch[1].replace(/ \| Oklahoma Blood Donors$/, '').trim() : 'Blood Donation Guide';
+    const pageTitle = titleMatch ? titleMatch[1].replace(/ \| OBI Blood Donor$/, '').trim() : 'Blood Donation Guide';
 
     // Extract meta description
     const descMatch = h.match(/<meta\s+name="description"\s+content="([^"]*)"/);
@@ -391,13 +391,13 @@ function transformHtml(html, options = {}) {
       "author": {
         "@type": "Organization",
         "@id": "https://oklahomabloodinstitute.com/#organization",
-        "name": "Oklahoma Blood Donors",
+        "name": "OBI Blood Donor",
         "url": "https://oklahomabloodinstitute.com"
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://oklahomabloodinstitute.com/#organization",
-        "name": "Oklahoma Blood Donors",
+        "name": "OBI Blood Donor",
         "url": "https://oklahomabloodinstitute.com",
         "logo": {
           "@type": "ImageObject",
@@ -410,7 +410,7 @@ function transformHtml(html, options = {}) {
       },
       "isPartOf": {
         "@type": "Blog",
-        "name": "Oklahoma Blood Donors Blog",
+        "name": "OBI Blood Donor Blog",
         "url": "https://oklahomabloodinstitute.com/blog"
       }
     };
@@ -720,8 +720,8 @@ function transformHtml(html, options = {}) {
   // 7) Global AEO: Upgrade Organization → MedicalOrganization on ALL pages
   // This catches pages not handled by section 4 (blog, faq, questions, guides, etc.)
   h = h.replace(
-    /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Oklahoma Blood Donors"/g,
-    '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"Oklahoma Blood Donors","telephone":"+1-877-340-8777"'
+    /"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"OBI Blood Donor"/g,
+    '"@type":"MedicalOrganization","@id":"https://oklahomabloodinstitute.com/#organization","medicalSpecialty":"Blood Banking","name":"OBI Blood Donor","telephone":"+1-877-340-8777"'
   );
 
   // 8) Accessibility fixes (WCAG 2.1 AA compliance) — applied to ALL pages
@@ -775,18 +775,28 @@ function transformHtml(html, options = {}) {
     }
   );
 
-  // 9) Global brand cleanup — canonical name is "OK Blood Donor"
-  h = h.replace(/Oklahoma Blood Donors/g, 'OK Blood Donor');
-  h = h.replace(/Oklahoma Blood Institute/g, 'OK Blood Donor');
+  // 9) Global brand cleanup — canonical name is "OBI Blood Donor"
+  h = h.replace(/Oklahoma Blood Donors/g, 'OBI Blood Donor');
+  h = h.replace(/OBI Blood Donor/g, 'OBI Blood Donor');
+  h = h.replace(/OK Blood Donor/g, 'OBI Blood Donor');
 
-  // 10) Remove OBI logo references — replace with heart SVG inline
+  // 10) Replace any remaining old logo references with new logo img
   h = h.replace(
     /<img\s+src="\/images\/obi-logo\.png"[^>]*>/gi,
-    '<div class="flex h-9 w-9 items-center justify-center rounded-full" style="background-color:oklch(0.547 0.213 27.325)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>'
+    '<img src="/images/logo.png" alt="OBI Blood Donor" width="36" height="36" class="h-9 w-9 object-contain">'
   );
 
   // 10b) Fix logo URL in JSON-LD schema
-  h = h.replace(/\/images\/obi-logo\.png/g, '/images/hero-donation.jpg');
+  h = h.replace(/\/images\/obi-logo\.png/g, '/images/logo.png');
+  h = h.replace(/"url"\s*:\s*"https:\/\/oklahomabloodinstitute\.com\/images\/hero-donation\.jpg"/g, '"url":"https://oklahomabloodinstitute.com/images/logo.png"');
+
+  // 10c) Inject favicon if not present
+  if (!h.includes('favicon.ico')) {
+    h = h.replace(
+      '<meta charset="UTF-8">',
+      '<meta charset="UTF-8">\n  <link rel="icon" type="image/x-icon" href="/favicon.ico">\n  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">\n  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">\n  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">'
+    );
+  }
 
   // 11) Remove obi.org external links (handles nested spans inside anchors)
   h = h.replace(/<li>\s*<a\s+href="https?:\/\/obi\.org"[\s\S]*?<\/a>\s*<\/li>/gi, '');
@@ -1562,7 +1572,7 @@ app.get('/sitemap', (req, res) => {
     `<tr><td><a href="${u.loc}">${u.loc.replace('https://oklahomabloodinstitute.com','')|| '/'}</a></td><td>${u.lastmod}</td><td>${u.priority}</td></tr>`
   ).join('\\n');
 
-  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sitemap — Oklahoma Blood Institute</title>
+  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sitemap — OBI Blood Donor</title>
 <link rel="canonical" href="https://oklahomabloodinstitute.com/sitemap">
 <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,sans-serif;color:#1f2937;padding:2rem;max-width:1200px;margin:0 auto}
 h1{font-size:2rem;margin-bottom:.5rem}p.sub{color:#6b7280;margin-bottom:2rem}.count{color:#b91c1c;font-weight:700}
@@ -1571,7 +1581,7 @@ thead{background:#b91c1c}th{color:#fff;padding:.75rem 1rem;text-align:left;font-
 td{padding:.75rem 1rem;font-size:.9rem;border-bottom:1px solid #e5e7eb}tr:hover{background:#f9fafb}
 a{color:#b91c1c;text-decoration:none}a:hover{text-decoration:underline}
 @media(max-width:768px){body{padding:1rem}th,td{padding:.5rem;font-size:.8rem}}</style></head>
-<body><h1>Sitemap</h1><p class="sub">Oklahoma Blood Institute &mdash; <span class="count">${urls.length}</span> pages</p>
+<body><h1>Sitemap</h1><p class="sub">OBI Blood Donor &mdash; <span class="count">${urls.length}</span> pages</p>
 <table><thead><tr><th>URL</th><th>Last Modified</th><th>Priority</th></tr></thead><tbody>${rows}</tbody></table>
 <p style="margin-top:2rem;font-size:.8rem;color:#9ca3af">This sitemap helps search engines discover all pages on our site.</p></body></html>`;
 
