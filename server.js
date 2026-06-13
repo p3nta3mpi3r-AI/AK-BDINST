@@ -1136,6 +1136,16 @@ app.get('/plasma/:slug', (req, res) => {
   serveHtml(path.join(VIEWS, 'plasma', `${req.params.slug}.html`), res, { plasmaSlug: req.params.slug, fixYear: true });
 });
 
+// Platelet donation hub
+app.get('/platelets', (req, res) => {
+  serveHtml(path.join(VIEWS, 'platelets', 'index.html'), res);
+});
+
+// Platelet donation city pages
+app.get('/platelets/:slug', (req, res) => {
+  serveHtml(path.join(VIEWS, 'platelets', `${req.params.slug}.html`), res);
+});
+
 // Donate blood city pages
 app.get('/donate-blood/:slug', (req, res) => {
   serveHtml(
