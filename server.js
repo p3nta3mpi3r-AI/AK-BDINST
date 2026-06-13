@@ -76,10 +76,8 @@ const SYM_HEADER = `
   <header class="sticky top-0 z-50 w-full border-b bg-white/95 dark:bg-gray-950/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-950/60 no-print">
     <div class="max-w-7xl mx-auto flex h-16 items-center justify-between px-4">
       <a class="flex items-center space-x-2" href="/">
-        <div class="flex h-10 w-10 items-center justify-center rounded-full" style="background-color: oklch(0.547 0.213 27.325)">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-        </div>
-        <span class="hidden font-bold sm:inline-block text-lg">OK Blood Donor</span>
+        <img src="/images/logo.png" alt="OBI Blood Donor" width="48" height="48" class="h-12 w-12 object-contain">
+        <span class="hidden font-bold sm:inline-block text-lg">OBI Blood Donor</span>
       </a>
       <nav aria-label="Main navigation" class="hidden md:flex items-center space-x-6 text-sm font-medium">
         <a class="transition-colors hover:text-red-700" href="/locations">Donor Centers</a>
@@ -105,7 +103,7 @@ const SYM_HEADER = `
   <div id="mobile-nav-overlay" class="mobile-nav-overlay" onclick="closeMobileNav()"></div>
   <div id="mobile-nav" class="mobile-nav">
     <div class="flex justify-between items-center mb-6">
-      <span class="font-bold text-lg">OK Blood Donor</span>
+      <span class="font-bold text-lg">OBI Blood Donor</span>
       <button onclick="closeMobileNav()" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Close menu">&times;</button>
     </div>
     <nav aria-label="Mobile navigation" class="flex flex-col space-y-4 text-base font-medium">
@@ -128,10 +126,8 @@ const SYM_FOOTER = `
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <div class="flex items-center space-x-2 mb-4">
-            <div class="flex h-8 w-8 items-center justify-center rounded-full" style="background-color: oklch(0.547 0.213 27.325)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-            </div>
-            <span class="font-bold">OK Blood Donor</span>
+            <img src="/images/logo.png" alt="OBI Blood Donor" width="36" height="36" class="h-9 w-9 object-contain">
+            <span class="font-bold">OBI Blood Donor</span>
           </div>
           <p class="text-sm text-gray-600 dark:text-gray-400">Serving Oklahoma donors and patients at 12 certified centers. Every unit donated stays local — supporting hospitals, trauma centers, and treatment facilities across the state.</p>
         </div>
@@ -166,7 +162,7 @@ const SYM_FOOTER = `
       </div>
       <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
         <p class="text-xs text-gray-500 dark:text-gray-500 leading-relaxed"><strong>Important Disclaimer:</strong> Information on compensation, rewards, and promotions is for general guidance only and may change. Always confirm details with your selected donor center at the time of booking. Blood donation is a medical procedure with potential risks. Please answer all health questions honestly and follow staff instructions.</p>
-        <p class="text-xs text-gray-500 dark:text-gray-500 mt-4">&copy; OK Blood Donor. All rights reserved.</p>
+        <p class="text-xs text-gray-500 dark:text-gray-500 mt-4">&copy; OBI Blood Donor. All rights reserved.</p>
       </div>
     </div>
   </footer>
