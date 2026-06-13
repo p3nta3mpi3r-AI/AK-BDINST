@@ -76,7 +76,7 @@ const SYM_HEADER = `
   <header class="sticky top-0 z-50 w-full border-b bg-white/95 dark:bg-gray-950/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-950/60 no-print">
     <div class="max-w-7xl mx-auto flex h-16 items-center justify-between px-4">
       <a class="flex items-center space-x-2" href="/">
-        <img src="/images/logo.png" alt="OBI Blood Donor" width="48" height="48" class="h-12 w-12 object-contain">
+        <img src="/images/logo.png?v=3" alt="OBI Blood Donor" width="48" height="48" class="h-12 w-12 object-contain">
         <span class="hidden font-bold sm:inline-block text-lg">OBI Blood Donor</span>
       </a>
       <nav aria-label="Main navigation" class="hidden md:flex items-center space-x-6 text-sm font-medium">
@@ -126,7 +126,7 @@ const SYM_FOOTER = `
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <div class="flex items-center space-x-2 mb-4">
-            <img src="/images/logo.png" alt="OBI Blood Donor" width="36" height="36" class="h-9 w-9 object-contain">
+            <img src="/images/logo.png?v=3" alt="OBI Blood Donor" width="36" height="36" class="h-9 w-9 object-contain">
             <span class="font-bold">OBI Blood Donor</span>
           </div>
           <p class="text-sm text-gray-600 dark:text-gray-400">Serving Oklahoma donors and patients at 12 certified centers. Every unit donated stays local — supporting hospitals, trauma centers, and treatment facilities across the state.</p>
@@ -779,18 +779,18 @@ function transformHtml(html, options = {}) {
   // 10) Replace any remaining old logo references with new logo img
   h = h.replace(
     /<img\s+src="\/images\/obi-logo\.png"[^>]*>/gi,
-    '<img src="/images/logo.png" alt="OBI Blood Donor" width="36" height="36" class="h-9 w-9 object-contain">'
+    '<img src="/images/logo.png?v=3" alt="OBI Blood Donor" width="36" height="36" class="h-9 w-9 object-contain">'
   );
 
   // 10b) Fix logo URL in JSON-LD schema
-  h = h.replace(/\/images\/obi-logo\.png/g, '/images/logo.png');
+  h = h.replace(/\/images\/obi-logo\.png/g, '/images/logo.png?v=3');
   h = h.replace(/"url"\s*:\s*"https:\/\/oklahomabloodinstitute\.com\/images\/hero-donation\.jpg"/g, '"url":"https://oklahomabloodinstitute.com/images/logo.png"');
 
   // 10c) Inject favicon if not present
   if (!h.includes('favicon.ico')) {
     h = h.replace(
       '<meta charset="UTF-8">',
-      '<meta charset="UTF-8">\n  <link rel="icon" type="image/x-icon" href="/favicon.ico">\n  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">\n  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">\n  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">'
+      '<meta charset="UTF-8">\n  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=3">\n  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=3">\n  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=3">\n  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=3">'
     );
   }
 
