@@ -868,10 +868,7 @@ app.get('/schedule', (req, res) => {
   res.redirect(302, 'https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912');
 });
 
-// SEO landing page for scheduling (separate from the /schedule affiliate redirect)
-app.get('/schedule-appointment', (req, res) => {
-  serveHtml(path.join(VIEWS, 'schedule.html'), res);
-});
+// /schedule-appointment removed — page deleted per request
 
 // ─── Events ─────────────────────────────────────────────────────────
 app.get('/events/all-american-blood-drives', (req, res) => {

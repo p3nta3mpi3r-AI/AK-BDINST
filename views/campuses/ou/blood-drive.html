@@ -75,13 +75,18 @@
   <!--SYM:HEADER-->
 <main class="flex-1">
 
-    <!-- Hero CTA Section -->
-    <section class="py-16" style="background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);">
-      <div class="max-w-3xl mx-auto px-4 text-center">
+    <!-- Hero CTA Section — Video Background -->
+    <section class="relative overflow-hidden min-h-[400px] md:min-h-[480px] flex items-center" style="background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);">
+      <video autoplay muted loop playsinline preload="auto" poster="/videos/all-american-poster.jpg"
+             class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
+        <source src="/videos/all-american-hero.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+      <div class="relative w-full max-w-3xl mx-auto px-4 py-16 md:py-24 text-center">
 
         <!-- Breadcrumb -->
         <nav aria-label="Breadcrumb" class="mb-6">
-          <ol class="flex items-center justify-center gap-2 text-sm text-red-200 flex-wrap">
+          <ol class="flex items-center justify-center gap-2 text-sm text-white/70 flex-wrap">
             <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
             <li><span class="mx-1">/</span></li>
             <li><a href="/campuses" class="hover:text-white transition-colors">Campuses</a></li>
@@ -92,13 +97,13 @@
           </ol>
         </nav>
 
-        <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">OU Blood Drive — University of Oklahoma</h1>
-        <p class="text-red-100 text-lg mb-8 max-w-xl mx-auto">Donate on campus or at the Norman Blood Donor Center — just minutes from the OU campus. Open 6 days a week.</p>
+        <h1 class="text-3xl md:text-5xl font-bold text-white mb-4" style="text-shadow: 0 2px 12px rgba(0,0,0,0.5)">OU Blood Drive — University of Oklahoma</h1>
+        <p class="text-white/80 text-lg mb-8 max-w-xl mx-auto" style="text-shadow: 0 1px 6px rgba(0,0,0,0.4)">Donate on campus or at the Norman Blood Donor Center — just minutes from the OU campus. Open 6 days a week.</p>
 
         <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" data-ga-cta="ou_blooddrive_hero" class="inline-flex items-center justify-center rounded-md text-base font-bold h-14 px-10 text-red-700 bg-white shadow-xl hover:bg-red-50 transition-colors">
           Schedule My OU Donation &rarr;
         </a>
-        <p class="mt-4 text-sm text-red-200">Walk-ins also accepted at the Norman Center</p>
+        <p class="mt-4 text-sm text-white/70">Walk-ins also accepted at the Norman Center</p>
       </div>
     </section>
 
