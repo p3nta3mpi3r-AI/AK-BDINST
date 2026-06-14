@@ -38,6 +38,15 @@
     }
   </script>
   <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    /* Page-level dark theme override for All American Blood Drives */
+    body { background-color: #030712 !important; color: #fff !important; }
+    .aab-section-dark { background-color: #111827 !important; }
+    .aab-card { background-color: #1f2937 !important; border-color: #374151 !important; }
+    .aab-text-muted { color: #d1d5db !important; }
+    .aab-text-subtle { color: #9ca3af !important; }
+    .aab-border { border-color: #374151 !important; }
+  </style>
 
   <!-- Structured Data: Organization -->
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "OBI Blood Donor", "description": "Connecting Oklahoma communities with life-saving blood donation opportunities.", "url": "https://oklahomabloodinstitute.com", "areaServed": {"@type": "State", "name": "Oklahoma"}, "serviceType": "Blood Donation"}</script>
@@ -821,7 +830,7 @@
   <main id="main-content" class="flex-1">
 
     <!-- Breadcrumbs -->
-    <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 pt-4">
+    <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 pt-4" style="background-color:#030712">
       <ol class="flex items-center space-x-2 text-sm text-gray-400">
         <li><a href="/" class="hover:text-red-400 transition-colors">Home</a></li>
         <li><span class="mx-1">/</span></li>
@@ -864,22 +873,22 @@
     </section>
 
     <!-- EVERGREEN: What Every Donor Receives -->
-    <section class="py-16 bg-gray-900">
+    <section class="py-16 bg-gray-900 aab-section-dark">
       <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center text-white mb-4">What Every Donor Receives</h2>
         <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">While supplies last, every successful blood donor at an All American Blood Drive receives all three of these free gifts:</p>
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-gray-800 rounded-xl p-8 text-center shadow-sm border border-gray-700">
+          <div class="bg-gray-800 rounded-xl p-8 text-center shadow-sm border border-gray-700 aab-card">
             <div class="text-5xl mb-4">&#x1F455;</div>
             <h3 class="text-xl font-bold text-white mb-2">Limited-Edition T-Shirt</h3>
             <p class="text-gray-300">&#x201C;All American Blood Donor&#x201D; &#x2014; an exclusive patriotic design available only at these events.</p>
           </div>
-          <div class="bg-gray-800 rounded-xl p-8 text-center shadow-sm border border-gray-700">
+          <div class="bg-gray-800 rounded-xl p-8 text-center shadow-sm border border-gray-700 aab-card">
             <div class="text-5xl mb-4">&#x1FA91;</div>
             <h3 class="text-xl font-bold text-white mb-2">Folding Camp Chair</h3>
             <p class="text-gray-300">Perfect for summer cookouts, camping, or fireworks &#x2014; a thank-you from OBI Blood Donor.</p>
           </div>
-          <div class="bg-gray-800 rounded-xl p-8 text-center shadow-sm border border-gray-700">
+          <div class="bg-gray-800 rounded-xl p-8 text-center shadow-sm border border-gray-700 aab-card">
             <div class="text-5xl mb-4">&#x1F3A2;</div>
             <h3 class="text-xl font-bold text-white mb-2">Theme Park Voucher</h3>
             <p class="text-gray-300">Free ticket to a local attraction &#x2014; check voucher details for participating parks near you.</p>
@@ -893,7 +902,7 @@
       <div class="max-w-4xl mx-auto px-4">
         <article>
           <h2 class="text-3xl font-bold text-white mb-6">Everything You Need to Know About the All American Blood Drives</h2>
-          <div class="prose prose-lg prose-invert max-w-none text-gray-300 space-y-6">
+          <div class="prose prose-lg prose-invert max-w-none text-gray-300 aab-text-muted space-y-6">
             <p>The <strong>All American Blood Drives</strong> are OBI Blood Donor&#x2019;s largest annual summer campaign, held every year across Oklahoma, Texas, and Arkansas. This patriotic celebration of giving brings blood donation directly into communities &#x2014; from OKC malls and Tulsa stadiums to small-town fire stations and military bases.</p>
 
             <h3 class="text-2xl font-bold text-white mt-8 mb-4">Why Oklahoma Needs Your Blood Every Summer</h3>
@@ -938,11 +947,11 @@
     </section>
 
     <!-- EVERGREEN: Schedule Form (Donable Embed — ONE TIME ONLY) -->
-    <section id="schedule-form" class="py-16 bg-gray-900">
+    <section id="schedule-form" class="py-16 bg-gray-900 aab-section-dark">
       <div class="max-w-4xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center text-white mb-4">Schedule Your Blood Donation</h2>
         <p class="text-center text-gray-400 mb-8 max-w-2xl mx-auto">Book online in under 2 minutes. Walk-ins are always welcome, but an appointment helps reduce your wait time.</p>
-        <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700">
+        <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 aab-card">
           <iframe src="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" title="Schedule Blood Donation Appointment"
                   style="width:100%; min-height:850px; border:none; border-radius:8px;"
                   loading="lazy" allow="geolocation"></iframe>
@@ -979,151 +988,151 @@
                 <tr><th class="py-3 px-4">Date</th><th class="py-3 px-4">Time</th><th class="py-3 px-4">Location</th><th class="py-3 px-4 text-center">Appt</th></tr>
               </thead>
               <tbody>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 11, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:00 p.m. - 5:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Bethany Library</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 12, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">7:30 a.m. - 11:00 a.m.</td>
                 <td class="py-3 px-4 text-white">City of Choctaw</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 12, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">4 p.m. - 7 p.m.</td>
                 <td class="py-3 px-4 text-white">Elk City Route 66 Festival</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 12, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10 a.m. - 4 p.m.</td>
                 <td class="py-3 px-4 text-white">Bass Pro</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 12, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10 a.m. - 4 p.m.</td>
                 <td class="py-3 px-4 text-white">Cabela's</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 12, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10 a.m. - 4 p.m</td>
                 <td class="py-3 px-4 text-white">Sooner Mall</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 13, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9 a.m. - 3 p.m.</td>
                 <td class="py-3 px-4 text-white">Bass Pro</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 13, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9 a.m. - 3 p.m.</td>
                 <td class="py-3 px-4 text-white">Cabela's</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 17, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1 p.m. - 5 p.m.</td>
                 <td class="py-3 px-4 text-white">Guthrie Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 17, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10 a.m. - 3 p.m.</td>
                 <td class="py-3 px-4 text-white">Fireworks Warehouse</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 18, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">4:30 p.m. - 7:30 p.m.</td>
                 <td class="py-3 px-4 text-white">Tinker AFB Exchange</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 19, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9 a.m. - 1 p.m.</td>
                 <td class="py-3 px-4 text-white">Elite Wellness</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 19, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2 p.m. - 5 p.m.</td>
                 <td class="py-3 px-4 text-white">OKC Outlets</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 19, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11 a.m. - 4 p.m.</td>
                 <td class="py-3 px-4 text-white">Firelake Casino</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 19, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12 p.m. - 5 p.m.</td>
                 <td class="py-3 px-4 text-white">CPN Enterprises</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 20, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11 a.m. - 4 p.m.</td>
                 <td class="py-3 px-4 text-white">Quail Springs Mall</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 20, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9 a.m. - 2 p.m.</td>
                 <td class="py-3 px-4 text-white">Shawnee Mall</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 20, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9 a.m. - 2 p.m.</td>
                 <td class="py-3 px-4 text-white">Heartland Cruise</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1 p.m. - 5 p.m.</td>
                 <td class="py-3 px-4 text-white">Tecumseh Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10 a.m. - 2 p.m.</td>
                 <td class="py-3 px-4 text-white">Guthrie Chamber</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:00am - 11:00am</td>
                 <td class="py-3 px-4 text-white">Yukon Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 27, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00am - 1:00pm</td>
                 <td class="py-3 px-4 text-white">Shoppes at North Park</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 27, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10 a.m. - 3 p.m.</td>
                 <td class="py-3 px-4 text-white">Fort Thunder Harley-Davidson</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11 a.m. - 3 p.m.</td>
                 <td class="py-3 px-4 text-white">Oklahoma City Indian Clinic</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12 p.m. - 5:30 p.m.</td>
                 <td class="py-3 px-4 text-white">Cordell Community sponsored by Cordell Memorial Hospital</td>
@@ -1145,283 +1154,283 @@
                 <tr><th class="py-3 px-4">Date</th><th class="py-3 px-4">Time</th><th class="py-3 px-4">Location</th><th class="py-3 px-4 text-center">Appt</th></tr>
               </thead>
               <tbody>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 12, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:30 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Altus Air Force Base</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 13, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Washington Park Mall</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 14, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:30am - 3:00pm</td>
                 <td class="py-3 px-4 text-white">Yale Fire and Police</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 15, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:00pm - 6:00pm</td>
                 <td class="py-3 px-4 text-white">Seiling Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 15, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 6:00pm</td>
                 <td class="py-3 px-4 text-white">All American Blood Drive - Seminole</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 15, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2:15pm - 6pm</td>
                 <td class="py-3 px-4 text-white">Empire High School & Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 16, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:00pm - 4:00pm</td>
                 <td class="py-3 px-4 text-white">Northcutt Chevrolet</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 16, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 4:00pm</td>
                 <td class="py-3 px-4 text-white">St Marys Regional Medical Center</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 16, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12:00pm - 6:00pm</td>
                 <td class="py-3 px-4 text-white">Fairveiw Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 16, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00pm - 4:00pm</td>
                 <td class="py-3 px-4 text-white">Fairveiw Regional Center</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 16, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:30am - 12:30pm</td>
                 <td class="py-3 px-4 text-white">Cache Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 17, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 6:00pm</td>
                 <td class="py-3 px-4 text-white">Smithfield</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 17, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 5:00pm</td>
                 <td class="py-3 px-4 text-white">All American Eufaula</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 17, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12:00pm - 3:00pm</td>
                 <td class="py-3 px-4 text-white">Elgin Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 17, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:00pm - 5:30pm</td>
                 <td class="py-3 px-4 text-white">Chickasha All American</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 18, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">3:00pm - 7:00pm</td>
                 <td class="py-3 px-4 text-white">Third Thursday- Skiatook</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 18, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12:00pm - 6:00pm</td>
                 <td class="py-3 px-4 text-white">Okeene Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 19, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2:00pm - 6:00pm</td>
                 <td class="py-3 px-4 text-white">Walmart Bristow</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 19, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">3:00pm - 6:00pm</td>
                 <td class="py-3 px-4 text-white">Pawhuska Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 19, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 6:00pm</td>
                 <td class="py-3 px-4 text-white">All American Blood Drive - McAlester</td>
                 <td class="py-3 px-4 text-center"><a href="v" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 20, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00am - 1:00pm</td>
                 <td class="py-3 px-4 text-white">Buffalo Farmer's Market</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 20, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:30am - 3:00pm</td>
                 <td class="py-3 px-4 text-white">Rush Springs Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 22, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00am - 2:00pm</td>
                 <td class="py-3 px-4 text-white">Cimarron Electric Cooperative</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 22, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2:00pm - 6:00pm</td>
                 <td class="py-3 px-4 text-white">Woodward Fire & Police Challenge</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 3:00pm</td>
                 <td class="py-3 px-4 text-white">Lowe's Bartlesville</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12:00pm - 4:00pm</td>
                 <td class="py-3 px-4 text-white">City Of Enid</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00am - 2:00pm</td>
                 <td class="py-3 px-4 text-white">Share Medical Center</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00am - 1:30pm</td>
                 <td class="py-3 px-4 text-white">FMX Blood Drive</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">8:30am - 2:30pm</td>
                 <td class="py-3 px-4 text-white">Caddo Kiowa Technology Center</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 3:00pm</td>
                 <td class="py-3 px-4 text-white">Duncan Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026 - 11:00am - 6:00pm</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap"></td>
                 <td class="py-3 px-4 text-white">All American Bryan County and City of Durant</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 5:00pm</td>
                 <td class="py-3 px-4 text-white">Battle Of the Banks Kingfisher</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12:00pm - 6:00pm</td>
                 <td class="py-3 px-4 text-white">All American Blood Drive - Idabel</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 25, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 6:00pm</td>
                 <td class="py-3 px-4 text-white">All American Wynnewood Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 25, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:00pm - 6:00pm</td>
                 <td class="py-3 px-4 text-white">East Cross Church</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 26, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2:00pm - 8:00pm</td>
                 <td class="py-3 px-4 text-white">Drillers</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 26, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 6:00pm</td>
                 <td class="py-3 px-4 text-white">All American Pauls Valley</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 26, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:00am - 6:00pm</td>
                 <td class="py-3 px-4 text-white">Fish Fry Event Ponca City</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 26, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:00am - 6:00pm</td>
                 <td class="py-3 px-4 text-white">All American Blood Drive - Ada</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 27, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00am - 2:00pm</td>
                 <td class="py-3 px-4 text-white">Perkins Volunteer Fire</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 29, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2:00pm - 5:30pm</td>
                 <td class="py-3 px-4 text-white">Chattanooga Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 29, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:00am - 3:30pm</td>
                 <td class="py-3 px-4 text-white">Bravo Battery 1st Battalion 30th Field Artillery</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12:00pm - 5:30pm</td>
                 <td class="py-3 px-4 text-white">Perry Fire and Police</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:30am - 6:00pm</td>
                 <td class="py-3 px-4 text-white">All American Blood Drive - Hugo</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12:30pm - 5:30pm</td>
                 <td class="py-3 px-4 text-white">Altus Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">7:00am - 6:00pm</td>
                 <td class="py-3 px-4 text-white">KRMG - Broken Arrow</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">7:00am - 6:00pm</td>
                 <td class="py-3 px-4 text-white">KRMG - Tulsa</td>
@@ -1443,109 +1452,109 @@
                 <tr><th class="py-3 px-4">Date</th><th class="py-3 px-4">Time</th><th class="py-3 px-4">Location</th><th class="py-3 px-4 text-center">Appt</th></tr>
               </thead>
               <tbody>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 11, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Pantex</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 11, 2026 10:00 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap"></td>
                 <td class="py-3 px-4 text-white">Pantex PAC</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 12, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12:00 p.m. - 7:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Amarillo Sod Poodles Baseball</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 16, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">8:00 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Lacie White Agency</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 18, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2:30 p.m. - 6:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Hooker, OK Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 18, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:00 p.m. - 2:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Hunting</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 20, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00 a.m. -2:30 p.m.</td>
                 <td class="py-3 px-4 text-white">Connecting Community Westgate Mall</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 22, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:30 p.m. - 6:30 p.m.</td>
                 <td class="py-3 px-4 text-white">Spearman Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 22, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:00 p.m. - 6:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Windthorst Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026 1:00 p.m. - 7:00 p.m.</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap"></td>
                 <td class="py-3 px-4 text-white">Hereford Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:00 p.m.- 6:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Bellevue ISD and Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2:00 p.m. - 5:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Plains Dairy</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:00 p.m. - 7:00 p.m</td>
                 <td class="py-3 px-4 text-white">Hereford Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">12:00 p.m. - 7:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Friona Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">8:00 a.m. - 11:30 a.m.</td>
                 <td class="py-3 px-4 text-white">Lakeside City Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 28, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:30 a.m. - 2:30 p.m.</td>
                 <td class="py-3 px-4 text-white">Betel AD</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 29, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">8:00 a.m. - 10:30 a.m.</td>
                 <td class="py-3 px-4 text-white">Region 16 (on Bell)</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:30 a.m. - 5:30 p.m.</td>
                 <td class="py-3 px-4 text-white">Vernon Community</td>
@@ -1567,151 +1576,151 @@
                 <tr><th class="py-3 px-4">Date</th><th class="py-3 px-4">Time</th><th class="py-3 px-4">Location</th><th class="py-3 px-4 text-center">Appt</th></tr>
               </thead>
               <tbody>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 12, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2:00 p.m. - 6:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Robert Jack VFW Post 1322</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 16, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Millard Henry Clinic</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 17, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:00 a.m. - 2:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Haskell Regional Hospital</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 17, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Knights of Columbus Council 4143</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 18, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Baptist Health Fort Smith</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 18, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:30 p.m. - 5:30 p.m.</td>
                 <td class="py-3 px-4 text-white">Dardanelle Regional Medical Center</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 20, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00 a.m. - 5:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Bass Pro Shops</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 23, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2:00 p.m. - 6:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Batesville Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:30 a.m. - 3:30 p.m.</td>
                 <td class="py-3 px-4 text-white">Saint Mary's Regional Medical Center</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:00 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Cabot Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 24, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:00 a.m. - 2:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Arkansas Children's Hospital</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 25, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">7:30 a.m. - 11:30 a.m.</td>
                 <td class="py-3 px-4 text-white">Arkansas Hwy Department</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 25, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:30 p.m. - 4:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Mercy Rehabilitation Hospital</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 25, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:00 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Unity Health Searcy</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 25, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:30 a.m. - 3:30 p.m.</td>
                 <td class="py-3 px-4 text-white">Jefferson Regional</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 25</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:30 a.m. - 2:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Redbird Health Clinic</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 26, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:00 p.m. - 6:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Hot Springs Mall / Uptown Hot Springs</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 26, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">9:00 a.m. - 4:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Saline Memorial Hospital</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 27, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">10:00 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Beebe Athletic Club</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 29, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">1:00 p.m. - 6:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Walgreens Conway</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">2:00 p.m. - 6:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Mercy Fort Smith</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">6:00 a.m. - 6:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Tyson Foods Tyler Road Plant</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:00 a.m. - 5:00 p.m.</td>
                 <td class="py-3 px-4 text-white">DeWitt Hospital and Nursing Home</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:30 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Clinton Community</td>
                 <td class="py-3 px-4 text-center"><a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md text-xs font-semibold px-3 py-1.5 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Book</a></td>
               </tr>
-              <tr class="border-b border-gray-800 hover:bg-red-900/10 transition-colors">
+              <tr class="border-b border-gray-800 hover:bg-red-900/10 aab-border transition-colors">
                 <td class="py-3 px-4 font-medium text-white whitespace-nowrap">June 30, 2026</td>
                 <td class="py-3 px-4 text-gray-300 whitespace-nowrap">11:30 a.m. - 3:00 p.m.</td>
                 <td class="py-3 px-4 text-white">Walmart</td>
@@ -1727,7 +1736,7 @@
 
 
     <!-- EVERGREEN: Browse by City — Programmatic SEO Interlinking Hub -->
-    <section class="py-16 bg-gray-900">
+    <section class="py-16 bg-gray-900 aab-section-dark">
       <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-white mb-8 text-center">All American Blood Drives by City</h2>
         <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">Find your local All American Blood Drive. Each city page has a full article, schedule, FAQ, and booking form.</p>
@@ -1735,159 +1744,159 @@
         <div class="mb-8">
           <h3 class="text-xl font-bold text-white mb-4">&#x1F3D4;&#xFE0F; Oklahoma (49 cities)</h3>
           <div class="flex flex-wrap gap-3">
-                        <a href="/events/all-american-blood-drives/ada" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Ada, OK (74820)</a>
-            <a href="/events/all-american-blood-drives/altus" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Altus, OK (73521)</a>
-            <a href="/events/all-american-blood-drives/alva" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Alva, OK (73717)</a>
-            <a href="/events/all-american-blood-drives/bartlesville" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Bartlesville, OK (74006)</a>
-            <a href="/events/all-american-blood-drives/bethany" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Bethany, OK (73008)</a>
-            <a href="/events/all-american-blood-drives/bristow" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Bristow, OK (74010)</a>
-            <a href="/events/all-american-blood-drives/broken-arrow" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Broken Arrow, OK (74012)</a>
-            <a href="/events/all-american-blood-drives/buffalo" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Buffalo, OK (73834)</a>
-            <a href="/events/all-american-blood-drives/cache" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Cache, OK (73527)</a>
-            <a href="/events/all-american-blood-drives/chattanooga" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Chattanooga, OK (73528)</a>
-            <a href="/events/all-american-blood-drives/chickasha" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Chickasha, OK (73018)</a>
-            <a href="/events/all-american-blood-drives/choctaw" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Choctaw, OK (73020)</a>
-            <a href="/events/all-american-blood-drives/cordell" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Cordell, OK (73632)</a>
-            <a href="/events/all-american-blood-drives/duncan" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Duncan, OK (73533)</a>
-            <a href="/events/all-american-blood-drives/durant" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Durant, OK (74701)</a>
-            <a href="/events/all-american-blood-drives/elgin" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Elgin, OK (73538)</a>
-            <a href="/events/all-american-blood-drives/elk-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Elk City, OK (73644)</a>
-            <a href="/events/all-american-blood-drives/enid" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Enid, OK (73701)</a>
-            <a href="/events/all-american-blood-drives/eufaula" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Eufaula, OK (74432)</a>
-            <a href="/events/all-american-blood-drives/fairview" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Fairview, OK (73737)</a>
-            <a href="/events/all-american-blood-drives/fort-cobb" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Fort Cobb, OK (73038)</a>
-            <a href="/events/all-american-blood-drives/fort-sill" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Fort Sill, OK (73503)</a>
-            <a href="/events/all-american-blood-drives/guthrie" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Guthrie, OK (73044)</a>
-            <a href="/events/all-american-blood-drives/hooker" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Hooker, OK (73945)</a>
-            <a href="/events/all-american-blood-drives/hugo" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Hugo, OK (74743)</a>
-            <a href="/events/all-american-blood-drives/idabel" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Idabel, OK (74745)</a>
-            <a href="/events/all-american-blood-drives/kingfisher" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Kingfisher, OK (73750)</a>
-            <a href="/events/all-american-blood-drives/lawton" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Lawton, OK (73501)</a>
-            <a href="/events/all-american-blood-drives/mcalester" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">McAlester, OK (74501)</a>
-            <a href="/events/all-american-blood-drives/midwest-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Midwest City, OK (73145)</a>
-            <a href="/events/all-american-blood-drives/norman" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Norman, OK (73072)</a>
-            <a href="/events/all-american-blood-drives/okeene" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Okeene, OK (73763)</a>
-            <a href="/events/all-american-blood-drives/oklahoma-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Oklahoma City, OK (73149)</a>
-            <a href="/events/all-american-blood-drives/pauls-valley" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Pauls Valley, OK (73075)</a>
-            <a href="/events/all-american-blood-drives/pawhuska" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Pawhuska, OK (74056)</a>
-            <a href="/events/all-american-blood-drives/perkins" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Perkins, OK (74059)</a>
-            <a href="/events/all-american-blood-drives/perry" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Perry, OK (73077)</a>
-            <a href="/events/all-american-blood-drives/ponca-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Ponca City, OK (74601)</a>
-            <a href="/events/all-american-blood-drives/rush-springs" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Rush Springs, OK (73082)</a>
-            <a href="/events/all-american-blood-drives/seiling" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Seiling, OK (73663)</a>
-            <a href="/events/all-american-blood-drives/seminole" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Seminole, OK (74868)</a>
-            <a href="/events/all-american-blood-drives/shawnee" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Shawnee, OK (74801)</a>
-            <a href="/events/all-american-blood-drives/skiatook" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Skiatook, OK (74070)</a>
-            <a href="/events/all-american-blood-drives/tecumseh" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Tecumseh, OK (74873)</a>
-            <a href="/events/all-american-blood-drives/tulsa" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Tulsa, OK (74103)</a>
-            <a href="/events/all-american-blood-drives/woodward" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Woodward, OK (73801)</a>
-            <a href="/events/all-american-blood-drives/wynnewood" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Wynnewood, OK (73098)</a>
-            <a href="/events/all-american-blood-drives/yale" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Yale, OK (74085)</a>
-            <a href="/events/all-american-blood-drives/yukon" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Yukon, OK (73099)</a>
+                        <a href="/events/all-american-blood-drives/ada" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Ada, OK (74820)</a>
+            <a href="/events/all-american-blood-drives/altus" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Altus, OK (73521)</a>
+            <a href="/events/all-american-blood-drives/alva" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Alva, OK (73717)</a>
+            <a href="/events/all-american-blood-drives/bartlesville" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Bartlesville, OK (74006)</a>
+            <a href="/events/all-american-blood-drives/bethany" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Bethany, OK (73008)</a>
+            <a href="/events/all-american-blood-drives/bristow" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Bristow, OK (74010)</a>
+            <a href="/events/all-american-blood-drives/broken-arrow" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Broken Arrow, OK (74012)</a>
+            <a href="/events/all-american-blood-drives/buffalo" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Buffalo, OK (73834)</a>
+            <a href="/events/all-american-blood-drives/cache" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Cache, OK (73527)</a>
+            <a href="/events/all-american-blood-drives/chattanooga" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Chattanooga, OK (73528)</a>
+            <a href="/events/all-american-blood-drives/chickasha" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Chickasha, OK (73018)</a>
+            <a href="/events/all-american-blood-drives/choctaw" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Choctaw, OK (73020)</a>
+            <a href="/events/all-american-blood-drives/cordell" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Cordell, OK (73632)</a>
+            <a href="/events/all-american-blood-drives/duncan" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Duncan, OK (73533)</a>
+            <a href="/events/all-american-blood-drives/durant" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Durant, OK (74701)</a>
+            <a href="/events/all-american-blood-drives/elgin" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Elgin, OK (73538)</a>
+            <a href="/events/all-american-blood-drives/elk-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Elk City, OK (73644)</a>
+            <a href="/events/all-american-blood-drives/enid" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Enid, OK (73701)</a>
+            <a href="/events/all-american-blood-drives/eufaula" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Eufaula, OK (74432)</a>
+            <a href="/events/all-american-blood-drives/fairview" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Fairview, OK (73737)</a>
+            <a href="/events/all-american-blood-drives/fort-cobb" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Fort Cobb, OK (73038)</a>
+            <a href="/events/all-american-blood-drives/fort-sill" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Fort Sill, OK (73503)</a>
+            <a href="/events/all-american-blood-drives/guthrie" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Guthrie, OK (73044)</a>
+            <a href="/events/all-american-blood-drives/hooker" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Hooker, OK (73945)</a>
+            <a href="/events/all-american-blood-drives/hugo" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Hugo, OK (74743)</a>
+            <a href="/events/all-american-blood-drives/idabel" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Idabel, OK (74745)</a>
+            <a href="/events/all-american-blood-drives/kingfisher" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Kingfisher, OK (73750)</a>
+            <a href="/events/all-american-blood-drives/lawton" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Lawton, OK (73501)</a>
+            <a href="/events/all-american-blood-drives/mcalester" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">McAlester, OK (74501)</a>
+            <a href="/events/all-american-blood-drives/midwest-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Midwest City, OK (73145)</a>
+            <a href="/events/all-american-blood-drives/norman" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Norman, OK (73072)</a>
+            <a href="/events/all-american-blood-drives/okeene" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Okeene, OK (73763)</a>
+            <a href="/events/all-american-blood-drives/oklahoma-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Oklahoma City, OK (73149)</a>
+            <a href="/events/all-american-blood-drives/pauls-valley" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Pauls Valley, OK (73075)</a>
+            <a href="/events/all-american-blood-drives/pawhuska" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Pawhuska, OK (74056)</a>
+            <a href="/events/all-american-blood-drives/perkins" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Perkins, OK (74059)</a>
+            <a href="/events/all-american-blood-drives/perry" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Perry, OK (73077)</a>
+            <a href="/events/all-american-blood-drives/ponca-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Ponca City, OK (74601)</a>
+            <a href="/events/all-american-blood-drives/rush-springs" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Rush Springs, OK (73082)</a>
+            <a href="/events/all-american-blood-drives/seiling" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Seiling, OK (73663)</a>
+            <a href="/events/all-american-blood-drives/seminole" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Seminole, OK (74868)</a>
+            <a href="/events/all-american-blood-drives/shawnee" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Shawnee, OK (74801)</a>
+            <a href="/events/all-american-blood-drives/skiatook" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Skiatook, OK (74070)</a>
+            <a href="/events/all-american-blood-drives/tecumseh" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Tecumseh, OK (74873)</a>
+            <a href="/events/all-american-blood-drives/tulsa" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Tulsa, OK (74103)</a>
+            <a href="/events/all-american-blood-drives/woodward" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Woodward, OK (73801)</a>
+            <a href="/events/all-american-blood-drives/wynnewood" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Wynnewood, OK (73098)</a>
+            <a href="/events/all-american-blood-drives/yale" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Yale, OK (74085)</a>
+            <a href="/events/all-american-blood-drives/yukon" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Yukon, OK (73099)</a>
           </div>
         </div>
 
         <div class="mb-8">
           <h3 class="text-xl font-bold text-white mb-4">&#x2B50; Texas (8 cities)</h3>
           <div class="flex flex-wrap gap-3">
-                        <a href="/events/all-american-blood-drives/amarillo" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Amarillo, TX (79120)</a>
-            <a href="/events/all-american-blood-drives/bellevue" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Bellevue, TX (76228)</a>
-            <a href="/events/all-american-blood-drives/friona" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Friona, TX (79035)</a>
-            <a href="/events/all-american-blood-drives/hereford" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Hereford, TX (79045)</a>
-            <a href="/events/all-american-blood-drives/lakeside-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Lakeside City, TX (76308)</a>
-            <a href="/events/all-american-blood-drives/spearman" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Spearman, TX (79081)</a>
-            <a href="/events/all-american-blood-drives/vernon" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Vernon, TX (76384)</a>
-            <a href="/events/all-american-blood-drives/windthorst" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Windthorst, TX (76389)</a>
+                        <a href="/events/all-american-blood-drives/amarillo" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Amarillo, TX (79120)</a>
+            <a href="/events/all-american-blood-drives/bellevue" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Bellevue, TX (76228)</a>
+            <a href="/events/all-american-blood-drives/friona" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Friona, TX (79035)</a>
+            <a href="/events/all-american-blood-drives/hereford" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Hereford, TX (79045)</a>
+            <a href="/events/all-american-blood-drives/lakeside-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Lakeside City, TX (76308)</a>
+            <a href="/events/all-american-blood-drives/spearman" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Spearman, TX (79081)</a>
+            <a href="/events/all-american-blood-drives/vernon" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Vernon, TX (76384)</a>
+            <a href="/events/all-american-blood-drives/windthorst" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Windthorst, TX (76389)</a>
           </div>
         </div>
 
         <div>
           <h3 class="text-xl font-bold text-white mb-4">&#x1F48E; Arkansas (19 cities)</h3>
           <div class="flex flex-wrap gap-3">
-                        <a href="/events/all-american-blood-drives/batesville" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Batesville, AR (72501)</a>
-            <a href="/events/all-american-blood-drives/beebe" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Beebe, AR (72012)</a>
-            <a href="/events/all-american-blood-drives/benton" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Benton, AR (72015)</a>
-            <a href="/events/all-american-blood-drives/cabot" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Cabot, AR (72023)</a>
-            <a href="/events/all-american-blood-drives/clarksville" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Clarksville, AR (72830)</a>
-            <a href="/events/all-american-blood-drives/clinton" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Clinton, AR (72031)</a>
-            <a href="/events/all-american-blood-drives/conway" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Conway, AR (72032)</a>
-            <a href="/events/all-american-blood-drives/dardanelle" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Dardanelle, AR (72834)</a>
-            <a href="/events/all-american-blood-drives/dewitt" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">DeWitt, AR (72042)</a>
-            <a href="/events/all-american-blood-drives/fort-smith" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Fort Smith, AR (72901)</a>
-            <a href="/events/all-american-blood-drives/haskell" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Haskell, AR (72015)</a>
-            <a href="/events/all-american-blood-drives/heber-springs" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Heber Springs, AR (72543)</a>
-            <a href="/events/all-american-blood-drives/hot-springs" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Hot Springs, AR (71913)</a>
-            <a href="/events/all-american-blood-drives/little-rock" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Little Rock, AR (72205)</a>
-            <a href="/events/all-american-blood-drives/morrilton" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Morrilton, AR (72110)</a>
-            <a href="/events/all-american-blood-drives/north-little-rock" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">North Little Rock, AR (72116)</a>
-            <a href="/events/all-american-blood-drives/pine-bluff" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Pine Bluff, AR (71601)</a>
-            <a href="/events/all-american-blood-drives/russellville" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Russellville, AR (72801)</a>
-            <a href="/events/all-american-blood-drives/searcy" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Searcy, AR (72143)</a>
+                        <a href="/events/all-american-blood-drives/batesville" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Batesville, AR (72501)</a>
+            <a href="/events/all-american-blood-drives/beebe" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Beebe, AR (72012)</a>
+            <a href="/events/all-american-blood-drives/benton" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Benton, AR (72015)</a>
+            <a href="/events/all-american-blood-drives/cabot" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Cabot, AR (72023)</a>
+            <a href="/events/all-american-blood-drives/clarksville" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Clarksville, AR (72830)</a>
+            <a href="/events/all-american-blood-drives/clinton" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Clinton, AR (72031)</a>
+            <a href="/events/all-american-blood-drives/conway" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Conway, AR (72032)</a>
+            <a href="/events/all-american-blood-drives/dardanelle" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Dardanelle, AR (72834)</a>
+            <a href="/events/all-american-blood-drives/dewitt" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">DeWitt, AR (72042)</a>
+            <a href="/events/all-american-blood-drives/fort-smith" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Fort Smith, AR (72901)</a>
+            <a href="/events/all-american-blood-drives/haskell" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Haskell, AR (72015)</a>
+            <a href="/events/all-american-blood-drives/heber-springs" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Heber Springs, AR (72543)</a>
+            <a href="/events/all-american-blood-drives/hot-springs" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Hot Springs, AR (71913)</a>
+            <a href="/events/all-american-blood-drives/little-rock" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Little Rock, AR (72205)</a>
+            <a href="/events/all-american-blood-drives/morrilton" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Morrilton, AR (72110)</a>
+            <a href="/events/all-american-blood-drives/north-little-rock" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">North Little Rock, AR (72116)</a>
+            <a href="/events/all-american-blood-drives/pine-bluff" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Pine Bluff, AR (71601)</a>
+            <a href="/events/all-american-blood-drives/russellville" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Russellville, AR (72801)</a>
+            <a href="/events/all-american-blood-drives/searcy" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Searcy, AR (72143)</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- EVERGREEN: FAQ Section -->
-    <section class="py-16 bg-gray-900">
+    <section class="py-16 bg-gray-900 aab-section-dark">
       <div class="max-w-4xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
-        <div class="bg-gray-800 rounded-xl p-6 md:p-8 shadow-sm border border-gray-700">
+        <div class="bg-gray-800 rounded-xl p-6 md:p-8 shadow-sm border border-gray-700 aab-card">
           <details class="group border-b border-gray-700">
             <summary class="flex items-center justify-between py-4 cursor-pointer text-left font-semibold text-white hover:text-red-400 transition-colors">
               <span>What are the All American Blood Drives?</span>
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="pb-4 text-gray-300 leading-relaxed">The All American Blood Drives are a special summer blood drive campaign organized by OBI Blood Donor. Running from June 11 to July 5, 2026, these patriotic events encourage Americans to donate blood at convenient community locations across Oklahoma, Texas, and Arkansas. Every donor receives a free All American Blood Donor t-shirt, a folding camp chair, and a theme park voucher while supplies last.</div>
+            <div class="pb-4 text-gray-300 aab-text-muted leading-relaxed">The All American Blood Drives are a special summer blood drive campaign organized by OBI Blood Donor. Running from June 11 to July 5, 2026, these patriotic events encourage Americans to donate blood at convenient community locations across Oklahoma, Texas, and Arkansas. Every donor receives a free All American Blood Donor t-shirt, a folding camp chair, and a theme park voucher while supplies last.</div>
           </details>
           <details class="group border-b border-gray-700">
             <summary class="flex items-center justify-between py-4 cursor-pointer text-left font-semibold text-white hover:text-red-400 transition-colors">
               <span>Who can donate blood at these events?</span>
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="pb-4 text-gray-300 leading-relaxed">Most healthy adults aged 16 and older (with parental consent for 16-year-olds) who weigh at least 110 pounds can donate. You must feel well on the day of donation. There is no upper age limit. Certain medications, recent tattoos (within 3 months in some states), and travel to specific countries may affect eligibility. If you're unsure, visit oklahomabloodinstitute.com for details.</div>
+            <div class="pb-4 text-gray-300 aab-text-muted leading-relaxed">Most healthy adults aged 16 and older (with parental consent for 16-year-olds) who weigh at least 110 pounds can donate. You must feel well on the day of donation. There is no upper age limit. Certain medications, recent tattoos (within 3 months in some states), and travel to specific countries may affect eligibility. If you're unsure, visit oklahomabloodinstitute.com for details.</div>
           </details>
           <details class="group border-b border-gray-700">
             <summary class="flex items-center justify-between py-4 cursor-pointer text-left font-semibold text-white hover:text-red-400 transition-colors">
               <span>Do I need an appointment to donate?</span>
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="pb-4 text-gray-300 leading-relaxed">No — walk-ins are welcome at every All American Blood Drive location. However, making an appointment helps reduce wait times and ensures staffing is available. You can book by calling  or clicking the 'Book' button next to your preferred location on this page.</div>
+            <div class="pb-4 text-gray-300 aab-text-muted leading-relaxed">No — walk-ins are welcome at every All American Blood Drive location. However, making an appointment helps reduce wait times and ensures staffing is available. You can book by calling  or clicking the 'Book' button next to your preferred location on this page.</div>
           </details>
           <details class="group border-b border-gray-700">
             <summary class="flex items-center justify-between py-4 cursor-pointer text-left font-semibold text-white hover:text-red-400 transition-colors">
               <span>How long does a blood donation take?</span>
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="pb-4 text-gray-300 leading-relaxed">The actual blood draw takes about 8 to 10 minutes. Including the mini-physical, paperwork, and rest period afterward, plan for about 45 minutes to 1 hour total. First-time donors may take slightly longer.</div>
+            <div class="pb-4 text-gray-300 aab-text-muted leading-relaxed">The actual blood draw takes about 8 to 10 minutes. Including the mini-physical, paperwork, and rest period afterward, plan for about 45 minutes to 1 hour total. First-time donors may take slightly longer.</div>
           </details>
           <details class="group border-b border-gray-700">
             <summary class="flex items-center justify-between py-4 cursor-pointer text-left font-semibold text-white hover:text-red-400 transition-colors">
               <span>What do I get for donating?</span>
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="pb-4 text-gray-300 leading-relaxed">While supplies last, every successful donor at an All American Blood Drive receives: (1) a limited-edition All American Blood Donor t-shirt, (2) a folding camp chair, and (3) a voucher for a free ticket to a local theme park or attraction. Check the voucher details for participating attractions near you.</div>
+            <div class="pb-4 text-gray-300 aab-text-muted leading-relaxed">While supplies last, every successful donor at an All American Blood Drive receives: (1) a limited-edition All American Blood Donor t-shirt, (2) a folding camp chair, and (3) a voucher for a free ticket to a local theme park or attraction. Check the voucher details for participating attractions near you.</div>
           </details>
           <details class="group border-b border-gray-700">
             <summary class="flex items-center justify-between py-4 cursor-pointer text-left font-semibold text-white hover:text-red-400 transition-colors">
               <span>How many lives can my donation save?</span>
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="pb-4 text-gray-300 leading-relaxed">A single whole-blood donation can save up to three lives. Your blood is separated into red blood cells, platelets, and plasma — each component goes to a different patient. Blood donated at Oklahoma drives stays local, serving hospitals in Oklahoma, Arkansas, and Texas.</div>
+            <div class="pb-4 text-gray-300 aab-text-muted leading-relaxed">A single whole-blood donation can save up to three lives. Your blood is separated into red blood cells, platelets, and plasma — each component goes to a different patient. Blood donated at Oklahoma drives stays local, serving hospitals in Oklahoma, Arkansas, and Texas.</div>
           </details>
           <details class="group border-b border-gray-700">
             <summary class="flex items-center justify-between py-4 cursor-pointer text-left font-semibold text-white hover:text-red-400 transition-colors">
               <span>What should I eat or drink before donating?</span>
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="pb-4 text-gray-300 leading-relaxed">Eat a healthy meal and drink plenty of water in the hours before your donation. Avoid fatty foods (they can affect blood testing), and stay hydrated. A good breakfast or lunch with iron-rich foods like spinach, beans, or lean meat is ideal. Avoid alcohol for at least 24 hours before donating.</div>
+            <div class="pb-4 text-gray-300 aab-text-muted leading-relaxed">Eat a healthy meal and drink plenty of water in the hours before your donation. Avoid fatty foods (they can affect blood testing), and stay hydrated. A good breakfast or lunch with iron-rich foods like spinach, beans, or lean meat is ideal. Avoid alcohol for at least 24 hours before donating.</div>
           </details>
           <details class="group border-b border-gray-700">
             <summary class="flex items-center justify-between py-4 cursor-pointer text-left font-semibold text-white hover:text-red-400 transition-colors">
               <span>Can I donate if I have a tattoo?</span>
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="pb-4 text-gray-300 leading-relaxed">In Oklahoma, you can donate blood 3 months after getting a tattoo if it was done at a state-regulated facility. If the tattoo was done in another state or at an unregulated location, a 3-month deferral may apply. Visit oklahomabloodinstitute.com for specific guidance.</div>
+            <div class="pb-4 text-gray-300 aab-text-muted leading-relaxed">In Oklahoma, you can donate blood 3 months after getting a tattoo if it was done at a state-regulated facility. If the tattoo was done in another state or at an unregulated location, a 3-month deferral may apply. Visit oklahomabloodinstitute.com for specific guidance.</div>
           </details>
         </div>
       </div>
@@ -1898,22 +1907,22 @@
       <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-white mb-8 text-center">More Blood Donation Resources</h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <a href="/locations" class="group bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-700 hover:shadow-md hover:border-red-800 transition-all">
+          <a href="/locations" class="group bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-700 hover:shadow-md hover:border-red-800 transition-all aab-card">
             <div class="text-3xl mb-3">&#x1F3E5;</div>
             <h3 class="font-bold text-white group-hover:text-red-400 transition-colors">Donor Centers</h3>
             <p class="text-sm text-gray-400 mt-1">Permanent donor centers across Oklahoma &#x2014; walk-ins welcome every day.</p>
           </a>
-          <a href="/requirements" class="group bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-700 hover:shadow-md hover:border-red-800 transition-all">
+          <a href="/requirements" class="group bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-700 hover:shadow-md hover:border-red-800 transition-all aab-card">
             <div class="text-3xl mb-3">&#x2705;</div>
             <h3 class="font-bold text-white group-hover:text-red-400 transition-colors">Eligibility</h3>
             <p class="text-sm text-gray-400 mt-1">Full list of blood donation requirements &#x2014; age, weight, medications, and more.</p>
           </a>
-          <a href="/how-it-works" class="group bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-700 hover:shadow-md hover:border-red-800 transition-all">
+          <a href="/how-it-works" class="group bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-700 hover:shadow-md hover:border-red-800 transition-all aab-card">
             <div class="text-3xl mb-3">&#x1F4CB;</div>
             <h3 class="font-bold text-white group-hover:text-red-400 transition-colors">How It Works</h3>
             <p class="text-sm text-gray-400 mt-1">Step-by-step guide from check-in to post-donation &#x2014; know what to expect.</p>
           </a>
-          <a href="/blog" class="group bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-700 hover:shadow-md hover:border-red-800 transition-all">
+          <a href="/blog" class="group bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-700 hover:shadow-md hover:border-red-800 transition-all aab-card">
             <div class="text-3xl mb-3">&#x1F4DD;</div>
             <h3 class="font-bold text-white group-hover:text-red-400 transition-colors">Blog &amp; Guides</h3>
             <p class="text-sm text-gray-400 mt-1">City-specific donation guides, tips, and compensation info for Oklahoma donors.</p>
@@ -1922,27 +1931,27 @@
         <div class="mt-12 bg-gray-900 rounded-xl p-6 md:p-8">
           <h3 class="font-bold text-white mb-4">Donate Blood by City</h3>
           <div class="flex flex-wrap gap-3">
-            <a href="/donate-blood/oklahoma-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Oklahoma City</a>
-            <a href="/donate-blood/tulsa" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Tulsa</a>
-            <a href="/donate-blood/norman" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Norman</a>
-            <a href="/donate-blood/edmond" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Edmond</a>
-            <a href="/donate-blood/lawton" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Lawton</a>
-            <a href="/donate-blood/stillwater" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Stillwater</a>
-            <a href="/locations/broken-arrow" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Broken Arrow</a>
-            <a href="/locations/enid" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Enid</a>
-            <a href="/locations/ada" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Ada</a>
-            <a href="/locations/ardmore" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Ardmore</a>
+            <a href="/donate-blood/oklahoma-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Oklahoma City</a>
+            <a href="/donate-blood/tulsa" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Tulsa</a>
+            <a href="/donate-blood/norman" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Norman</a>
+            <a href="/donate-blood/edmond" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Edmond</a>
+            <a href="/donate-blood/lawton" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Lawton</a>
+            <a href="/donate-blood/stillwater" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Stillwater</a>
+            <a href="/locations/broken-arrow" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Broken Arrow</a>
+            <a href="/locations/enid" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Enid</a>
+            <a href="/locations/ada" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Ada</a>
+            <a href="/locations/ardmore" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Ardmore</a>
           </div>
           <h3 class="font-bold text-white mt-6 mb-4">Learn More</h3>
           <div class="flex flex-wrap gap-3">
-            <a href="/blood-types/o-positive" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">O+ Blood Type</a>
-            <a href="/blood-types/o-negative" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">O- Universal Donor</a>
-            <a href="/blood-types/a-positive" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">A+ Blood Type</a>
-            <a href="/questions/first-time-donating" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">First Time Donating</a>
-            <a href="/questions/tattoos" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Tattoo Eligibility</a>
-            <a href="/questions/what-to-eat-before" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">What to Eat Before</a>
-            <a href="/plasma/oklahoma-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Plasma Donation OKC</a>
-            <a href="/faq" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 hover:border-red-300 hover:text-red-400 transition-colors">Full FAQ</a>
+            <a href="/blood-types/o-positive" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">O+ Blood Type</a>
+            <a href="/blood-types/o-negative" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">O- Universal Donor</a>
+            <a href="/blood-types/a-positive" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">A+ Blood Type</a>
+            <a href="/questions/first-time-donating" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">First Time Donating</a>
+            <a href="/questions/tattoos" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Tattoo Eligibility</a>
+            <a href="/questions/what-to-eat-before" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">What to Eat Before</a>
+            <a href="/plasma/oklahoma-city" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Plasma Donation OKC</a>
+            <a href="/faq" class="text-sm px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 aab-card hover:border-red-300 hover:text-red-400 transition-colors">Full FAQ</a>
           </div>
         </div>
       </div>
