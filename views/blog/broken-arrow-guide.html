@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +13,8 @@
   <meta property="og:description" content="Complete 2026 guide to donating blood in Broken Arrow, Oklahoma. Learn about eligibility, donation types, Donation Guide, and how to schedule at the Broken Arrow Blood Donor Center.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://oklahomabloodinstitute.com/blog/broken-arrow-guide">
-  <meta property="og:site_name" content="Oklahoma Blood Institute">
-  <meta property="og:image" content="https://oklahomabloodinstitute.com/images/og-blog-broken-arrow.jpg">
-
-  <!-- Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://oklahomabloodinstitute.com/images/og-blood-donation.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="donate blood in Broken Arrow, OK — 2026 Guide">
   <meta name="twitter:description" content="Complete 2026 guide to donating blood in Broken Arrow, Oklahoma. Learn about eligibility, donation types, Donation Guide, and how to schedule at the Broken Arrow Blood Donor Center.">
@@ -24,32 +22,23 @@
   <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-        }
-      }
-    }
-  </script>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/css/tailwind-purged.css">
+  <style>
+    .text-primary{color:oklch(0.547 0.213 27.325)}
+    .bg-primary{background-color:oklch(0.547 0.213 27.325)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding-top:0}
+    .open .faq-answer{max-height:600px;padding-top:0.5rem}
+    .open .faq-arrow{transform:rotate(180deg)}
+  </style>
   <link rel="stylesheet" href="/css/styles.css">
-
-  <!-- Dark mode init -->
-  <script>
-    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    }
-  </script>
-
-  <!-- Google Analytics -->
+  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ4TS0WCQV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-TJ4TS0WCQV');
   </script>
@@ -82,54 +71,27 @@
   }
   </script>
 </head>
-<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+<body class="antialiased font-sans bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
 
-  <!-- Skip to content -->
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-red-700 px-4 py-2 rounded z-50">Skip to main content</a>
-
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/95 dark:bg-gray-950/95 backdrop-blur border-b border-gray-200 dark:border-gray-800">
-    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 h-16">
-      <a href="/" class="flex items-center gap-2 group" aria-label="Oklahoma Blood Institute Home">
-        <img src="/images/obi-logo.png" alt="OBI logo" width="36" height="36" class="rounded-lg" loading="eager">
-        <span class="font-extrabold text-base tracking-tight">Oklahoma Blood Institute</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-1 text-sm font-medium" aria-label="Main navigation">
-        <a href="/" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Home</a>
-        <a href="/questions/" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">FAQs</a>
-        <a href="/blog/" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-950/30">Blog</a>
-        <a href="/locations/" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Locations</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <!-- Theme toggle -->
-        <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-          <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-          <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <!-- Mobile menu button -->
-        <button id="mobile-menu-btn" onclick="toggleMobileNav()" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Open menu" aria-expanded="false">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile Navigation Overlay -->
-  <div id="mobile-nav" class="fixed inset-0 z-50 hidden" aria-hidden="true">
-    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="mobile-nav-overlay" onclick="closeMobileNav()"></div>
-    <nav class="absolute right-0 top-0 bottom-0 w-72 bg-white dark:bg-gray-950 shadow-2xl p-6 flex flex-col gap-2 overflow-y-auto" aria-label="Mobile navigation">
-      <div class="flex justify-between items-center mb-4">
-        <span class="font-bold text-lg">Menu</span>
-        <button id="mobile-menu-close" onclick="closeMobileNav()" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Close menu">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <a href="/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">Home</a>
-      <a href="/questions/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">FAQs</a>
-      <a href="/blog/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">Blog</a>
-      <a href="/locations/" class="px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors">Locations</a>
-    </nav>
+  <!-- ====== ANNOUNCEMENT BAR ====== -->
+  <div class="bg-primary text-white text-center py-2.5 px-4 text-sm font-medium no-print">
+    <a href="#schedule-form" class="hover:underline">Oklahoma hospitals need 800+ units of blood every day. Schedule your donation &rarr;</a>
   </div>
+
+  <!-- ====== HEADER ====== -->
+  <!--SYM:HEADER-->
+<main class="max-w-4xl mx-auto px-4 pb-20">
+
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="pt-4 pb-2">
+      <ol class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+        <li><a href="/" class="hover:text-red-700 transition-colors">Home</a></li>
+        <li class="text-gray-300 dark:text-gray-600">/</li>
+        <li><a href="/blog" class="hover:text-red-700 transition-colors">Blog</a></li>
+        <li class="text-gray-300 dark:text-gray-600">/</li>
+        <li class="text-gray-900 dark:text-white font-medium" aria-current="page">Broken Arrow Donation Guide</li>
+      </ol>
+    </nav>
 
   <main id="main-content">
   <article class="py-12">
@@ -197,18 +159,89 @@
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Gift cards &middot; Every 56 days</p>
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Most common type. Takes about 8-10 minutes for the draw. One pint collected per visit.</p>
         </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-5 text-center">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-yellow-100 dark:bg-yellow-900/50 flex items-center justify-center">
-            <span class="text-xl" role="img" aria-label="test tube">&#x1F9EA;</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
+          Complete Guide to Blood &amp; Plasma Donation in Broken Arrow, Oklahoma
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+          Everything you need to know about donating blood and plasma in Broken Arrow, OK (74012). Eligibility, what to expect, preparation tips, and how to schedule your appointment.
+        </p>
+      </header>
+
+      <!-- Article Body -->
+      <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-5">
+
+        <p>Broken Arrow is a thriving Tulsa suburb of over 115,000. Whether you live near Rose District, and the BA Expressway corridor, you can make a life-saving difference by donating blood or plasma at a local donor center. Oklahoma hospitals need 800+ units of blood every day, and your donation stays right here in the community &mdash; supporting trauma centers, cancer patients, surgical teams, and newborn care units across the state.</p>
+
+        <p>This guide walks you through everything: who can donate, how to prepare, what happens during the visit, and how to schedule your first appointment in Broken Arrow.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">Types of Donation Available in Broken Arrow</h2>
+
+        <div class="grid md:grid-cols-3 gap-4 not-prose mb-6">
+          <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">&#x1FA78; Whole Blood</h3>
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+              <li>&bull; Takes 8&ndash;10 minutes (draw)</li>
+              <li>&bull; Every 56 days</li>
+              <li>&bull; Saves up to 3 lives</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">&#x1F4A7; Plasma</h3>
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+              <li>&bull; Takes 45&ndash;90 minutes</li>
+              <li>&bull; Up to 2x per week</li>
+              <li>&bull; Compensation available</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">&#x1F9EC; Platelets</h3>
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+              <li>&bull; Takes 1.5&ndash;2.5 hours</li>
+              <li>&bull; Every 7 days</li>
+              <li>&bull; Critical for cancer patients</li>
+            </ul>
           </div>
           <h3 class="font-bold">Plasma</h3>
           <p class="text-2xl font-bold text-red-700 dark:text-red-400 mt-2">&ndash;</p>
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Higher pay &middot; Twice per week</p>
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Machine separates plasma from blood. Takes 45-60 min. Red cells returned to you.</p>
         </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-5 text-center">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center">
-            <span class="text-xl" role="img" aria-label="microscope">&#x1F52C;</span>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">Eligibility Requirements</h2>
+        <p>To donate blood or plasma in Broken Arrow, you must meet these basic requirements:</p>
+        <ul class="space-y-2">
+          <li>&#x2705; <strong>Age:</strong> 17 or older (16 with parental consent in Oklahoma). Plasma donors must be 18+.</li>
+          <li>&#x2705; <strong>Weight:</strong> At least 110 pounds (50 kg)</li>
+          <li>&#x2705; <strong>Health:</strong> Generally healthy and feeling well on donation day</li>
+          <li>&#x2705; <strong>ID:</strong> Valid government-issued photo ID required</li>
+          <li>&#x2705; <strong>Tattoos:</strong> 3-month wait after tattoo at a state-regulated facility in Oklahoma</li>
+          <li>&#x2705; <strong>Medications:</strong> Most common medications are fine. Antibiotics may require a short deferral.</li>
+        </ul>
+        <p>Not sure if you qualify? Check our <a href="/guides/eligibility" class="text-red-700 dark:text-red-400 hover:underline">full eligibility guide</a> or ask during your screening.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">How to Prepare for Your Donation</h2>
+        <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 border border-gray-200 dark:border-gray-700 not-prose">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-3">&#x2705; Before Your Visit</h3>
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li>&bull; Drink 16+ oz of water in the hours before</li>
+                <li>&bull; Eat a nutritious, protein-rich meal</li>
+                <li>&bull; Get a full night&rsquo;s sleep</li>
+                <li>&bull; Avoid caffeine and alcohol</li>
+                <li>&bull; Bring your ID and any required documents</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-3">&#x2705; After Your Visit</h3>
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li>&bull; Keep the bandage on for 4+ hours</li>
+                <li>&bull; Continue drinking fluids</li>
+                <li>&bull; Eat a snack or meal within 30 minutes</li>
+                <li>&bull; Avoid heavy lifting for 24 hours</li>
+                <li>&bull; Rest if you feel lightheaded</li>
+              </ul>
+            </div>
           </div>
           <h3 class="font-bold">Platelets</h3>
           <p class="text-2xl font-bold text-red-700 dark:text-red-400 mt-2">&ndash;</p>
@@ -216,6 +249,7 @@
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Critical for cancer patients. Takes 1.5-2.5 hours. Up to 24 times per year.</p>
         </div>
       </div>
+    </section>
 
     <!-- Eligibility Requirements -->
     <h2 class="text-2xl font-bold mt-12 mb-4">Eligibility Requirements</h2>
@@ -433,50 +467,59 @@
         <a href="/blog/tulsa-guide" class="inline-block px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 hover:bg-red-50 dark:hover:bg-red-950/30 hover:border-red-300 dark:hover:border-red-700 transition-colors">Tulsa Guide</a>
         <a href="/blog/edmond-guide" class="inline-block px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 hover:bg-red-50 dark:hover:bg-red-950/30 hover:border-red-300 dark:hover:border-red-700 transition-colors">Edmond Guide</a>
       </div>
-    </div>
-
-    <!-- Bottom Navigation Tiles -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-10">
-      <a href="/questions/diabetes" class="block p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50/50 dark:hover:bg-red-950/20 transition-all group">
-        <h3 class="font-semibold text-sm group-hover:text-red-700 dark:group-hover:text-red-400 transition-colors">Diabetes & Donation</h3>
-        <p class="text-xs text-gray-500 mt-1">Can you donate with diabetes?</p>
-      </a>
-      <a href="/questions/medications" class="block p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50/50 dark:hover:bg-red-950/20 transition-all group">
-        <h3 class="font-semibold text-sm group-hover:text-red-700 dark:group-hover:text-red-400 transition-colors">Medications Guide</h3>
-        <p class="text-xs text-gray-500 mt-1">Which medications affect eligibility?</p>
-      </a>
-      <a href="/questions/tattoos" class="block p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50/50 dark:hover:bg-red-950/20 transition-all group">
-        <h3 class="font-semibold text-sm group-hover:text-red-700 dark:group-hover:text-red-400 transition-colors">Tattoos & Piercings</h3>
-        <p class="text-xs text-gray-500 mt-1">Can you donate after a tattoo?</p>
-      </a>
-      <a href="/questions/weight" class="block p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50/50 dark:hover:bg-red-950/20 transition-all group">
-        <h3 class="font-semibold text-sm group-hover:text-red-700 dark:group-hover:text-red-400 transition-colors">Weight Requirements</h3>
-        <p class="text-xs text-gray-500 mt-1">Minimum weight for blood donation</p>
-      </a>
-      <a href="/questions/age" class="block p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50/50 dark:hover:bg-red-950/20 transition-all group">
-        <h3 class="font-semibold text-sm group-hover:text-red-700 dark:group-hover:text-red-400 transition-colors">Age Requirements</h3>
-        <p class="text-xs text-gray-500 mt-1">How old do you need to be?</p>
-      </a>
-      <a href="/questions/how-often" class="block p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50/50 dark:hover:bg-red-950/20 transition-all group">
-        <h3 class="font-semibold text-sm group-hover:text-red-700 dark:group-hover:text-red-400 transition-colors">Donation Frequency</h3>
-        <p class="text-xs text-gray-500 mt-1">How often can you donate?</p>
-      </a>
-    </div>
-
-    </div>
-  </article>
-  
-  <!-- Medical Review Attribution -->
-  <div class="max-w-4xl mx-auto px-5 py-6 my-8 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl">
-    <div class="flex items-start gap-3">
-      <span class="text-2xl flex-shrink-0 mt-0.5">&#x2695;&#xFE0F;</span>
-      <div>
-        <p class="text-sm font-semibold text-gray-900 dark:text-white">Medically Reviewed for Accuracy</p>
-        <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">This content has been reviewed by the Oklahoma Blood Institute clinical advisory team to ensure medical accuracy. Information reflects current FDA blood donation guidelines and Oklahoma-specific eligibility criteria. Last reviewed: <time datetime="2026-05-15">May 15, 2026</time>.</p>
-        <p class="text-xs text-gray-500 dark:text-gray-500 mt-2 italic">This page is for informational purposes only and does not constitute medical advice. Always consult your healthcare provider or contact your nearest donor center for personalized eligibility guidance.</p>
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+        <button onclick="this.parentElement.classList.toggle('open')" class="w-full text-left px-5 py-4 flex items-center justify-between bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+          <span class="font-semibold text-gray-900 dark:text-white pr-4">How long does blood donation take?</span>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer px-5 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Whole blood donation takes about 45-60 minutes total (the draw itself is about 8-10 minutes). Plasma donation takes 60-90 minutes for return visits and 2-2.5 hours for first-timers.</div>
       </div>
-    </div>
-  </div>
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+        <button onclick="this.parentElement.classList.toggle('open')" class="w-full text-left px-5 py-4 flex items-center justify-between bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+          <span class="font-semibold text-gray-900 dark:text-white pr-4">Can I donate blood if I have a tattoo?</span>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer px-5 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">In Oklahoma, you can donate 3 months after getting a tattoo if it was done at a state-regulated facility. Check with your local donor center for their current policy.</div>
+      </div>
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+        <button onclick="this.parentElement.classList.toggle('open')" class="w-full text-left px-5 py-4 flex items-center justify-between bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+          <span class="font-semibold text-gray-900 dark:text-white pr-4">How often can I donate?</span>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer px-5 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Whole blood can be donated every 56 days (about 6 times per year). Plasma can be donated up to twice per week with at least 48 hours between donations. Platelets can be donated every 7 days, up to 24 times per year.</div>
+      </div>
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+        <button onclick="this.parentElement.classList.toggle('open')" class="w-full text-left px-5 py-4 flex items-center justify-between bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+          <span class="font-semibold text-gray-900 dark:text-white pr-4">Is there compensation for donating in Broken Arrow?</span>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer px-5 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Compensation varies by donation type. Plasma donors are typically compensated for their time, with new donor bonuses available. Whole blood donors may receive gift cards or promotional items. See our <a href='/blog/broken-arrow-compensation' class='text-red-700 hover:underline'>compensation guide</a> for current rates.</div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="/blog/broken-arrow-compensation" class="group block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md hover:border-red-200 transition-all">
+          <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-red-700 transition-colors">Donation Compensation &mdash; Broken Arrow</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Current pay rates and what to expect</p>
+        </a>
+        <a href="/plasma/broken-arrow" class="group block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md hover:border-red-200 transition-all">
+          <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-red-700 transition-colors">Plasma Donation &mdash; Broken Arrow</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Local plasma centers and scheduling</p>
+        </a>
+        <a href="/guides/eligibility" class="group block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md hover:border-red-200 transition-all">
+          <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-red-700 transition-colors">Full Eligibility Requirements</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Detailed guide to who can donate</p>
+        </a>
+        <a href="/how-it-works" class="group block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md hover:border-red-200 transition-all">
+          <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-red-700 transition-colors">How Blood Donation Works</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Step-by-step process explained</p>
+        </a>
+      </div>
+    </section>
 
   </main>
 
@@ -489,62 +532,12 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-950 text-gray-400 text-sm">
-    <div class="max-w-6xl mx-auto px-4 py-12">
-      <div class="grid md:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <img src="/images/obi-logo.png" alt="OBI logo" width="32" height="32" class="rounded-lg opacity-80">
-            <span class="font-bold text-white text-sm">Oklahoma Blood Institute</span>
-          </div>
-          <p class="text-xs leading-relaxed">Oklahoma's independent, non-profit blood center serving patients across the state since 1977.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white text-xs uppercase tracking-wider mb-3">Resources</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="/questions/" class="hover:text-white transition-colors">FAQs</a></li>
-            <li><a href="/blog/" class="hover:text-white transition-colors">Blog</a></li>
-            <li><a href="/locations/" class="hover:text-white transition-colors">Locations</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white text-xs uppercase tracking-wider mb-3">Popular Guides</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="/blog/oklahoma-city-guide" class="hover:text-white transition-colors">OKC Donation Guide</a></li>
-            <li><a href="/blog/tulsa-guide" class="hover:text-white transition-colors">Tulsa Donation Guide</a></li>
-            <li><a href="/blog/norman-guide" class="hover:text-white transition-colors">Norman Donation Guide</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white text-xs uppercase tracking-wider mb-3">Contact</h4>
-          <ul class="space-y-2 text-xs">
-            <li>Main: <a href="tel:+14052783100" class="hover:text-white transition-colors">(405) 278-3100</a></li>
-            <li><a href="https://obi.org" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">obi.org</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-xs">&copy; 2026 Oklahoma Blood Institute. All rights reserved.</p>
-        <div class="flex gap-4 text-xs">
-          <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="/terms" class="hover:text-white transition-colors">Terms of Use</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
-  <!-- Sticky Mobile CTA -->
-
-  <!-- Theme toggle -->
-
-  <!-- Mobile nav -->
-
-  <!-- FAQ Accordion -->
-  
-
-  <!-- Form submission -->
-
-  <script src="/js/app.js"></script>
+  <script>
+    function toggleTheme(){var d=document.documentElement;d.classList.toggle('dark');localStorage.setItem('theme',d.classList.contains('dark')?'dark':'light');var s=document.getElementById('sun-icon'),m=document.getElementById('moon-icon');if(d.classList.contains('dark')){s.style.display='none';m.style.display='block'}else{s.style.display='block';m.style.display='none'}}
+    function toggleMobileNav(){document.getElementById('mobile-nav').classList.toggle('open');document.getElementById('mobile-nav-overlay').classList.toggle('open');document.body.style.overflow=document.getElementById('mobile-nav').classList.contains('open')?'hidden':''}
+    function closeMobileNav(){document.getElementById('mobile-nav').classList.remove('open');document.getElementById('mobile-nav-overlay').classList.remove('open');document.body.style.overflow=''}
+    (function(){if(document.documentElement.classList.contains('dark')){var s=document.getElementById('sun-icon'),m=document.getElementById('moon-icon');if(s)s.style.display='none';if(m)m.style.display='block'}})();
+  </script>
 </body>
 </html>

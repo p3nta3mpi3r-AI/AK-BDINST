@@ -10,31 +10,25 @@
   <meta property="og:description" content="Comparing whole blood and plasma donation in Oklahoma. Time, Donation Process, frequency, eligibility, and which is right for you.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&h=630&fit=crop">
   <meta property="og:url" content="https://oklahomabloodinstitute.com/compare/whole-blood-vs-plasma">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://oklahomabloodinstitute.com/images/og-blood-donation.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Whole Blood vs. Plasma Donation in Oklahoma | Oklahoma Blood Donors">
   <meta name="twitter:description" content="Comparing whole blood and plasma donation in Oklahoma. Time, Donation Process, frequency, eligibility, and which is right for you.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&h=630&fit=crop">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: {
-            primary: { DEFAULT: '#b91c1c', hover: '#991b1b', light: '#fef2f2' }
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="/css/tailwind-purged.css">
+  <style>
+    .text-primary{color:oklch(0.547 0.213 27.325)}
+    .bg-primary{background-color:oklch(0.547 0.213 27.325)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding-top:0}
+    .open .faq-answer{max-height:600px;padding-top:0.5rem}
+    .open .faq-arrow{transform:rotate(180deg)}
+  </style>
   <link rel="stylesheet" href="/css/styles.css">
   <script type="application/ld+json">
   {
@@ -112,103 +106,43 @@
   </script>
 </head>
 <body class="antialiased font-sans bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
-  <div class="flex min-h-screen flex-col">
 
-  <header class="sticky top-0 z-50 w-full border-b bg-white/95 dark:bg-gray-950/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-950/60 no-print">
-    <div class="max-w-7xl mx-auto flex h-16 items-center justify-between px-4">
-      <a class="flex items-center space-x-2" href="/">
-        <div class="flex h-10 w-10 items-center justify-center rounded-full" style="background-color: oklch(0.547 0.213 27.325)">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-        </div>
-        <span class="hidden font-bold sm:inline-block text-lg">Oklahoma Blood Donors</span>
-      </a>
-      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
-        <a class="transition-colors hover:text-red-700" href="/">Home</a>
-        <a class="transition-colors hover:text-red-700" href="/locations">Locations</a>
-        <a class="transition-colors hover:text-red-700" href="/how-it-works">How It Works</a>
-        <a class="transition-colors hover:text-red-700" href="/blood-types">Blood Types</a>
-        <a class="transition-colors hover:text-red-700" href="/guides">Guides</a>
-        <a class="transition-colors hover:text-red-700" href="/questions">Questions</a>
-        <a class="transition-colors hover:text-red-700" href="/blog">Blog</a>
-        <a class="transition-colors hover:text-red-700" href="/faq">FAQ</a>
-        <a class="transition-colors hover:text-red-700" href="/about">About</a>
-      </nav>
-      <div class="flex items-center space-x-2">
-        <button onclick="toggleTheme()" class="cursor-pointer inline-flex items-center justify-center rounded-md h-10 w-10 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-          <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-          <span class="sr-only">Theme</span>
-        </button>
-        <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" data-ga-cta="header" class="hidden md:inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 text-white transition-colors" style="background-color: oklch(0.547 0.213 27.325)" onmouseover="this.style.backgroundColor='oklch(0.497 0.213 27.325)'" onmouseout="this.style.backgroundColor='oklch(0.547 0.213 27.325)'">Schedule Donation</a>
-        <button onclick="toggleMobileNav()" class="cursor-pointer inline-flex items-center justify-center rounded-md h-10 w-10 hover:bg-gray-100 dark:hover:bg-gray-800 md:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile navigation -->
-  <div id="mobile-nav-overlay" class="mobile-nav-overlay" onclick="closeMobileNav()"></div>
-  <div id="mobile-nav" class="mobile-nav">
-    <div class="flex justify-between items-center mb-6">
-      <span class="font-bold text-lg">Oklahoma Blood Donors</span>
-      <button onclick="closeMobileNav()" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">&times;</button>
-    </div>
-    <nav class="flex flex-col space-y-4 text-base font-medium">
-      <a href="/" class="py-2 hover:text-red-700" onclick="closeMobileNav()">Home</a>
-      <a href="/locations" class="py-2 hover:text-red-700" onclick="closeMobileNav()">Locations</a>
-      <a href="/how-it-works" class="py-2 hover:text-red-700" onclick="closeMobileNav()">How It Works</a>
-      <a href="/blood-types" class="py-2 hover:text-red-700" onclick="closeMobileNav()">Blood Types</a>
-      <a href="/guides" class="py-2 hover:text-red-700" onclick="closeMobileNav()">Guides</a>
-      <a href="/questions" class="py-2 hover:text-red-700" onclick="closeMobileNav()">Questions</a>
-      <a href="/blog" class="py-2 hover:text-red-700" onclick="closeMobileNav()">Blog</a>
-      <a href="/faq" class="py-2 hover:text-red-700" onclick="closeMobileNav()">FAQ</a>
-      <a href="/about" class="py-2 hover:text-red-700" onclick="closeMobileNav()">About</a>
-      <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" data-ga-cta="mobile_nav" class="mt-4 inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 text-white" style="background-color: oklch(0.547 0.213 27.325)" onclick="closeMobileNav()">Schedule Donation</a>
-    </nav>
+  <!-- ====== ANNOUNCEMENT BAR ====== -->
+  <div class="bg-primary text-white text-center py-2.5 px-4 text-sm font-medium no-print">
+    <a href="#schedule-form" class="hover:underline">Oklahoma hospitals need 800+ units of blood every day. Schedule your donation &rarr;</a>
   </div>
 
-  <main class="flex-1">
+  <!-- ====== HEADER ====== -->
+  <!--SYM:HEADER-->
+<main class="max-w-4xl mx-auto px-4 pb-20">
 
-    <!-- Breadcrumb -->
-    <div class="max-w-4xl mx-auto px-4 pt-6">
-      <nav class="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1 flex-wrap">
-        <a href="/" class="hover:text-red-700">Home</a>
-        <span>&rsaquo;</span>
-        <a href="/compare" class="hover:text-red-700">Compare</a>
-        <span>&rsaquo;</span>
-        <span class="text-gray-900 dark:text-gray-100 font-medium">Whole Blood vs Plasma</span>
-      </nav>
-    </div>
+    <nav aria-label="Breadcrumb" class="pt-4 pb-2">
+      <ol class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+        <li><a href="/" class="hover:text-red-700 transition-colors">Home</a></li>
+        <li class="text-gray-300 dark:text-gray-600">/</li>
+        <li><a href="/compare" class="hover:text-red-700 transition-colors">Compare</a></li>
+        <li class="text-gray-300 dark:text-gray-600">/</li>
+        <li class="text-gray-900 dark:text-white font-medium" aria-current="page">Whole Blood vs. Plasma</li>
+      </ol>
+    </nav>
 
-    <section class="py-10">
-      <div class="max-w-4xl mx-auto px-4">
+    <article class="pt-6">
+      <header class="mb-8">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 mb-4">Comparison Guide</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">Whole Blood vs. Plasma Donation &mdash; Which Is Right for You?</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">Both types of donation save lives, but the process, time commitment, and compensation differ significantly. Here&rsquo;s everything you need to know.</p>
+      </header>
 
-        <h1 class="text-3xl md:text-4xl font-bold mb-4">Whole Blood vs. Plasma Donation — What's the Difference?</h1>
+      <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-5">
 
-        <!-- Answer-first summary -->
-        <div class="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-600 rounded-r-xl p-5 mb-8">
-          <p class="text-gray-800 dark:text-gray-200 leading-relaxed">The key difference: whole blood donation collects all blood components in one draw and takes 45–60 minutes, with an 8-week wait between donations. Plasma donation uses an apheresis machine to separate and collect only the plasma, returning red cells to you. It takes 60–90 minutes but can be done up to twice per week — and pays more. Both help patients, just in different ways.</p>
-        </div>
-
-        <!-- CTA -->
-        <div class="mb-10 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-2xl p-6 text-center">
-          <p class="font-bold text-lg text-gray-900 dark:text-white mb-1">Donate blood or plasma in Oklahoma</p>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Sign up in minutes — choose whole blood or plasma at your nearest OBI center.</p>
-          <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" data-ga-cta="wb_vs_plasma_top"
-            class="inline-flex items-center justify-center rounded-md text-sm font-bold h-10 px-6 text-white cursor-pointer" style="background-color: oklch(0.547 0.213 27.325);">
-            Sign Up to Donate &#10084;
-          </a>
-        </div>
-
-        <!-- Comparison Table -->
-        <h2 class="text-2xl font-bold mb-4">Side-by-Side Comparison</h2>
-        <div class="overflow-x-auto mb-10">
-          <table class="w-full text-sm border-collapse">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">Side-by-Side Comparison</h2>
+        <div class="not-prose overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 mb-6">
+          <table class="w-full text-sm">
             <thead>
-              <tr class="bg-gray-100 dark:bg-gray-800">
-                <th class="text-left p-3 font-semibold border border-gray-200 dark:border-gray-700 w-1/3">Factor</th>
-                <th class="text-left p-3 font-semibold border border-gray-200 dark:border-gray-700 w-1/3">Whole Blood</th>
-                <th class="text-left p-3 font-semibold border border-gray-200 dark:border-gray-700 w-1/3" style="color: #b91c1c;">Plasma</th>
+              <tr class="bg-gray-50 dark:bg-gray-800">
+                <th class="text-left px-5 py-3 font-semibold text-gray-900 dark:text-white">Feature</th>
+                <th class="text-left px-5 py-3 font-semibold text-gray-900 dark:text-white">Whole Blood</th>
+                <th class="text-left px-5 py-3 font-semibold text-gray-900 dark:text-white">Plasma</th>
               </tr>
             </thead>
             <tbody>
@@ -261,16 +195,33 @@
           </table>
         </div>
 
-        <!-- Detail sections -->
-        <div class="grid md:grid-cols-2 gap-6 mb-10">
-          <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-            <h3 class="text-xl font-bold mb-3">Whole Blood Donation</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">The most common type of donation. Your entire blood is collected — red cells, white cells, platelets, and plasma all together. The donation itself takes about 8–10 minutes; the total appointment runs 45–60 minutes including registration and screening.</p>
-            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Simplest process — no special equipment needed for donor</li>
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Shortest total appointment time</li>
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Widely available at all OBI centers</li>
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>Must wait 56 days between donations</li>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">Understanding Whole Blood Donation</h2>
+        <p>Whole blood donation is the most common type. A single needle draw collects about one pint of blood, which is then separated into red blood cells, plasma, and platelets at the processing center. Each donation can save up to three lives.</p>
+        <ul class="space-y-2">
+          <li><strong>Quick process:</strong> The actual draw takes only 8&ndash;10 minutes</li>
+          <li><strong>Low frequency:</strong> You can donate every 56 days (about 6 times per year)</li>
+          <li><strong>Broad impact:</strong> Used for emergency transfusions, surgery, and cancer treatment</li>
+          <li><strong>Lower age requirement:</strong> 16&ndash;17 year olds can donate with parental consent in Oklahoma</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">Understanding Plasma Donation</h2>
+        <p>Plasma donation uses a process called plasmapheresis, where blood is drawn, plasma is separated, and red blood cells are returned to your body. Because your body replaces plasma quickly, you can donate much more frequently.</p>
+        <ul class="space-y-2">
+          <li><strong>Higher frequency:</strong> Donate up to twice per week with 48 hours between visits</li>
+          <li><strong>Direct compensation:</strong> Earn $30&ndash;$65 per visit plus new donor bonuses</li>
+          <li><strong>Critical therapies:</strong> Plasma is the only source for certain life-saving medications</li>
+          <li><strong>Faster recovery:</strong> Since red blood cells are returned, fatigue is minimal</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">Which Should You Choose?</h2>
+        <div class="not-prose grid md:grid-cols-2 gap-6 mb-6">
+          <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+            <h3 class="font-bold text-gray-900 dark:text-white mb-3">&#x1FA78; Choose Whole Blood If&hellip;</h3>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+              <li>&bull; You prefer a quick in-and-out visit</li>
+              <li>&bull; You want to donate less frequently</li>
+              <li>&bull; You&rsquo;re under 18 (with parental consent)</li>
+              <li>&bull; You want a volunteer experience</li>
             </ul>
           </div>
           <div class="p-6 bg-red-50 dark:bg-red-950/20 rounded-xl border border-red-200 dark:border-red-800">
@@ -372,14 +323,51 @@
       </div>
     </section>
 
-    <section class="py-16 bg-gray-50 dark:bg-gray-900">
-      <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-4">Ready to Donate Blood or Plasma in Oklahoma?</h2>
-        <p class="text-gray-600 dark:text-gray-400 mb-8">Sign up through OBI — choose your donation type when you schedule your appointment.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" data-ga-cta="wb_vs_plasma_bottom" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-11 px-8 text-white shadow-lg" style="background-color: oklch(0.547 0.213 27.325)">Schedule Donation Now</a>
-          <a href="/locations" data-ga-cta="wb_vs_plasma_locations" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-11 px-8 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">Find Nearest Center</a>
-        </div>
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Common Questions</h2>
+      <div class="space-y-3">
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+        <button onclick="this.parentElement.classList.toggle('open')" class="w-full text-left px-5 py-4 flex items-center justify-between bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+          <span class="font-semibold text-gray-900 dark:text-white pr-4">Is plasma donation harder than whole blood?</span>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer px-5 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Plasma donation takes longer (60-90 minutes vs. 10 minutes for the actual draw) but most donors find both comfortable. The plasma process uses apheresis technology that returns your red blood cells, so you may actually feel less fatigued afterward.</div>
+      </div>
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+        <button onclick="this.parentElement.classList.toggle('open')" class="w-full text-left px-5 py-4 flex items-center justify-between bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+          <span class="font-semibold text-gray-900 dark:text-white pr-4">Can I donate both whole blood and plasma?</span>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer px-5 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Yes! You can alternate between whole blood and plasma. After a whole blood donation, most centers require a 56-day wait before donating plasma. After plasma donation, you can donate whole blood the next day in most cases.</div>
+      </div>
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+        <button onclick="this.parentElement.classList.toggle('open')" class="w-full text-left px-5 py-4 flex items-center justify-between bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+          <span class="font-semibold text-gray-900 dark:text-white pr-4">Which donation type pays more?</span>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer px-5 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Plasma donations typically offer direct compensation ($30-$65 per visit, up to twice per week). Whole blood donors usually receive gift cards or promotional items rather than cash payment.</div>
+      </div>
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+        <button onclick="this.parentElement.classList.toggle('open')" class="w-full text-left px-5 py-4 flex items-center justify-between bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+          <span class="font-semibold text-gray-900 dark:text-white pr-4">Which type of donation saves more lives?</span>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer px-5 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Both are vital. A single whole blood donation can save up to 3 lives. Plasma is used to create therapies for patients with rare conditions who have no other treatment options. The best donation is the one you actually make.</div>
+      </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Related</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="/compare/whole-blood-vs-platelets" class="group block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md hover:border-red-200 transition-all">
+          <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-red-700 transition-colors">Whole Blood vs. Platelets</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Compare whole blood and platelet donation</p>
+        </a>
+        <a href="/plasma" class="group block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md hover:border-red-200 transition-all">
+          <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-red-700 transition-colors">Plasma Donation Centers</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Find local plasma centers in Oklahoma</p>
+        </a>
       </div>
     </section>
 
@@ -433,15 +421,12 @@
   </div>
   <script src="/js/app.js"></script>
 
-  <!-- Sticky Mobile CTA Bar -->
-  <div id="sticky-mobile-cta" class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 shadow-[0_-4px_16px_rgba(0,0,0,0.12)] px-4 py-3 flex items-center justify-between gap-3" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));">
-    <div>
-      <p class="text-xs text-gray-500 dark:text-gray-400">Save lives. Donate blood.</p>
-      <p class="text-sm font-semibold text-gray-900 dark:text-white">Join 847+ Oklahoma donors</p>
-    </div>
-    <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener" class="flex-shrink-0 inline-flex items-center justify-center rounded-md text-sm font-medium px-5 py-2.5 text-white shadow-md" style="background-color: oklch(0.547 0.213 27.325);" data-ga-cta="mobile_sticky_cta">
-      Sign Up to Donate
-    </a>
-  </div>
+
+  <script>
+    function toggleTheme(){var d=document.documentElement;d.classList.toggle('dark');localStorage.setItem('theme',d.classList.contains('dark')?'dark':'light');var s=document.getElementById('sun-icon'),m=document.getElementById('moon-icon');if(d.classList.contains('dark')){s.style.display='none';m.style.display='block'}else{s.style.display='block';m.style.display='none'}}
+    function toggleMobileNav(){document.getElementById('mobile-nav').classList.toggle('open');document.getElementById('mobile-nav-overlay').classList.toggle('open');document.body.style.overflow=document.getElementById('mobile-nav').classList.contains('open')?'hidden':''}
+    function closeMobileNav(){document.getElementById('mobile-nav').classList.remove('open');document.getElementById('mobile-nav-overlay').classList.remove('open');document.body.style.overflow=''}
+    (function(){if(document.documentElement.classList.contains('dark')){var s=document.getElementById('sun-icon'),m=document.getElementById('moon-icon');if(s)s.style.display='none';if(m)m.style.display='block'}})();
+  </script>
 </body>
 </html>
