@@ -157,12 +157,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://oklahomabloodinstitute.com/blog/oklahoma-city-compensation</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://oklahomabloodinstitute.com/blog/oklahoma-city-tips</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -175,12 +169,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://oklahomabloodinstitute.com/blog/tulsa-compensation</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://oklahomabloodinstitute.com/blog/tulsa-tips</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -188,12 +176,6 @@
   </url>
   <url>
     <loc>https://oklahomabloodinstitute.com/blog/norman-guide</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/norman-compensation</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1081,19 +1063,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://oklahomabloodinstitute.com/blog/ada-compensation</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://oklahomabloodinstitute.com/blog/ada-tips</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/ardmore-compensation</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1105,25 +1075,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oklahomabloodinstitute.com/blog/broken-arrow-compensation</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://oklahomabloodinstitute.com/blog/broken-arrow-tips</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/edmond-compensation</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/enid-compensation</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1135,19 +1087,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oklahomabloodinstitute.com/blog/lawton-compensation</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://oklahomabloodinstitute.com/blog/lawton-tips</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/blog/yukon-compensation</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1436,12 +1376,6 @@
   </url>
   <url>
     <loc>https://oklahomabloodinstitute.com/faq/can-i-donate-if-i-have-a-cold</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oklahomabloodinstitute.com/faq/do-i-get-paid</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

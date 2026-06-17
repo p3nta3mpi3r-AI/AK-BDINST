@@ -154,7 +154,7 @@ function transformHtml(html, options = {}) {
 
       // ── ALL Phone Numbers (blanket replace every (xxx) xxx-xxxx) ──
       // Catches: JSON-LD telephone, visible hero, FAQ answers,
-      //          compensation info — one pattern handles all
+      //          phone numbers — one pattern handles all
       h = h.replace(
         /\(\d{3}\)\s*\d{3}[\s-]\d{4}/g,
         loc.phone
@@ -320,7 +320,7 @@ function transformHtml(html, options = {}) {
   // 6) Internal link injection (F-10) — add related page links before </main>
   const relatedLinks = [];
   if (options.blogSlug) {
-    const city = (options.blogSlug || '').replace(/-guide|-compensation|-tips/g, '');
+    const city = (options.blogSlug || '').replace(/-guide|-tips/g, '');
     relatedLinks.push(
       { href: `/donate-blood/${city}`, text: `Donate Blood in ${city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}` },
       { href: `/locations`, text: 'Find All Donor Centers' },
@@ -447,9 +447,6 @@ function transformHtml(html, options = {}) {
   h = h.replace(/ for 2026/g, '');
   h = h.replace(/as of 2026/g, '');
   h = h.replace(/>2026 /g, '>');
-  // Compensation page specific
-  h = h.replace(/2026 compensation/gi, 'Current compensation');
-  h = h.replace(/2026 Compensation/g, 'Current Compensation');
   h = h.replace(/2026 Enid/g, 'Enid');
   h = h.replace(/2026 area/g, 'area');
   h = h.replace(/2026 but subject/g, 'but subject');
