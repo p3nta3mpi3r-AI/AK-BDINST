@@ -36,6 +36,10 @@
     .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
     .faq-answer.open{max-height:600px}
     .trust-check{width:20px;height:20px;flex-shrink:0;color:oklch(0.547 0.213 27.325)}
+    /* Emergency Blood Shortage banner + heartbeat pulse animation */
+    .emergency-banner{display:block;width:100%;max-width:340px;height:auto;border-radius:8px;margin-bottom:1rem;box-shadow:0 4px 14px rgba(0,0,0,0.35);transform-origin:center;animation:heartbeat 1.6s ease-in-out infinite}
+    @keyframes heartbeat{0%{transform:scale(1)}14%{transform:scale(1.08)}28%{transform:scale(1)}42%{transform:scale(1.08)}70%{transform:scale(1)}100%{transform:scale(1)}}
+    @media (prefers-reduced-motion: reduce){.emergency-banner{animation:none}}
   </style>
   <link rel="stylesheet" href="/css/styles.css">
 
@@ -129,7 +133,7 @@
 
   <!-- ====== ANNOUNCEMENT BAR ====== -->
   <div id="announcement-bar" class="bg-primary text-white text-center py-2.5 px-4 text-sm font-medium no-print">
-    <a href="#schedule-form" class="hover:underline">Oklahoma hospitals need 800+ units of blood every day. Schedule your donation &rarr;</a>
+    <a href="#schedule-form" class="text-white hover:underline" style="color:#fff">Oklahoma hospitals need 800+ units of blood every day. Schedule your donation &rarr;</a>
   </div>
 
   <!-- ====== HEADER ====== -->
@@ -149,6 +153,8 @@
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <!-- Left: Copy -->
           <div class="text-center md:text-left">
+            <!-- Emergency Blood Shortage banner (heartbeat animation) -->
+            <img src="/images/emergency-blood-shortage.png?v=1" alt="Emergency Blood Shortage — Oklahoma" width="544" height="182" class="emergency-banner mx-auto md:mx-0" loading="eager" decoding="async">
             <!-- Phone CTA – clickable on mobile -->
             <a href="tel:4054639336" class="inline-flex items-center justify-center md:justify-start gap-2 mb-4 text-white font-semibold text-lg hover:underline transition-colors" style="text-shadow:0 2px 8px rgba(0,0,0,0.4)">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -436,31 +442,7 @@
       </div>
     </section>
 
-    <!-- ====== SCHEDULE FORM (Donable iframe #2) ====== -->
-    <section id="schedule-form" class="py-16 bg-gray-50 dark:bg-gray-900">
-      <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-bold text-center mb-3 text-gray-900 dark:text-white">Schedule your donation</h2>
-        <p class="text-center text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">Schedule in under 2 minutes. Pick a time at your nearest certified Oklahoma donor center. Walk-ins also welcome.</p>
-        <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-          <div class="text-center flex flex-col items-center justify-center">
-            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-3">Scan to schedule on mobile:</p>
-            <div class="qr-container">
-              <a href="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" target="_blank" rel="noopener noreferrer">
-                <img src="/images/qr-donate.png" alt="QR Code to schedule blood donation appointment" width="180" height="180" class="mx-auto">
-              </a>
-            </div>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-3">Use your smartphone camera to scan and schedule</p>
-            <a href="/locations" class="mt-4 inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-6 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Find Nearest Center</a>
-          </div>
-          <div class="flex flex-col justify-center">
-            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Book Your Appointment</h3>
-            <iframe src="https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912" title="Schedule Blood Donation"
-                      style="width:100%; min-height:850px; border:none; border-radius:8px;"
-                      loading="lazy" allow="geolocation"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- ====== MIDDLE SCHEDULE FORM REMOVED (kept hero form + final CTA form) ====== -->
 
     <!-- ====== MOBILE BLOOD DRIVES ====== -->
     <section class="py-16 bg-white dark:bg-gray-950">
@@ -592,7 +574,7 @@
     </section>
 
     <!-- ====== FINAL CTA + Donable iframe #3 ====== -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <section id="schedule-form" class="py-16 bg-gray-50 dark:bg-gray-900">
       <div class="max-w-4xl mx-auto px-4">
         <div class="text-center mb-10">
           <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">Oklahoma hospitals need blood every day.</h2>
