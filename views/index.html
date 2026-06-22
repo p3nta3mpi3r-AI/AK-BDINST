@@ -37,9 +37,14 @@
     .faq-answer.open{max-height:600px}
     .trust-check{width:20px;height:20px;flex-shrink:0;color:oklch(0.547 0.213 27.325)}
     /* Emergency Blood Shortage banner + heartbeat pulse animation */
-    .emergency-banner{display:block;width:100%;max-width:340px;height:auto;border-radius:8px;margin-bottom:1rem;box-shadow:0 4px 14px rgba(0,0,0,0.35);transform-origin:center;animation:heartbeat 1.6s ease-in-out infinite}
+    .emergency-banner{display:block;width:100%;max-width:300px;height:auto;border-radius:8px;margin-bottom:1rem;box-shadow:0 4px 14px rgba(0,0,0,0.35);transform-origin:center;animation:heartbeat 1.6s ease-in-out infinite}
     @keyframes heartbeat{0%{transform:scale(1)}14%{transform:scale(1.08)}28%{transform:scale(1)}42%{transform:scale(1.08)}70%{transform:scale(1)}100%{transform:scale(1)}}
     @media (prefers-reduced-motion: reduce){.emergency-banner{animation:none}}
+    /* Mobile-specific banner + announcement tuning (hero coverage handled in styles.css) */
+    @media (max-width: 767px){
+      .emergency-banner{max-width:230px;margin-left:auto;margin-right:auto}
+      #announcement-bar a{font-size:0.78rem;line-height:1.25}
+    }
   </style>
   <link rel="stylesheet" href="/css/styles.css">
 
