@@ -1,0 +1,95 @@
+# cta-map.yaml
+# Source-of-truth for the conversion CTAs on the site: their canonical copy and
+# canonical target. The conversion-guard cron uses this to (a) detect missing CTA
+# blocks, (b) normalize weak/inconsistent copy, and (c) verify the destination.
+#
+# Seeded from the live repo (views/index.html, server.js header/footer, location pages).
+
+# Canonical booking destination (see approved-scheduling-domains.yaml)
+canonical_booking_url: "https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912"
+canonical_phone: "tel:4054639336"
+canonical_phone_label: "405-463-9336"
+
+# data-ga-cta is the stable hook already present in the markup — match on it.
+ctas:
+  - id: header
+    selector: '[data-ga-cta="header"]'
+    canonical_text: "Schedule Donation"
+    canonical_target: "https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912"
+    required_on: ["all_pages"]
+    visible_on_mobile: false   # header CTA is md+; mobile uses the menu CTA below
+    intent: schedule
+
+  - id: mobile_nav
+    selector: '[data-ga-cta="mobile_nav"]'
+    canonical_text: "Schedule Donation"
+    canonical_target: "https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912"
+    required_on: ["all_pages"]
+    visible_on_mobile: true
+    intent: schedule
+
+  - id: hero_primary
+    selector: '[data-ga-cta="hero_primary"]'
+    canonical_text: "Schedule a Donation"
+    canonical_target: "#schedule-form"   # in-page anchor to the bottom Donable form
+    required_on: ["/"]
+    visible_on_mobile: true
+    intent: schedule
+
+  - id: hero_secondary
+    selector: '[data-ga-cta="hero_secondary"]'
+    canonical_text: "Find a Donor Center"
+    canonical_target: "/locations"
+    required_on: ["/"]
+    visible_on_mobile: true
+    intent: discover_location
+
+  - id: final_primary
+    selector: '[data-ga-cta="final_primary"]'
+    canonical_text: "Schedule a Donation"
+    canonical_target: "https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912"
+    required_on: ["/"]
+    visible_on_mobile: true
+    intent: schedule
+
+  - id: final_secondary
+    selector: '[data-ga-cta="final_secondary"]'
+    canonical_text: "Find a Donor Center"
+    canonical_target: "/locations"
+    required_on: ["/"]
+    visible_on_mobile: true
+    intent: discover_location
+
+  - id: locations_cta
+    selector: '[data-ga-cta="locations"]'
+    canonical_text: "Find a Donor Center"
+    canonical_target: "/locations"
+    required_on: ["/"]
+    visible_on_mobile: true
+    intent: discover_location
+
+  - id: phone_cta
+    selector: 'a[href^="tel:"]'
+    canonical_text: "405-463-9336 — Call for Appointment"
+    canonical_target: "tel:4054639336"
+    required_on: ["/"]
+    visible_on_mobile: true
+    intent: call
+
+# Copy normalization: weak/variant text on the left -> canonical on the right.
+copy_normalization:
+  "Schedule now": "Schedule a Donation"
+  "Book now": "Schedule a Donation"
+  "Sign up": "Schedule a Donation"
+  "Donate": "Schedule a Donation"
+  "Find center": "Find a Donor Center"
+  "Locations": "Find a Donor Center"
+
+# Conversion intent vocabulary the crawler scans for when discovering CTAs.
+intent_terms:
+  - schedule
+  - sign up
+  - book
+  - donate
+  - appointment
+  - find a donor center

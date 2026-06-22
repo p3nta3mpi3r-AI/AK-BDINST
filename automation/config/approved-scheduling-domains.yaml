@@ -1,0 +1,45 @@
+# approved-scheduling-domains.yaml
+# Source-of-truth list of domains a CTA / scheduling link is ALLOWED to point to.
+# The conversion-guard cron marks any scheduling CTA pointing outside this list as
+# REVIEW_REQUIRED (never auto-patches an unknown endpoint).
+#
+# Seeded from the live repo: grep of all https?:// hosts in views/ + server.js.
+
+enforcement:
+  unknown_endpoint_status: REVIEW_REQUIRED   # do NOT autopatch endpoint swaps
+  require_https: true
+
+# Primary booking provider (real, in-repo)
+scheduling_domains:
+  - domain: donableapp.com
+    role: primary_booking
+    notes: "Donable booking widget + register links embedded via iframe and CTA buttons."
+    canonical_register_url: "https://donableapp.com/register/1664F99D-8703-F111-8D4C-002248480912"
+
+# First-party site (self) — internal anchors + page links are always allowed
+first_party_domains:
+  - oklahomabloodinstitute.com
+  - www.oklahomabloodinstitute.com
+
+# Parent / sister organization domains seen in the repo (informational links only,
+# NOT scheduling). Flag if a *scheduling* CTA points here.
+related_org_domains:
+  - obi.org
+  - www.obi.org
+  - yourbloodinstitute.org
+  - www.yourbloodinstitute.org
+
+# Telephone CTAs (treated as valid conversion endpoints)
+phone_endpoints:
+  - tel: "4054639336"      # main appointment line (homepage hero + header)
+    label: "405-463-9336"
+  - tel: "4059286500"
+  - tel: "5802313047"
+
+# Anything matching these is explicitly NOT a valid scheduling target
+deny_patterns:
+  - "facebook.com"
+  - "instagram.com"
+  - "twitter.com"
+  - "x.com"
+  - "youtube.com"

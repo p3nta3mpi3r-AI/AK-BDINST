@@ -1,0 +1,94 @@
+# keyword-clusters.yaml
+# Priority keyword groups for the SERP monitor + GSC opportunity miner, each mapped
+# to its intended landing page. Used to detect page-mismatch and intent-mismatch.
+#
+# Seeded from the site's local-Oklahoma structure (cities in data/locations.json)
+# and its donor-education taxonomy. Tune volumes/targets once GSC data is connected.
+
+site: "oklahomabloodinstitute.com"
+
+clusters:
+  - name: branded
+    intent: navigational
+    intended_url: "/"
+    keywords:
+      - "oklahoma blood institute"
+      - "obi blood donor"
+      - "oklahomabloodinstitute"
+
+  - name: donate_blood_local
+    intent: transactional
+    intended_url: "/locations"
+    keywords:
+      - "donate blood oklahoma"
+      - "give blood oklahoma"
+      - "blood donation near me"
+      - "where to donate blood in oklahoma"
+
+  - name: city_oklahoma_city
+    intent: local
+    intended_url: "/locations/oklahoma-city"
+    keywords:
+      - "donate blood oklahoma city"
+      - "blood donation okc"
+      - "okc blood donor center"
+
+  - name: city_tulsa
+    intent: local
+    intended_url: "/locations/tulsa"
+    keywords:
+      - "donate blood tulsa"
+      - "tulsa blood donation center"
+
+  - name: city_norman
+    intent: local
+    intended_url: "/locations/norman"
+    keywords:
+      - "donate blood norman ok"
+      - "norman blood donor center"
+
+  - name: city_edmond
+    intent: local
+    intended_url: "/locations/edmond"
+    keywords:
+      - "donate blood edmond"
+      - "edmond blood donation"
+
+  - name: eligibility
+    intent: informational
+    intended_url: "/guides/eligibility"
+    keywords:
+      - "blood donation eligibility"
+      - "can i donate blood"
+      - "blood donation requirements oklahoma"
+
+  - name: process_howto
+    intent: informational
+    intended_url: "/how-it-works"
+    keywords:
+      - "how to donate blood"
+      - "what to expect donating blood"
+      - "how long does donating blood take"
+
+  - name: blood_types
+    intent: informational
+    intended_url: "/blood-types"
+    keywords:
+      - "universal blood donor"
+      - "o negative blood donor"
+      - "blood type compatibility"
+
+  - name: platelets_plasma
+    intent: informational
+    intended_url: "/platelets"
+    keywords:
+      - "donate platelets oklahoma"
+      - "platelet donation"
+      - "plasma donation oklahoma"
+
+# Default targets the SERP monitor checks per ranking page.
+on_page_targets:
+  title_max_len: 60
+  meta_desc_max_len: 155
+  require_single_h1: true
+  require_faq_for_question_intent: true

@@ -428,18 +428,14 @@ details > *:not(summary) {
    -------------------------------------------------- */
 @media (max-width: 767px) {
 
-  /* Let section size to content instead of fixed 600px.
-     Dark fallback keeps the white hero copy readable wherever the
-     video/poster doesn't paint. */
+  /* Dark video covers the FULL hero so banner/phone/headline/paragraph
+     (white text) are always readable. The buttons + trust line live in a
+     light card (.hero-cta-panel) so their dark text reads cleanly. */
   #hero {
     min-height: auto !important;
     background: #161616;
   }
 
-  /* ── Video + gradient overlay cover the FULL hero ──
-     The emergency banner made the copy taller than a fixed strip, which
-     pushed the buttons + trust line onto a light bg (white-on-white).
-     Covering the whole hero keeps every line of white copy readable. */
   #hero > video,
   #hero > video + div {
     top: 0 !important;
@@ -451,8 +447,17 @@ details > *:not(summary) {
 
   /* Tighter padding on the content wrapper */
   #hero > .relative.z-10 {
-    padding-top: 1.5rem;
+    padding-top: 1.25rem;
     padding-bottom: 1.75rem;
+  }
+
+  /* Light card holding the CTA buttons + trust line on mobile */
+  .hero-cta-panel {
+    background: rgba(255, 255, 255, 0.93);
+    border-radius: 14px;
+    padding: 18px 16px 16px;
+    margin-top: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
   }
 
   /* ── Form: white card floating on the hero, clearly readable ── */

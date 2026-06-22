@@ -1,0 +1,67 @@
+# money-pages.yaml
+# The conversion-critical URLs the crons crawl first. "Money pages" = pages that
+# directly drive a scheduling action or feed the local-discovery path.
+#
+# Seeded from the live repo: views/ routes + data/locations.json city keys.
+# Paths are relative to the site root (https://oklahomabloodinstitute.com).
+
+base_url: "https://oklahomabloodinstitute.com"
+
+# Tier 1 — highest conversion value; check every run, at desktop + mobile widths.
+tier_1:
+  - path: "/"
+    label: "Homepage"
+    must_have_ctas: ["hero_primary", "hero_secondary", "phone_cta", "final_primary"]
+  - path: "/locations"
+    label: "Donor centers index"
+    must_have_ctas: ["locations_cta"]
+  - path: "/how-it-works"
+    label: "How to donate"
+  - path: "/contact"
+    label: "Contact"
+
+# Tier 2 — city / donor-center pages (local discovery). Keys mirror data/locations.json.
+tier_2_city_pages:
+  - path: "/locations/oklahoma-city"
+  - path: "/locations/north-oklahoma-city"
+  - path: "/locations/ada"
+  - path: "/locations/ardmore"
+  - path: "/locations/broken-arrow"
+  - path: "/locations/edmond"
+  - path: "/locations/enid"
+  - path: "/locations/lawton"
+  - path: "/locations/norman"
+  - path: "/locations/tulsa"
+  - path: "/locations/yukon"
+  - path: "/locations/tinker-afb-mobile"
+  - path: "/locations/midwest-city-mobile"
+
+# Tier 3 — education / intent pages that funnel into scheduling.
+tier_3_support:
+  - path: "/guides/eligibility"
+  - path: "/requirements"
+  - path: "/faq"
+  - path: "/blood-types"
+  - path: "/blog"
+  - path: "/plasma"
+  - path: "/platelets"
+
+# Large auto-generated clusters — sample (not every page) per run to control cost.
+sampled_clusters:
+  - dir: "/donate"
+    total_pages: 128
+    sample_per_run: 8
+  - dir: "/donate-blood"
+    total_pages: 10
+    sample_per_run: 4
+  - dir: "/questions"
+    total_pages: 9
+    sample_per_run: 3
+  - dir: "/campuses"
+    total_pages: 5
+    sample_per_run: 2
+
+crawl_settings:
+  widths: [390, 1280]    # mobile, desktop
+  max_redirect_chain: 2
+  treat_4xx_5xx_as: "broken_link"
