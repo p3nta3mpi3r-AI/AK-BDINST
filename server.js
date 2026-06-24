@@ -432,10 +432,15 @@ function transformHtml(html, options = {}) {
     );
   } else if (options.locationSlug) {
     const city = options.locationSlug;
+    // Only include donate-blood link if the page exists (guard against mobile/special slugs)
+    const validDonateBloodSlugs = ['ada','ardmore','broken-arrow','edmond','enid','lawton','norman','oklahoma-city','tulsa','yukon'];
+    const donateBloodLinks = validDonateBloodSlugs.includes(city)
+      ? [{ href: `/donate-blood/${city}`, text: `Donate Blood in ${city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}` }]
+      : [];
     relatedLinks.push(
       { href: `/blog/${city}-guide`, text: `${city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())} Donation Guide` },
       { href: `/plasma/${city}`, text: `Plasma Donation in ${city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}` },
-      { href: `/donate-blood/${city}`, text: `Donate Blood in ${city.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}` },
+      ...donateBloodLinks,
       { href: `/how-it-works`, text: 'How Blood Donation Works' },
       { href: `/blood-types`, text: 'Blood Types & Compatibility' },
       { href: `/questions`, text: 'Common Questions' },
